@@ -1,4 +1,3 @@
 # Divulgação: Apresentação do Projeto
 
-Nesta pasta inclua arquivos de slides que foram produzidos para apresentações do projeto e de seus resultados.
-
+[Apresentação - Google Docs](https://docs.google.com/presentation/d/1maPkzxx_GhH4FQm3ia6X1FsbhcG60oVsuOtvHoyv3RU/edit?usp=sharing)
