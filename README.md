@@ -1,19 +1,21 @@
-# Nome do projeto
+# infoAdotar
 
 Escreva um ou dois  parágrafo resumindo o objetivo do seu projeto.
 
 ## Alunos integrantes da equipe
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Felipe Lacerda Tertuliano
+* João Marcos de Oliveira Magalhães
+* Leonardo Miguel Valle Mourão
+* Vitor Cabral Rodrigues Pires
 
 ## Professores responsáveis
 
-* Nome completo do professor 1
-* Nome completo do professor 2
+* Sandro Jerônimo
+* Max do Val Machado
+* Wladmir Cardoso Brandão
 
 ## Instruções de utilização
-
+<!--
 Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+-->

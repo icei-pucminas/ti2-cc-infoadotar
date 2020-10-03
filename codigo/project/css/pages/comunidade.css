@@ -1,0 +1,66 @@
+.margem{
+    margin: 0px 1em;
+}
+
+.imgbro{
+    align-items: center;
+    height: 15em;
+}
+.titulo{
+    color: white;
+}
+
+.home{
+    color: white;
+}
+
+.infoadotar{
+    color: white;
+}
+
+.infoajudar{
+    color: white;
+}
+
+.comunity{
+    color: white;
+}
+
+.config{
+    color: white;
+}
+
+.facebook{
+    margin: 1em 0em;
+    align-items: center;
+}
+
+.imgfb{  
+    width: 100%;
+    align-items: center;
+}
+
+.wpp{
+    margin: 1em 0em;
+    align-items: center;
+}
+
+.imgwpp{
+    width: 100%;
+    align-items: center;
+}
+
+.insta{
+    margin: 1em 0em;
+    align-items: center;
+   
+}
+
+.imgins{
+    width: 100%;
+    align-items: center;
+}
+
+.comun{
+    color: white;
+}

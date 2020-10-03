@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>InfoAdotar - Layout</title>
+
+	<!--JQuery-->
+	<script src="../js/jquery-3.5.1.min.js"></script>
+
+	<!--Bootstrap-->
+	<link rel="stylesheet" href="../css/bootstrap.min.css" />
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!--CSS
+	<link rel="stylesheet" href="../css/main.css" />
+	<link rel="stylesheet" href="../css/pages/InfoAdotar.css" />-->
+
+	<!--JavaScript-->
+	<script src="../js/util/util.js"></script>
+	<script src="../js/dal/dal.js"></script>
+	<script src="../js/controller/userController.js"></script>
+	<script src="../js/controller/postController.js"></script>
+	<script src="../js/controller/postRatingController.js"></script>
+	<script src="../js/main.js"></script>
+	<script src="../js/pages/infoAdotar.js"></script>
+
+	<!-- Materialize -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('.sidenav').sidenav();
+		});
+
+		$(document).ready(function () {
+			$('.collapsible').collapsible();
+		});
+	</script>
+	<style>
+		.brand-logo {
+			margin-left: 1em;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<!-- id="pageHeader" -->
+		<nav>
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo"><em>infoAdotar</em></a>
+				<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="InfoAdotar.html">infoAdotar</a></li>
+					<li><a href="infoAjudar.html">infoAjudar</a></li>
+					<li><a href="comunidade.html">Comunidade</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<div id="pageConternt">
+		<ul id="slide-out" class="sidenav">
+			<li>
+				<div class="user-view">
+					<div class="background">
+						<img src="http://picsum.photos/300">
+					</div>
+					<a href="#user"><img class="circle" src="../img/profile.png"></a>
+					<a href="#name"><span class="white-text name" id="profileName"></span></a>
+					<a href="#email"><span class="white-text email" id="profileEmail">fulano@gmail.com</span></a>
+				</div>
+			</li>
+			<li><a href="InfoAdotar.html"><i class="material-icons">child_care</i>InfoAdotar</a></li>
+			<li><a href="infoAjudar.html"><i class="material-icons">question_answer</i>InfoAjudar</a></li>
+			<li><a href="comunidade.html"><i class="material-icons">people</i>Comunidade</a></li>
+			<li>
+				<div class="divider"></div>
+			</li>
+			<li><a class="subheader">Outras opções</a></li>
+			<li><a class="waves-effect" href="configuracoes.html">Configurações</a></li>
+			<li><a class="waves-effect" href="index.html">Sair</a></li>
+		</ul>
+
+		<main id="mainContent" class="container">
+
+			<!--CNA-->
+			<div class="col s12 m7">
+				<h2 class="header">FILTRO</h2>
+				<div class="card horizontal">
+					<div class="card-image">
+						<img src="../img/grafico.jpg">
+					</div>
+					<div class="card-stacked">
+						<div class="card-content">
+							<p>I am a very simple card. I am good at containing small bits of information.</p>
+						</div>
+						<div class="card-action">
+							<a target="target_blank" href="https://agenciabrasil.ebc.com.br/geral/noticia/2018-05/brasil-tem-87-mil-criancas-espera-de-uma-familia-diz-cnj">Fonte</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+				<!--Escrever-->
+				<div class="d-flex justify-content-center align-items-center">
+					<button type="button" class="btn color text-center" data-toggle="modal"
+						data-target="#escreverPostModal">
+						<img src="../img/writing.png" class="escrever">
+						<h1 class="text-light">Escrever</h1>
+					</button>
+				</div>
+
+				<!--Post Relevante-->
+				<div id="postRelevante">
+				</div>
+
+			</div>
+
+			<ul id="postList">
+			</ul>
+
+			<!-- Modal Post -->
+			<div class="modal fade" id="escreverPostModal" tabindex="-1" role="dialog"
+				aria-labelledby="escreverPostModalTitle" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Escrever</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<form id="postForm">
+							<div class="modal-body form-group">
+								<label for="postTituloInput">Título:</label>
+								<input id="postTituloInput" class="form-control" type="text" minlength="6"
+									maxlength="20" required />
+								<label for="postTextoInput">Texto:</label>
+								<textarea id="postTextoInput" class="form-control inputtext" type="text" maxlength="255"
+									required></textarea>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+								<button type="submit" class="btn btn-primary">Postar</button>
+							</div>
+						</form>
+
+					</div>
+				</div>
+			</div>
+
+		</main>
+	</div>
+</body>
+
+</html>

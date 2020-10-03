@@ -1,3 +1,5 @@
-# Código do Projeto
+# InfoAdotar
 
-Mantenha neste diretório todo o código do projeto. Se necessário, descreva neste arquivo aspectos relevantes da estrutura de diretórios criada para organização do código.
+Login de teste:
+    email: fulano.ciclano@gmail.com
+    senha: 123456

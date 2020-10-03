@@ -1,0 +1,72 @@
+.container{
+    margin: auto !important;
+    margin-top: 10px !important;
+}
+#cna{
+    padding: 15px;
+    background-color: #b4a7d6;
+    border-radius: .25rem;
+}
+img{
+    max-width: 100%;
+}
+#Fquestions{
+    background-color: #957cd4;  
+    padding: 15px;
+    border-radius: .25rem;
+}
+#fArea .card{
+    background-color: #6d3af0;
+    color: white;
+}
+#fArea .card:hover{
+    background-color: #573e96;
+    }
+#fArea .btn{
+    color: white;
+}
+
+.fbody{
+    background-color: #6b52ac;
+    max-height: 200px;
+    overflow: scroll;
+}
+.userH{
+    padding-right:0px;
+    padding-left: 30px;
+}
+.hInside{
+    background-color: #b3a2dd;
+    padding: 20px;
+    border-radius: .25rem;
+}
+.hInside img{
+    max-width: 100%;
+    border-radius: 100px;
+}
+
+#lbCNA{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width:991px)
+{
+    #grafico{
+        display: block;
+        margin: 0 auto;
+    }
+
+    #titleCNA{
+        text-align: center;
+        margin-top: 15px;
+    }
+}
+@media screen and (max-width:767px)
+{
+    .userH{
+        padding-right:0px;
+        padding-left: 0px;
+        margin-top: 60px;
+    }
+}

@@ -1,0 +1,66 @@
+#perfilConfig h3 button{
+    background-color: #b4a7d6;
+}
+
+#perfilConfig h1{
+    margin-top: 10px;
+
+}
+
+#configTitulo{
+    margin-top: 10px;
+}
+
+#botaoVoltar button{
+    background-color: #b4a7d6;
+}
+
+button{
+    font-family: Comfortaa;
+    src: url(../font/Comfortaa/Comfortaa-VariableFont_wght.ttf);
+}
+
+h5{
+    font-family: Comfortaa;
+    src: url(../font/Comfortaa/Comfortaa-VariableFont_wght.ttf);
+}
+
+#perfilConfig{
+    margin-bottom: 100px;
+}
+
+#configTitulo{
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+#botaoVoltar{
+    margin-top: 10px;
+}
+
+.btn{
+    border: none;
+
+}
+.btn-simple{
+    color: white; 
+    border: none !important;  
+}
+
+.btn-simple:focus{
+    outline: none !important;
+    border: none !important; 
+    box-shadow: none !important;
+}
+
+#configTitulo h1{
+    text-align: center;
+}
+
+#botaoVoltar{
+    text-align: right;
+}
+
+#configTitulo h1{
+    background-color: white;
+}

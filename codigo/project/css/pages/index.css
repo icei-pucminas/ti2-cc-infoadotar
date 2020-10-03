@@ -1,0 +1,59 @@
+
+#loginCard {
+    background-color: var(--thirdary-color);
+    color: var(--primary-color);
+    padding: 10px;
+    margin: auto;
+}
+#exampleModal{
+    color:black;
+    
+}
+
+#loginCard a {
+    color: var(--quinary-color);
+    font-weight: bold;
+}
+
+#loginForm label {
+    font-weight: bolder;
+}
+
+#loginForm > .form-action-div {
+    display: flex;
+    justify-content: space-between;
+}
+
+#loginForm > .form-action-div > ul {
+    padding: 0px;
+}
+
+#loginForm > .form-action-div > ul > li {
+    display: block;
+}
+
+.form-action-div > button[type="submit"] {
+    max-height: 50px;
+}
+
+@media only screen and (max-width: 768px) {
+    #loginForm .form-head-div {
+        text-align: center;
+    }
+
+    .form-action-div > button[type="submit"] {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #loginCard {
+        max-width: 600px;
+        border: var(--secondary-color) 1px solid;
+        border-radius: 10px;
+    }
+
+    .form-action-div > button[type="submit"] {
+        width: 25%;
+    }
+}
