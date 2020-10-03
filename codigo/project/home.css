@@ -1,0 +1,11 @@
+canvas {
+    max-width: 30rem;
+    max-height: 30rem;
+}
+
+@media (max-width: 768px) {
+    canvas {
+        max-width: 25rem;
+        max-height: 25rem;
+    }
+}

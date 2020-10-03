@@ -1,0 +1,13 @@
+* {
+    font-family: Manrope;
+}
+
+nav {
+    margin-bottom: 2rem;
+}
+nav > .nav-wrapper {
+    height: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
