@@ -1,15 +1,16 @@
 # TITULO DO PROJETO
 
+**Felipe Lacerda Tertuliano, felipeltertuliano@gmail.com**
 
-**Nome completo do Aluno 1, email do aluno 1**
+**João Marcos de Oliveira Magalhães, jmarcosomjm@gmail.com**
 
-**Nome completo do Aluno 2, email do aluno 2**
+**Leonardo Miguel Valle Mourão, leo.mvm@hotmail.com**
 
-**Nome completo do Aluno 3, email do aluno 3**
+**Vitor Cabral Rodrigues Pires, vitorcrp@hotmal.com.br**
 
 ---
 
-_Curso de Ciência da Computação, Unidade {Coração Eucarístico | Praça da Liberdade}_
+_Curso de Ciência da Computação, Unidade Coração Eucarístico_
 
 _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Minas Gerais (PUC MINAS), Belo Horizonte – MG – Brasil_
 

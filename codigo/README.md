@@ -1,5 +1,8 @@
-# InfoAdotar
+# Código
 
-Login de teste:
-    email: fulano.ciclano@gmail.com
-    senha: 123456
+[Página de landing](index.html)
+[Login / Cadastro](project/pages/index.html)
+
+## Reformulação do website
+
+[Página inicial](project/home.html)

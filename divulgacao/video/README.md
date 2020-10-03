@@ -1,4 +1,3 @@
 # Divulgação: Vídeo do Projeto
 
-Nesta pasta inclua arquivos de vídeo produzidos para divulgação do projeto e seus resutados.
-
+[infoAdotar - YouTube](https://www.youtube.com/watch?v=3lPYLeWB6AY&feature=youtu.be)
