@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Início - infoAdotar</title>
-    <script src="home.js"></script>
+    <link rel="favicon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="general.css">
 
@@ -13,24 +13,21 @@
     <!-- Fontes -->
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;500;700&family=Open+Sans:ital,wght@0,300;1,300&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <!-- Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="nav-wrapper blue">
-                <a href="#" data-target="sidenav-home" class="sidenav-trigger waves-effect"><i class="material-icons">menu</i></a>
-                <a href="#" class="brand-logo">infoAdotar</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="#">Opção 1</a></li>
-                    <li><a href="#">Opção 2</a></li>
-                    <li><a href="#">Opção 3</a></li>
-                </ul>
+    <header class="hide-on-med-and-up">
+        <nav class="center-align">
+            <div class="nav-wrapper white">
+                <a href="#" data-target="sidenav-home" class="sidenav-trigger waves-effect left-align"><i class="material-icons pink-text">menu</i></a>
+                <span class="pink-text center-align">Painel Principal</span>
             </div>
         </nav>
     </header>
+    <!-- Menu lateral - Mobile -->
     <ul id="sidenav-home" class="sidenav">
         <li><div class="user-view">
             <div class="background">
@@ -41,57 +38,90 @@
             <a href="#email"><span class="white-text email">emaiusuário@gmail.com</span></a>
         </div></li>
         <li><a href="#!"><i class="material-icons waves-effect">cloud</i>Opção 1</a></li>
-        <li><a href="#!"><i class="material-icons waves-effect">update</i>Opção 1</a></li>
-        <li><a href="#!"><i class="material-icons waves-effect">help</i>Opção 1</a></li>
+        <li><a href="#!"><i class="material-icons waves-effect">update</i>Opção 2</a></li>
+        <li><a href="#!"><i class="material-icons waves-effect">help</i>Opção 3</a></li>
         <li><div class="divider"></div></li>
         <li><a class="subheader">Subheader</a></li>
         <li><a class="waves-effect" href="#!">Ação</a></li>
+        <li class="row center-align">
+            <label class="col s12">
+                <span class="pink-text">Modo escuro</span>
+                <input type="checkbox" class="pink" id="toggle_nightmode_mobile">
+                <span class="lever pink accent-2"></span>
+            </label>
+        </li>
     </ul>
 
-    <main>
-        <div class="row">
-            <div class="col s12 m6">
-            <div class="card">
-                <div class="card-content">
-                    <span class="card-title">Resumo</span>
-                    <p><canvas id="myChart" width="400" height="400"></canvas></p>
+    <main class="row">
+        <div class="col s0 m1 hide-on-small-only side-area">
+            <div class="card profile-menu row">
+                <div class="col s12 center-align card-image waves-effect waves-block waves-light">
+                    <img class="activator" style="border-radius: 50%; padding: 1em;" src="https://picsum.photos/50">
                 </div>
-                <div class="card-action">
-                    <a href="#" class="pink-text">Ação 1</a>
-                    <a href="#" class="green-text">Ação 2</a>
+                <div class="col s12 center-align card-content">
+                    <span class="card-title activator grey-text text-darken-4" style="font-size: 1.3em;"> Nome do Usuário </span>
                 </div>
-            </div>
+                <div class="col s12 center-align card-reveal">
+                    <span class="card-title grey-text text-darken-4">Nome do Usuário<i class="material-icons right">close</i></span>
+                    <p>Alguma informação Relevante.</p>
+                </div>
+                <hr class="divider">
+                <div class="col s12 center-align card-content"><span class="grey-text">Ação 1</span></div>
+                <div class="col s12 center-align card-content"><span class="grey-text">Ação 2</span></div>
+                <div class="col s12 center-align card-content"><span class="grey-text">Ação 3</span></div>
+                <div class="switch bottom-item">
+                    <label>
+                        <i class="fas fa-sun"></i>
+                        <input type="checkbox" id="toggle_nightmode">
+                        <span class="lever pink accent-2"></span>
+                        <i class="fas fa-moon"></i>
+                    </label>
+                    <div class="col s12 center-align card-content"><span class="grey-text text-darken-4">Sair</span></div>
+                </div>
             </div>
         </div>
-        
-        <div class="row">
-            <div class="col s12 m6">
-            <div class="card">
-                <div class="card-content">
-                    <span class="card-title">O que faço agora?</span>
-                    <p></p>
+
+        <div class="col s12 m11 main-area">
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title grey-text">Resumo</span>
+                            <p><canvas id="myChart" width="400" height="400"></canvas></p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#" class="pink-text">Ação 1</a>
+                            <a href="#" class="green-text">Ação 2</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-action">
-                    <a href="#" class="pink-text">Realizar tal coisa</a>
+
+                <div class="col s12 m6">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title grey-text">O que faço agora?</span>
+                            <p></p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#" class="pink-text">Realizar tal coisa</a>
+                        </div>
+                        <div class="card-action">
+                            <a href="#" class="green-text">Ou tal coisa</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-action">
-                    <a href="#" class="green-text">Ou tal coisa</a>
+
+                <div class="col s12 m6">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title grey-text">Fique de olho</span>
+                            <p id="tip-of-day" class="grey-text">O governo recentemente sancionou uma lei que permite aos casais que tenham interesse em adotar <small>...</small></p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#" class="blue-text">Ver mais</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col s12 m6">
-            <div class="card">
-                <div class="card-content">
-                    <span class="card-title">Fique de olho</span>
-                    <p id="tip-of-day">O governo recentemente sancionou uma lei que permite aos casais que tenham interesse em adotar <small>...</small></p>
-                </div>
-                <div class="card-action">
-                    <a href="#" class="blue-text">Ver mais</a>
-                </div>
-            </div>
             </div>
         </div>
     </main>
@@ -99,12 +129,7 @@
     <script src="graphs.js"></script>
     <script>
         M.AutoInit();
-		// $(document).ready(function(){
-		// 	$('.sidenav').sidenav();
-		// });
-		// $(document).ready(function(){
-		// 	$('.collapsible').collapsible();
-		// });
     </script>
+    <script src="home.js"></script>
 </body>
 </html>
