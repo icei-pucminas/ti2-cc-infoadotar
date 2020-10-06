@@ -1,4 +1,4 @@
-# TITULO DO PROJETO
+# infoAdotar
 
 **Felipe Lacerda Tertuliano, felipeltertuliano@gmail.com**
 
@@ -44,8 +44,7 @@ O objetivo deve ser bem direto, específico e definido com verbos de ação (ela
 
         1.3.1 Objetivos específicos
 
-Apresente também alguns (pelo menos 2) **objetivos específicos** depende
-ndo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
+Apresente também alguns (pelo menos 2) **objetivos específicos** dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
 
     1.4 Justificativas
 
@@ -61,19 +60,35 @@ Enumere os requisitos funcionais previstos para a sua aplicação.
 Use a tabela abaixo para enumerá-lo.  Esses requisitos devem estar 
 de acordo com as definições do modelo de negócio.
 
-| No.           | Descrição                       | Prioridade |
-| ------------- |:-------------------------------:| ----------:|
-| {número       | Descrição resumida do requisito | {Alta      |
-| sequencial    |                                 |  média     |
-| identificador |                                 |  ou baixa  | 
+| Id            | Descrição                                                                                                    | Prioridade |
+| ------------- |:------------------------------------------------------------------------------------------------------------:| ----------:|
+| 01            | O usuário deve conseguir criar uma conta e logar no sistema                                                  |   Alta     |
+| 02            | O usuário deve ter uma checklist para gerenciar seu passos na adoção                                         |   Alta     |
+| 03            | O usuário deve ter acesso às perguntas frequentes (FAQ)                                                      |   Alta     |
+| 04            | O usuário deve ter acesso a uma interface gráfica contendo os dados para representar seu progresso na adoção |   Alta     |
+| 05            | O usuário deve conseguir visualizar posts de usuários                                                        |   Média    |
+| 06            | O usuário deve conseguir escrever posts                                                                      |   Média    |
 
     2.2. Tecnologias
-
+<!--
 Descreva qual(is) tecnologias você vai usar para resolver o seu problema, ou seja implementar a sua solução. 
 Liste todas as tecnologias envolvidas, linguagens a serem utilizadas, serviços web, frameworks, bibliotecas, 
 IDEs de desenvolvimento, e ferramentas.  Apresente também uma figura explicando como as tecnologias estão 
 relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até 
-retornar uma resposta ao usuário. 
+retornar uma resposta ao usuário. -->
+
+![Arquitetura do sistema](imagens/arquitetura.png "Arquitetura do sistema")
+
+* Linguagens de desenvolvimento front-end:
+    * HTML5
+    * CSS em conjunto com a framework Bootstrap
+    * JavaScript
+* Base de dados:
+    * Local Storage dos navegadores
+* Hospedagem:
+    * Heroku
+* IDE:
+    * Microsoft Visual Studio Code
 
     2.3. Serviços inteligentes
 
