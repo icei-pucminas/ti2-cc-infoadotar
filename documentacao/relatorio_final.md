@@ -77,7 +77,8 @@ IDEs de desenvolvimento, e ferramentas.  Apresente também uma figura explicando
 relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até 
 retornar uma resposta ao usuário. -->
 
-![Arquitetura do sistema](imagens/arquitetura.png "Arquitetura do sistema")
+<!-- ![Arquitetura do sistema](imagens/arquitetura.png "Arquitetura do sistema") -->
+<p align="center"><img src="imagens/arquitetura.png" /></p>
 
 * Linguagens de desenvolvimento front-end:
     * HTML5
