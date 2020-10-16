@@ -2,15 +2,16 @@
 
 ## Informações
 **Data/hora:** data, hora  
-**Local:** local da reunião  
+**Local:** Discord  
 **Meeting Purpose:** meeting_purpose  
-**Secretário:** responsável pela ata  
+**Secretário:** Vítor Cabral Rodrigues Pires 
 
 ## Participantes
 Estiveram presentes na reunião:
-- Nome completo da pessoa A
-- Nome completo da pessoa B
-- Nome completo da pessoa C
+- Felipe Lacerda Tertuliano
+- João Marcos de Oliveira Magalhães
+- Leonardo Miguel Valle Mourão
+- Vítor Cabral Rodrigues Pires
 
 ## Pauta
 
