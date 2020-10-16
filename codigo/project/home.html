@@ -82,54 +82,104 @@
         </div>
 
         <div class="col s12 m11 main-area">
+
             <div class="row">
-                <div class="col s12 m6">
-                    <div class="card">
-                        <div class="card-content">
-                            <span class="card-title grey-text">Resumo</span>
-                            <p><canvas id="myChart" width="400" height="400"></canvas></p>
-                        </div>
-                        <div class="card-action">
-                            <a href="#" class="pink-text">Ação 1</a>
-                            <a href="#" class="green-text">Ação 2</a>
+                <div class="col s12 m8">
+
+                    <div class="row">
+                        <div class="card" style="margin-bottom: 0;">
+                            <div class="card-content">
+                                <span class="card-title grey-text">Resumo</span>
+                                <p><canvas id="myChart" width="400" height="400"></canvas></p>
+                            </div>
+                            <div class="card-action">
+                                <a href="#" class="pink-text">Ação 1</a>
+                                <a href="#" class="green-text">Ação 2</a>
+                            </div>
                         </div>
                     </div>
+
+					<div class="row">
+						<div class="card card-faq">
+							<span class="card-title grey-text">FAQ adotivo</span>
+							<a class="waves-effect waves-light btn-large modal-trigger" id="togglefaq" href="#modalfaq"><i class="material-icons left">add</i>ABRIR FAQ</a>
+
+							<div id="modalfaq" class="card modal">
+								<div class="modal-content">
+									<div class="row topo-faq">
+										<h4 style="width: -webkit-fill-available;">FAQ adotivo</h4>
+										<div class="modal-footer">
+											<a href="#!" class="modal-close btn-flat"><i class="material-icons" style="font-size: xx-large !important;">close</i></a>
+										</div>
+									</div>
+									<p>Tem alguma dúvida?</p>
+
+									<div class="input-field">
+										<label for="pesquisafaq">Pesquisar algo</label>
+										<input type="text" id="pesquisafaq">
+									</div>
+
+									<div id="faqcontent">
+
+										<div class="card card-faq-post">
+											<div class="card-content">
+												<span class="card-title grey-text text-lighten-2">FAQ #1</span>
+												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.</p>
+											</div>
+										</div>
+
+									</div>
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+
                 </div>
 
-                <div class="col s12 m6">
-                    <div class="card">
-                        <div class="card-content">
-                            <span class="card-title grey-text">O que faço agora?</span>
-                            <p></p>
-                        </div>
-                        <div class="card-action">
-                            <a href="#" class="pink-text">Realizar tal coisa</a>
-                        </div>
-                        <div class="card-action">
-                            <a href="#" class="green-text">Ou tal coisa</a>
+                <div class="col s12 m4">
+
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title grey-text" style="height: fit-content;">Comunidade</span>
+								<div id="comunidade">	<!-- Conteudo da comunidade -->
+
+									<div class="card card-post">
+										<div class="card-content modal-trigger post-preview" data-target="postmodal">
+											<span class="card-title grey-text text-lighten-2">Post #1</span>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.</p>
+										</div>
+									</div>
+
+								</div>
+
+								<div id="postmodal" class="modal card">
+									<div class="modal-content">
+										<h4 class="black-text">Post #1</h4>
+										<p class="black-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.</p>
+									</div>
+									<div class="modal-footer">
+										<a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+									</div>
+								</div>
+								
+                            </div>
                         </div>
                     </div>
+					
                 </div>
 
-                <div class="col s12 m6">
-                    <div class="card">
-                        <div class="card-content">
-                            <span class="card-title grey-text">Fique de olho</span>
-                            <p id="tip-of-day" class="grey-text">O governo recentemente sancionou uma lei que permite aos casais que tenham interesse em adotar <small>...</small></p>
-                        </div>
-                        <div class="card-action">
-                            <a href="#" class="blue-text">Ver mais</a>
-                        </div>
-                    </div>
-                </div>
             </div>
+
         </div>
     </main>
 
     <script src="graphs.js"></script>
+	<script src="home.js"></script>
     <script>
         M.AutoInit();
     </script>
-    <script src="home.js"></script>
 </body>
 </html>
