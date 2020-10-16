@@ -20,8 +20,7 @@ toggleDarkMode = (which_switch) => {
 		for(i of options) {
 			i.classList.remove("grey-text");
 			i.classList.add("white-text");
-		}
-		document.getElementById("tip-of-day").classList.add("white-text");		// texto do card tip-of-day
+		}		// texto do card tip-of-day
 
 		let pink = document.querySelectorAll(".pink-text");					// texto em rosa
 		for(i of pink) {
@@ -54,7 +53,6 @@ toggleDarkMode = (which_switch) => {
 			i.classList.remove("white-text");
 			i.classList.add("grey-text");
 		}
-		document.getElementById("tip-of-day").classList.remove("white-text");
 		
 		let pink = document.querySelectorAll(".pink-text");
 		for(i of pink) {
@@ -68,25 +66,6 @@ toggleDarkMode = (which_switch) => {
 
 switch_darkmode.onchange = () => toggleDarkMode(switch_darkmode);
 switch_darkmode_mobile.onchange = () => toggleDarkMode(switch_darkmode_mobile);
-
-onload = () => {
-	pickBackground();
-
-	if(localStorage.getItem("darkmode_enabled") == undefined) {
-		localStorage.setItem("darkmode_enabled", JSON.stringify(switch_darkmode.checked));
-	} else {
-		let status = JSON.parse(localStorage.getItem("darkmode_enabled"));
-		if(status != switch_darkmode.checked) {
-			switch_darkmode.checked = status;
-			toggleDarkMode(switch_darkmode);
-		}
-		if(status != switch_darkmode_mobile.checked) {
-			switch_darkmode_mobile.checked = status;
-			toggleDarkMode(switch_darkmode_mobile);
-		}
-	}
-
-}
 
 pickBackground = () => {
 	let x = Math.floor(Math.random() * 6);
@@ -108,3 +87,85 @@ window.onscroll = function() {
 		el.style.backgroundPosition = elBackgrounPos;
 	});
 };
+
+loadFAQ = () => {
+	let xhr = new XMLHttpRequest();
+	xhr.open("GET", "/comunidade");
+	xhr.onload = conteudoComunidade;
+	xhr.send();
+}
+conteudoComunidade = () => {
+	let conteudo = "";
+	for(let i=1 ; i < 10 ; i++) {
+		conteudo += `
+		<div class="card card-post">
+			<div id="post${i}" class="modal card">
+				<div class="modal-content">
+					<h4 class="black-text">Post #${i}</h4>
+					<p class="black-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.</p>
+				</div>
+				<div class="modal-footer">
+					<a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+				</div>
+			</div>
+			<div class="card-content modal-trigger post-preview" data-target="post${i}">
+				<span class="card-title grey-text text-lighten-2">Post #${i}</span>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.</p>
+			</div>
+		</div>`;
+	}
+	document.getElementById("comunidade").innerHTML = conteudo;
+}
+
+loadFAQ = () => {
+	let xhr = new XMLHttpRequest();
+	xhr.open("GET", "/faq");
+	xhr.onload = conteudoFAQ;
+	xhr.send();
+}
+loadFAQSearch = (e) => {
+	if(e.target.value.length > 0 || e.target.value != " ") {
+		let xhr = new XMLHttpRequest();
+		xhr.open("GET", `/faq/:${e.target.value}`);
+		xhr.onload = conteudoFAQ;
+		xhr.send();
+	} else loadFAQ();
+}
+conteudoFAQ = () => {
+	let conteudo = "";
+	for(let i=1 ; i < 10 ; i++) {
+		conteudo += `
+		<div class="card card-faq-post">
+			<div class="card-content">
+			<span class="card-title grey-text text-lighten-2">FAQ #${i}</span>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.</p>
+			</div>
+		</div>`;
+	}
+	document.getElementById("faqcontent").innerHTML = conteudo;
+}
+
+conteudoComunidade();
+
+onload = () => {
+	pickBackground();
+
+	if(localStorage.getItem("darkmode_enabled") == undefined) {
+		localStorage.setItem("darkmode_enabled", JSON.stringify(switch_darkmode.checked));
+	} else {
+		let status = JSON.parse(localStorage.getItem("darkmode_enabled"));
+		if(status != switch_darkmode.checked) {
+			switch_darkmode.checked = status;
+			toggleDarkMode(switch_darkmode);
+		}
+		if(status != switch_darkmode_mobile.checked) {
+			switch_darkmode_mobile.checked = status;
+			toggleDarkMode(switch_darkmode_mobile);
+		}
+	}
+	
+	conteudoFAQ();
+}
+
+document.getElementById("togglefaq").onclick = loadFAQ;
+document.getElementById("pesquisafaq").oninput = loadFAQSearch;

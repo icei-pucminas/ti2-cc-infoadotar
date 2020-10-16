@@ -76,7 +76,7 @@ body.dark  {
     color: whitesmoke;
 }
 .card.dark {
-    transition: all 0.7s;
+    transition: background-color 0.7s;
     background-color: #8d8d8d;
 }
 .card-content { color: whitesmoke; }
@@ -86,3 +86,5 @@ body.dark  {
 }
 .sidenav.dark a { color: whitesmoke; }
 .sidenav.dark a .material-icons { color: whitesmoke; }
+
+.rosa { color: #E64398; }
