@@ -5,6 +5,9 @@ CREATE TABLE IF NOT EXISTS public."USUARIO"
 	"nome" VARCHAR(100) NOT NULL,
 	"estado_civil" CHAR(8) NOT NULL,
 	"sexo" CHAR(1) NOT NULL,
+	"hash" VARCHAR(250) UNIQUE NOT NULL,
+	"token" VARCHAR(250) UNIQUE,
+	"token_validade" DATE,
 	 PRIMARY KEY ("cpf")
 );
 
@@ -12,12 +15,12 @@ CREATE TABLE IF NOT EXISTS public."USUARIO"
 CREATE TABLE IF NOT EXISTS public."POST" 
 (
   "sigla" CHAR(10) UNIQUE NOT NULL,
-  "user_cpf" CHAR(11) NOT NULL,
+  "usuario_cpf" CHAR(11) NOT NULL,
   "answer_to" CHAR(10) NULL,
   "texto" VARCHAR(500) NOT NULL,
-  PRIMARY KEY ("sigla", "user_cpf"),
+  PRIMARY KEY ("sigla", "usuario_cpf"),
   CONSTRAINT "FK_POST_USER"
-    FOREIGN KEY ("user_cpf")
+    FOREIGN KEY ("usuario_cpf")
     REFERENCES public."USUARIO" ("cpf")
     ON DELETE CASCADE
     ON UPDATE NO ACTION,
@@ -40,12 +43,12 @@ CREATE TABLE IF NOT EXISTS public."FAQ"
 
 CREATE TABLE IF NOT EXISTS public."PERGUNTA_AVALIACAO" 
 (
-  "user_cpf" CHAR(11) NOT NULL,
+  "usuario_cpf" CHAR(11) NOT NULL,
   "faq_sigla" CHAR(10) NOT NULL,
   "nota" INT NOT NULL,
-  PRIMARY KEY ("user_cpf", "faq_sigla"),
+  PRIMARY KEY ("usuario_cpf", "faq_sigla"),
   CONSTRAINT "FK_PERG_USER"
-    FOREIGN KEY ("user_cpf")
+    FOREIGN KEY ("usuario_cpf")
     REFERENCES public."USUARIO" ("cpf")
     ON DELETE CASCADE
     ON UPDATE NO ACTION,
