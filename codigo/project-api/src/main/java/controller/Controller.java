@@ -1,17 +1,9 @@
 package controller;
 
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.Method;
 import static spark.Spark.*;
 
-import controller.util.HTTPMethod;
-
-@Retention(RetentionPolicy.RUNTIME)
-@interface ControllerAnnotation { 
-	HTTPMethod method();
-	String path();
-}
+import controller.annotation.ControllerAnnotation;
 
 public class Controller {
 	
