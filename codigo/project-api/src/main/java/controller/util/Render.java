@@ -9,13 +9,14 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class Render {
-    protected String renderContent(String htmlFile) {
+    public String renderContent(String htmlFile) {
         try {
             // If you are using maven then your files
             // will be in a folder called resources.
             // getResource() gets that folder
             // and any files you specify.
             URL url = getClass().getResource(htmlFile);
+//            System.out.println(url);
 
             // Return a String which has all
             // the contents of the file.

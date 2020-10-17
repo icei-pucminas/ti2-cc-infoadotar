@@ -1,18 +1,22 @@
-import controller.*;
+import controller.MainController;
+
 import static spark.Spark.*;
 
 public final class Main {
 	
 	public static void includeControllers() {
-		new TesteController();
+//		new TesteController();
+		new MainController();
 	}
-	
+
 	public static void main(String[] args) {
 		try {
+			staticFiles.location("/public");
 			init();
 			includeControllers();
 			System.out.println("Server listening on port " + port());
-			
+
+
 		} catch (Exception ex) {
 			String stackTrace = "";
 			for (StackTraceElement e : ex.getStackTrace()) {

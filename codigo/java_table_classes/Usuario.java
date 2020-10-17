@@ -13,13 +13,9 @@ public class Usuario{
             this.cpf = cpf;
             this.email = email;
             this.nome = nome;
-            this.estado_civil = estado_civil;
-            this.sexo = sexo;
             this.hash = hash;
         }
     }
-
-
 	/**
 	 *  Verifica se os parametros passados para a criação de um novo usuario são validos.
 	 * @param cpf Atributo cpf do BD
@@ -35,18 +31,20 @@ public class Usuario{
         boolean cond2 = email.length() <= 50;
         boolean cond3 = nome.length() >= 5 && nome.length() <= 100;
         boolean cond4 = hash.length() <= 250;
-        if(cond1 && cond2 && cond3 && cond4 && cond5 && cond6) resp = true;
-        if(!cond1) throw new Exception("ERRO: cpf invalido");
-        if(!cond2) throw new Exception("ERRO: email invalido");
-        if(!cond3) throw new Exception("ERRO: nome invalido");
-        if(!cond4) throw new Exception("ERRO: hash invalido");
+		if(cond1 && cond2 && cond3 && cond4) resp = true;
+		else{
+			if(!cond1) throw new Exception("ERRO: cpf invalido");
+			if(!cond2) throw new Exception("ERRO: email invalido");
+			if(!cond3) throw new Exception("ERRO: nome invalido");
+			if(!cond4) throw new Exception("ERRO: hash invalido");
+		}
         return resp;
     }
 
     /**
 	 * @return the cpf
 	 */
-	public String getCpf() {
+	public String getCpf(){
 		return cpf;
 	}
 
@@ -61,7 +59,7 @@ public class Usuario{
 	/**
 	 * @return the email
 	 */
-	public String getEmail() {
+	public String getEmail(){
 		return email;
 	}
 
@@ -76,7 +74,7 @@ public class Usuario{
 	/**
 	 * @return the nome
 	 */
-	public String getNome() {
+	public String getNome(){
 		return nome;
 	}
 
@@ -91,7 +89,7 @@ public class Usuario{
 	/**
 	 * @return the hash
 	 */
-	public String getHash() {
+	public String getHash(){
 		return hash;
 	}
 
@@ -106,7 +104,7 @@ public class Usuario{
 	/**
 	 * @return the token
 	 */
-	public String getToken() {
+	public String getToken(){
 		return token;
 	}
 
@@ -120,14 +118,14 @@ public class Usuario{
 	/**
 	 * @return the token_validade
 	 */
-	public LocalDateTime getToken_validade() {
+	public LocalDateTime getToken_validade(){
 		return token_validade;
 	}
 
 	/**
 	 * @param token_validade the token_validade to set
 	 */
-	public void setToken_validade(LocalDateTime token_validade) {
+	public void setToken_validade(LocalDateTime token_validade){
 		this.token_validade = token_validade;
 	}
 
