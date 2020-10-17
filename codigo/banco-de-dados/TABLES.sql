@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS public."USUARIO"
 	"sexo" CHAR(1) NOT NULL,
 	"hash" VARCHAR(250) UNIQUE NOT NULL,
 	"token" VARCHAR(250) UNIQUE,
-	"token_validade" DATE,
+	"token_validade" TIMESTAMP,
 	 PRIMARY KEY ("cpf")
 );
 
