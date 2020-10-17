@@ -1,7 +1,6 @@
 import controller.MainController;
 
-import static spark.Spark.init;
-import static spark.Spark.port;
+import static spark.Spark.*;
 
 public final class Main {
 	
@@ -12,12 +11,11 @@ public final class Main {
 
 	public static void main(String[] args) {
 		try {
+			staticFiles.location("/public");
 			init();
 			includeControllers();
 			System.out.println("Server listening on port " + port());
 
-//			Render render = new Render();
-//			get("/", (req, res) -> render.renderContent("index.html"));
 
 		} catch (Exception ex) {
 			String stackTrace = "";

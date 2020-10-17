@@ -11,14 +11,23 @@ public class MainController extends Controller {
 
 	public MainController() {
 		super();
-//		staticFiles.location("/public");
 	}
 
 	@ControllerAnnotation (method = HTTPMethod.get, path = "/")
 	public String index(Request req, Response res) {
 		res.type("text/html");
 		try {
-			return render.renderContent("/public/index.html");
+			return render.renderContent("/index.html");
+		} catch (Exception e) {
+			return e.getMessage();
+		}
+	}
+
+	@ControllerAnnotation (method = HTTPMethod.get, path = "/")
+	public String login(Request req, Response res) {
+		res.type("text/html");
+		try {
+			return render.renderContent("/login.html");
 		} catch (Exception e) {
 			return e.getMessage();
 		}
