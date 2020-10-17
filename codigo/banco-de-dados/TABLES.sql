@@ -3,8 +3,6 @@ CREATE TABLE IF NOT EXISTS public."USUARIO"
 	"cpf" CHAR(11) NOT NULL,
 	"email" VARCHAR(50) UNIQUE NOT NULL,
 	"nome" VARCHAR(100) NOT NULL,
-	"estado_civil" CHAR(8) NOT NULL,
-	"sexo" CHAR(1) NOT NULL,
 	"hash" VARCHAR(250) UNIQUE NOT NULL,
 	"token" VARCHAR(250) UNIQUE,
 	"token_validade" TIMESTAMP,
