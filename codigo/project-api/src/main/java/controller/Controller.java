@@ -1,13 +1,15 @@
 package controller;
 
-import java.lang.reflect.Method;
-import static spark.Spark.*;
-
 import controller.annotation.ControllerAnnotation;
 
+import java.lang.reflect.Method;
+
+import static spark.Spark.*;
+
 public class Controller {
-	
+
 	public Controller() {
+
 		for (Method m: this.getClass().getMethods()) {
 			ControllerAnnotation endpoint = m.getAnnotation(ControllerAnnotation.class);
 			Class<?>[] params = m.getParameterTypes();
