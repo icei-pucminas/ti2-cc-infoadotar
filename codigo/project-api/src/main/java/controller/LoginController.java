@@ -4,7 +4,7 @@ import controller.annotation.ControllerAnnotation;
 import controller.util.*;
 import spark.*;
 
-public class LoginController {
+public class LoginController extends Controller {
 
 	public LoginController() {
 		super();
