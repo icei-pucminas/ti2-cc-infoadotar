@@ -12,7 +12,7 @@ public class DAO {
 	public boolean conectar() {
 		String driverName = "org.postgresql.Driver";
 		String serverName = "localhost";
-		String mydatabase = "teste";
+		String mydatabase = "infoAdotar";
 		int porta = 5432;
 		String url = "jdbc:postgresql://" + serverName + ":" + porta +"/" + mydatabase;
 		String username = "postgres";
@@ -37,7 +37,7 @@ public class DAO {
 		boolean status = false;
 		try {  
 			Statement st = conexao.createStatement();
-			st.executeUpdate("INSERT INTO usuario (email, nome, senha) VALUES" +
+			st.executeUpdate("INSERT INTO \"USUARIO\" (email, nome, hash) VALUES" +
 					"('"+usuario.getEmail()+"', '"+usuario.getNome()+"', '" + usuario.getHash() + "');");
 			st.close();
 			status = true;
@@ -53,7 +53,7 @@ public class DAO {
 		boolean status = false;
 		try {
 			Statement st = conexao.createStatement();
-			String sql = "UPDATE usuario SET email = '" + usuario.getEmail()
+			String sql = "UPDATE \"USUARIO\" SET email = '" + usuario.getEmail()
 					+ "WHERE email = " + usuario.getEmail();
 			st.executeUpdate(sql);
 			st.close();
@@ -67,7 +67,7 @@ public class DAO {
 		boolean status = false;
 		try {
 			Statement st = conexao.createStatement();
-			String sql = "UPDATE usuario SET nome = '" + usuario.getNome()
+			String sql = "UPDATE \"USUARIO\" SET nome = '" + usuario.getNome()
 					+ "WHERE email = " + usuario.getEmail();
 			st.executeUpdate(sql);
 			st.close();
@@ -81,7 +81,7 @@ public class DAO {
 		boolean status = false;
 		try {
 			Statement st = conexao.createStatement();
-			String sql = "UPDATE usuario SET senha = '" + usuario.getHash()
+			String sql = "UPDATE \"USUARIO\" SET hash = '" + usuario.getHash()
 					+ "WHERE email = " + usuario.getEmail();
 			st.executeUpdate(sql);
 			st.close();
@@ -96,7 +96,7 @@ public class DAO {
 		boolean status = false;
 		try {
 			Statement st = conexao.createStatement();
-			st.executeUpdate("DELETE FROM usuario WHERE email = " + email);
+			st.executeUpdate("DELETE FROM \"USUARIO\" WHERE email = " + email);
 			st.close();
 			status = true;
 		} catch (SQLException u) {
@@ -108,10 +108,12 @@ public class DAO {
 		Usuario[] usuarios = getUsuarios();
 		Usuario usuario = null;
 
-		for(int i=0 ; i < usuarios.length ; i++) {
-			if(usuarios[i].getEmail().equals(email)) {
-				usuario = usuarios[i];
-				i = usuarios.length;
+		if(usuarios != null) {
+			for(int i=0 ; i < usuarios.length ; i++) {
+				if(usuarios[i].getEmail().equals(email)) {
+					usuario = usuarios[i];
+					i = usuarios.length;
+				}
 			}
 		}
 
@@ -136,14 +138,14 @@ public class DAO {
 
 		try {
 			Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
-			ResultSet rs = st.executeQuery("SELECT * FROM usuario");
-			if(rs.next()){
+			ResultSet rs = st.executeQuery("SELECT * FROM \"USUARIO\"");
+			if(rs.next()) {
 				rs.last();
 				usuarios = new Usuario[rs.getRow()];
 				rs.beforeFirst();
 
 				for(int i = 0; rs.next(); i++) {
-					usuarios[i] = new Usuario(rs.getString("email"), rs.getString("nome"), rs.getString("senha"));
+					usuarios[i] = new Usuario(rs.getString("email"), rs.getString("nome"), rs.getString("hash"));
 				}
 			}
 			st.close();

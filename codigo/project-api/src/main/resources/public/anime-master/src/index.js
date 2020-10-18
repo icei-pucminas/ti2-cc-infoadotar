@@ -848,7 +848,7 @@ const engine = (() => {
 
   function play() {
     if (!raf && (!isDocumentHidden() || !anime.suspendWhenDocumentHidden) && activeInstances.length > 0) {
-      raf = reqAnimationFrame(step);
+      raf = requestAnimationFrame(step);
     }
   }
   function step(t) {
@@ -867,7 +867,7 @@ const engine = (() => {
         activeInstancesLength--;
       }
     }
-    raf = i > 0 ? reqAnimationFrame(step) : undefined;
+    raf = i > 0 ? requestAnimationFrame(step) : undefined;
   }
 
   function handleVisibilityChange() {

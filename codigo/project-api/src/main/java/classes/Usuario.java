@@ -10,6 +10,7 @@ public class Usuario{
     private String hash;
     private String token = null;
     private LocalDateTime token_validade = null;
+
     public Usuario(/*String cpf,*/ String email, String nome, String hash) throws Exception {
         if(isValid(/*cpf,*/ email, nome, hash)){
         //    this.cpf = cpf;
@@ -43,7 +44,18 @@ public class Usuario{
         return resp;
     }
 
-    /**
+	@Override
+	public String toString() {
+		return "Usuario{" +
+				"email='" + email + '\'' +
+				", nome='" + nome + '\'' +
+				", hash='" + hash + '\'' +
+				", token='" + token + '\'' +
+				", token_validade=" + token_validade +
+				'}';
+	}
+
+	/**
 	 * @return the cpf
 	 */
 /*	public String getCpf(){

@@ -16,7 +16,7 @@ public class CadastroController extends Controller {
 		super();
 	}
 
-	@ControllerAnnotation (method = HTTPMethod.get, path = "/cadastrar")
+	@ControllerAnnotation (method = HTTPMethod.post, path = "/cadastro")
 	public String cadastro(Request req, Response res) {
 		dao.conectar();
 		String email = req.queryParams("email");
@@ -24,13 +24,18 @@ public class CadastroController extends Controller {
 		String senha = req.queryParams("senha");
 
 		res.header("Content-Type", "application/json");
+		String retorno;
 		try {
 			Usuario usuario = dao.getUsuario(email);	// checa se o email ja está associado a um usuario
-			if(usuario != null) res.status( 400);
+			if(usuario != null) {
+				res.status( 400);
+				retorno = "Email já cadastrado";
+			}
 			else {
 				usuario = new Usuario(email, nome, senha);
 				dao.insertUsuario(usuario);
 				res.status( 200);
+				retorno = "Usuário cadastrado com sucesso.";
 			}
 		} catch (Exception e) {
 			res.status(500);
@@ -38,6 +43,6 @@ public class CadastroController extends Controller {
 		}
 
 		dao.close();
-		return "Sucesso";
+		return retorno;
 	}
 }

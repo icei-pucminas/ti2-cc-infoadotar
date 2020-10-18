@@ -24,7 +24,7 @@ public class LoginController extends Controller {
 //		}
 //	}
 	@ControllerAnnotation (method = HTTPMethod.post, path = "/login")
-	public void login(Request req, Response res) {
+	public String login(Request req, Response res) {
 		dao.conectar();
 		res.header("Content-Type", "application/json");
 
@@ -32,11 +32,21 @@ public class LoginController extends Controller {
 		String senha = req.queryParams("senha");
 		Usuario usuario = dao.getUsuario(email);
 
+		String retorno;
+
 		// nenhum usuario encontrado com esse email
-		if(usuario == null) res.status(400);
+		if(usuario == null) {
+			res.status(400);;
+			retorno = "Usuário não encontrado";
+		}
 		// checa se a senha é a correta
-		else res.status(usuario.getHash().equals(senha) ? 200 : 403);
+		else {
+			int status = usuario.getHash().equals(senha) ? 200 : 403;
+			res.status(status);
+			retorno = status == 200 ? "Sucesso no login" : "Senha incorreta";
+		}
 
 		dao.close();
+		return retorno;
 	}
 }
