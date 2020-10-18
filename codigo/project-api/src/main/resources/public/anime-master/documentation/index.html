@@ -4001,7 +4001,7 @@ randomValues();
   <h3 class="demo-title">tick</h3>
   <div class="demo-description">
     <p>
-      Plays an animation using an external <code>requestAnimationFrame</code> loop.
+      Plays an animation using an external <code>reqAnimationFrame</code> loop.
     </p>
     <pre><code>animation.tick(time)</code></pre>
     <p class="bubble warning">
@@ -4030,10 +4030,10 @@ var animation = anime({
 
 function loop(t) {
   animation.tick(t);
-  customRAF = requestAnimationFrame(loop);
+  customRAF = reqAnimationFrame(loop);
 }
 
-requestAnimationFrame(loop);
+reqAnimationFrame(loop);
 /*DEMO*/
 }
   </script>

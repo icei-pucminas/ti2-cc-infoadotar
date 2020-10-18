@@ -16,7 +16,6 @@ public final class Main {
 			includeControllers();
 			System.out.println("Server listening on port " + port());
 
-
 		} catch (Exception ex) {
 			String stackTrace = "";
 			for (StackTraceElement e : ex.getStackTrace()) {

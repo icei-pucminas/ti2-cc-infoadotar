@@ -615,7 +615,7 @@
   let raf = 0;
 
   const engine = (() => {
-    function play() { raf = requestAnimationFrame(step); };
+    function play() { raf = reqAnimationFrame(step); };
     function step(t) {
       const activeLength = arrayLength(activeInstances);
       if (activeLength) {

@@ -701,7 +701,7 @@
 
   const engine = (() => {
     function play() { 
-      raf = requestAnimationFrame(step);
+      raf = reqAnimationFrame(step);
     };
     function step(t) {
       if (activeInstances.length) {

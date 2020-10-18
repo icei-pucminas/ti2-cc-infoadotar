@@ -72,10 +72,10 @@ function onScroll(cb) {
   function scroll() {
     scrollY = window.scrollY;
     if (cb) cb(scrollY, scrollHeight);
-    requestTick();
+    reqTick();
   }
-  function requestTick() {
-    if (!isTicking) requestAnimationFrame(updateScroll);
+  function reqTick() {
+    if (!isTicking) reqAnimationFrame(updateScroll);
     isTicking = true;
   }
   function updateScroll() {
@@ -760,7 +760,7 @@ var timeControlAnimation = (function() {
     var height = rect.height;
     var scrolled = (top - windowHeight + 100) * -1.5;
     timelineAnimation.seek(scrolled * 2);
-    if (controlAnimationCanMove) scrollAnim = requestAnimationFrame(moveControlAnimation);
+    if (controlAnimationCanMove) scrollAnim = reqAnimationFrame(moveControlAnimation);
   }
 
   isElementInViewport(timeControlEl, function(el, entry) {

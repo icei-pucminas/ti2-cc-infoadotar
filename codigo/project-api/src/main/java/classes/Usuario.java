@@ -1,3 +1,5 @@
+package classes;
+
 import java.time.LocalDateTime;
 
 public class Usuario{
@@ -18,7 +20,7 @@ public class Usuario{
     }
 	/**
 	 *  Verifica se os parametros passados para a criação de um novo usuario são validos.
-	 * @param cpf Atributo cpf do BD
+	 * @param cpf Atributo cpf do BD (removido)
 	 * @param email Atributo email do BD
 	 * @param nome Atributo nome do BD
 	 * @param hash Atributo hash(senha criptografada) do BD
