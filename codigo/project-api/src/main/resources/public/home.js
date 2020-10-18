@@ -163,8 +163,13 @@ onload = () => {
 			toggleDarkMode(switch_darkmode_mobile);
 		}
 	}
-	
+
 	conteudoFAQ();
+
+	for(elem of document.getElementsByClassName("campoNomeUsuario"))
+		elem.innerText = JSON.parse(sessionStorage.getItem("nome"));
+	for(elem of document.getElementsByClassName("campoEmailUsuario"))
+		elem.innerText = JSON.parse(sessionStorage.getItem("email"));
 }
 
 document.getElementById("togglefaq").onclick = loadFAQ;

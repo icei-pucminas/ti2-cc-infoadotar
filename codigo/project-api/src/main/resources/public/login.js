@@ -101,6 +101,16 @@ document.getElementById("cadastro_email").oninput = checkEmail;
 document.getElementById("cadastro_senha").oninput = checkSenha, checkSenhasIguais;
 document.getElementById("cadastro_confirmarsenha").oninput = checkSenhasIguais;
 
+saveSessionStorage = (key, value) => {
+	console.log(key, value)
+	if(JSON.parse(sessionStorage.getItem(key)) == null || value != null) {
+		sessionStorage.setItem(key, JSON.stringify(value))
+	} else saveSessionStorage(key);
+}
+saveSessionStorage = (key, value) => {
+	return JSON.parse(sessionStorage.getItem(key))
+}
+
 document.body.oninput = () => {
     document.getElementById("submitlogin").disabled = ! (validSenha && validEmail);
     document.getElementById("submitcadastro").disabled = ! (validSenha && validEmail && validSenhasIguais && notEmpty);
@@ -109,12 +119,21 @@ cadastroEnviado = () => {
 	let xhr = new XMLHttpRequest()
 	xhr.open("POST", "/cadastro-auth")
 
+	let formData = new FormData(document.getElementById("form-cadastro"))
+	let temp = {};
+	formData.forEach((value, key) => {temp[key] = value});
+	let json = JSON.stringify(temp);
+
 	xhr.onload = function (e) {
 		let resposta = JSON.parse(e.target.response);
 		// e.preventDefault()
 
 		if(resposta.status == 200) {
 			// login deu certo
+
+			sessionStorage.setItem("nome", JSON.stringify(temp.nome))
+			sessionStorage.setItem("email", JSON.stringify(temp.email))
+
 			window.location.href = "home.html"
 		} else if(resposta.status == 400) {
 			// senha incorreta
@@ -127,16 +146,16 @@ cadastroEnviado = () => {
 		}
 	}
 
-	let formData = new FormData(document.getElementById("form-cadastro"))
-	let temp = {};
-	formData.forEach((value, key) => {temp[key] = value});
-	let json = JSON.stringify(temp);
-
 	xhr.send(json)
 }
 loginEnviado = () => {
 	let xhr = new XMLHttpRequest()
 	xhr.open("POST", "/login-auth")
+
+	let formData = new FormData(document.getElementById("form-login"))
+	let temp = {};
+	formData.forEach((value, key) => {temp[key] = value});
+	let json = JSON.stringify(temp);
 
 	xhr.onload = function (e) {
 		let resposta = JSON.parse(e.target.response);
@@ -144,6 +163,9 @@ loginEnviado = () => {
 		
 		if(resposta.status == 200) {
 			// login deu certo
+			console.log(temp, temp.nome)
+			saveSessionStorage("nome", temp.nome)
+			saveSessionStorage("email", temp.email)
 			window.location.href = "home.html"
 		} else if(resposta.status == 403) {
 			// senha incorreta
@@ -159,11 +181,6 @@ loginEnviado = () => {
 			window.location.href = "login.html"
 		}
 	}
-
-	let formData = new FormData(document.getElementById("form-login"))
-	let temp = {};
-	formData.forEach((value, key) => {temp[key] = value});
-	let json = JSON.stringify(temp);
 
 	xhr.send(json)
 }
