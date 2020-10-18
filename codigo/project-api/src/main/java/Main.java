@@ -1,11 +1,11 @@
-import controller.MainController;
+import controller.*;
 
 import static spark.Spark.*;
 
 public final class Main {
 	
 	public static void includeControllers() {
-//		new TesteController();
+		new TesteController();
 		new MainController();
 	}
 
@@ -15,7 +15,6 @@ public final class Main {
 			init();
 			includeControllers();
 			System.out.println("Server listening on port " + port());
-
 
 		} catch (Exception ex) {
 			String stackTrace = "";

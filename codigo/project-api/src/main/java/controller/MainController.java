@@ -1,10 +1,8 @@
 package controller;
 
 import controller.annotation.ControllerAnnotation;
-import controller.util.HTTPMethod;
-import controller.util.Render;
-import spark.Request;
-import spark.Response;
+import controller.util.*;
+import spark.*;
 
 public class MainController extends Controller {
 	public static Render render = new Render();
@@ -23,7 +21,7 @@ public class MainController extends Controller {
 		}
 	}
 
-	@ControllerAnnotation (method = HTTPMethod.get, path = "/")
+	@ControllerAnnotation (method = HTTPMethod.get, path = "/login")
 	public String login(Request req, Response res) {
 		res.type("text/html");
 		try {
