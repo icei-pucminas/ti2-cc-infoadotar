@@ -105,11 +105,70 @@ document.body.oninput = () => {
     document.getElementById("submitlogin").disabled = ! (validSenha && validEmail);
     document.getElementById("submitcadastro").disabled = ! (validSenha && validEmail && validSenhasIguais && notEmpty);
 }
-formEnviado = (e) => {
-    console.log(e.target.status);
+cadastroEnviado = () => {
+	let xhr = new XMLHttpRequest()
+	xhr.open("POST", "/cadastro-auth")
+
+	xhr.onload = function (e) {
+		let resposta = JSON.parse(e.target.response);
+		// e.preventDefault()
+
+		if(resposta.status == 200) {
+			// login deu certo
+			window.location.href = "home.html"
+		} else if(resposta.status == 400) {
+			// senha incorreta
+			alert("Email já cadastrado.")
+			window.location.href = "login.html"
+		} else {
+			// erro desconhecido
+			alert("Erro desconhecido. Pedimos desculpas pelo inconveniente.")
+			window.location.href = "login.html"
+		}
+	}
+
+	let formData = new FormData(document.getElementById("form-cadastro"))
+	let temp = {};
+	formData.forEach((value, key) => {temp[key] = value});
+	let json = JSON.stringify(temp);
+
+	xhr.send(json)
 }
-document.getElementById("form-cadastro").addEventListener("submit", formEnviado);
-document.getElementById("form-login").addEventListener("submit", formEnviado);
+loginEnviado = () => {
+	let xhr = new XMLHttpRequest()
+	xhr.open("POST", "/login-auth")
+
+	xhr.onload = function (e) {
+		let resposta = JSON.parse(e.target.response);
+		// e.preventDefault()
+		
+		if(resposta.status == 200) {
+			// login deu certo
+			window.location.href = "home.html"
+		} else if(resposta.status == 403) {
+			// senha incorreta
+			alert("Senha incorreta")
+			window.location.href = "login.html"
+		} else if(resposta.status == 400) {
+			// usuário não encontrado
+			alert("Usuário não encontrado")
+			window.location.href = "login.html"
+		} else {
+			// erro desconhecido
+			alert("Erro desconhecido. Pedimos desculpas pelo inconveniente.")
+			window.location.href = "login.html"
+		}
+	}
+
+	let formData = new FormData(document.getElementById("form-login"))
+	let temp = {};
+	formData.forEach((value, key) => {temp[key] = value});
+	let json = JSON.stringify(temp);
+
+	xhr.send(json)
+}
+document.getElementById("form-cadastro").addEventListener("submit", cadastroEnviado);
+document.getElementById("form-login").addEventListener("submit", loginEnviado);
 
 onload = () => {
     document.getElementById("submitlogin").disabled = true;
