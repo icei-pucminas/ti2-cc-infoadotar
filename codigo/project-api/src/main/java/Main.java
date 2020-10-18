@@ -9,6 +9,7 @@ public final class Main {
 		new MainController();
 		new LoginController();
 		new CadastroController();
+		new SessionController();
 	}
 
 	public static void main(String[] args) {

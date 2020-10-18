@@ -5,13 +5,11 @@ import classes.Usuario;
 import com.google.gson.Gson;
 import controller.annotation.ControllerAnnotation;
 import controller.util.HTTPMethod;
-import controller.util.Render;
 import controller.util.Resposta;
 import spark.Request;
 import spark.Response;
 
 public class CadastroController extends Controller {
-	public static Render render = new Render();
 	public static DAO dao = new DAO();
 	public static Gson gson = new Gson();
 

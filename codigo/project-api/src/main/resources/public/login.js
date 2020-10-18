@@ -115,6 +115,22 @@ document.body.oninput = () => {
     document.getElementById("submitlogin").disabled = ! (validSenha && validEmail);
     document.getElementById("submitcadastro").disabled = ! (validSenha && validEmail && validSenhasIguais && notEmpty);
 }
+
+getSession = (data) => {
+	let xhr = new XMLHttpRequest()
+	xhr.open("POST", `/session`)
+	// xhr.setRequestHeader("Content-Type", "application/json");
+	xhr.onload = () => {
+		alert(session)
+		let session = JSON.parse(this.responseText)
+		sessionStorage.setItem("nome", JSON.stringify(session.nome))
+		sessionStorage.setItem("email", JSON.stringify(session.email))
+
+		window.location.href = "home.html"
+	}
+	xhr.send(data)
+}
+
 cadastroEnviado = () => {
 	let xhr = new XMLHttpRequest()
 	xhr.open("POST", "/cadastro-auth")
@@ -130,11 +146,7 @@ cadastroEnviado = () => {
 
 		if(resposta.status == 200) {
 			// login deu certo
-
-			sessionStorage.setItem("nome", JSON.stringify(temp.nome))
-			sessionStorage.setItem("email", JSON.stringify(temp.email))
-
-			window.location.href = "home.html"
+			getSession(json)
 		} else if(resposta.status == 400) {
 			// senha incorreta
 			alert("Email já cadastrado.")
@@ -160,13 +172,11 @@ loginEnviado = () => {
 	xhr.onload = function (e) {
 		let resposta = JSON.parse(e.target.response);
 		// e.preventDefault()
-		
+
 		if(resposta.status == 200) {
 			// login deu certo
-			console.log(temp, temp.nome)
-			saveSessionStorage("nome", temp.nome)
-			saveSessionStorage("email", temp.email)
-			window.location.href = "home.html"
+			
+			getSession(json)
 		} else if(resposta.status == 403) {
 			// senha incorreta
 			alert("Senha incorreta")
