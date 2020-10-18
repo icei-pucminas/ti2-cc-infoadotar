@@ -1,6 +1,4 @@
-//package com.ti2cc;
-
-import classes.Usuario;
+package classes;//package com.ti2cc;
 
 import java.sql.*;
 
