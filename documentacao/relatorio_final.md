@@ -16,8 +16,7 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 
 ---
 
-_**Resumo**. Escrever aqui o resumo. O resumo deve contextualizar rapidamente o trabalho, descrever seu objetivo e, ao final, 
-mostrar algum resultado relevante do trabalho (até 10 linhas)._
+Com o avançar dos anos, a adoção ganhou destaque no cenário nacional. Em 1990, a prática da adoção foi regulamentada com o Estatuto da Criança e do Adolescente (ECA) e, desde então, o número de pessoas na fila para adotar cresce gradativamente. Entretanto, muitas pessoas identificam dificuldades para iniciar esse processo, no que diz respeito,  à falta de conhecimento e informação acerca do procedimento adotivo. Portanto, o presente trabalho visa auxiliar futuros pais e mães que pretendem adotar à sanar dúvidas sobre o processo de perfilhamento, permitindo que estejam em um meio ambiente com informações relevantes para assisti-los. 
 
 ---
 
@@ -42,15 +41,14 @@ O processo de regularizar os documentos, entrar no CNA (Cadastro Nacional de Ado
 Assim, devido à má implementação desse sistema, ao seu excessivo tempo de espera, à legislação precária envolvida e a muitos outros fatores, os cônjuges que têm a intenção de adotar sofrem com a morosidade do sistema proposto pelo governo do Brasil.
 
     1.3 Objetivo geral
-<!--
-O aluno deve escrever um pequeno parágrafo ou frase com o **objetivo geral** do trabalho. 
-O objetivo deve ser bem direto, específico e definido com verbos de ação (elaborar, propor, ava-liar, comparar etc.). -->
+
 Auxiliar os futuros pais e mães adotivos a gerenciarem o seu processo de adoção, permitindo que esse procedimento possa se dar de maneira mais simplificada.
 		
+    1.3.1 Objetivos específicos
 
-        1.3.1 Objetivos específicos
+*Criar uma plataforma online que estabeleça uma conexão entre os pretendentes, disponibilizando para eles informações acerca do processo adotivo, bem como uma área de comunicação dedicada às perguntas.
 
-Apresente também alguns (pelo menos 2) **objetivos específicos** dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
+*Possibilitar uma maior interação entre os pretendentes por meio de uma comunidade organizada e colaborativa, proporcionando uma relação amigável e recíproca entre os pretendentes.
 
     1.4 Justificativas
 

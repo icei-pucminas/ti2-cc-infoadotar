@@ -1,0 +1,84 @@
+canvas {
+    max-width: 30rem;
+    max-height: 30rem;
+}
+
+#postsmaisavaliados { padding-left: 2em; }
+
+#postsmaisavaliados > li{
+    display: list-item;
+    list-style-type: disc;
+}
+
+#postsmaisavaliados span {
+    color: #f7f7f7;
+    cursor: pointer;
+    font-size: large;
+    font-weight: 500;
+}
+
+.card-faq a.waves-effect {
+	background: none;
+	border-radius: 3rem;
+	outline: none;
+    border: 2px solid #E64398;
+    color: #E64398;
+	box-shadow: none;
+	max-width: 14em;
+}
+
+.card-faq a.waves-effect:hover {
+	background: #E64398;
+	border-radius: 3rem;
+	outline: none;
+    border: 2px solid white;
+    color: white;
+	box-shadow: none;
+	max-width: 14em;
+}
+
+.card-faq {
+    padding: 1em;
+    max-height: 6em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.topo-faq {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#comunidade {
+    overflow: auto;
+    max-height: 76vh;
+}
+
+#comunidade::-webkit-scrollbar, #modalfaq::-webkit-scrollbar {
+    width: 1px;
+}
+
+.card-post {
+    margin-top: 2rem !important;
+    background-color: #707070 !important;
+    cursor: pointer;
+}
+.card-faq-post {
+    margin-top: 2rem !important;
+    background-color: #707070 !important;
+}
+
+.modal-footer { background: none !important; }
+
+@media (max-width: 768px) {
+    canvas {
+        max-width: 25rem;
+        max-height: 25rem;
+    }
+}
+@media (min-width: 769px) {
+    .main-area > .row > div, .main-area > .row > div:first-child {
+        padding: 1.3em;
+    }
+}
