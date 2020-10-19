@@ -23,7 +23,7 @@ Com o avançar dos anos, a adoção ganhou destaque no cenário nacional. Em 199
 
 
 **1. Introdução**
-
+<!--
 A introdução deve apresentar de dois ou quatro parágrafos de contextualização do trabalho. 
 
 Na **contextualização**, o aluno deve dizer do que se trata o trabalho, em que área ou contexto se insere. 
@@ -31,7 +31,7 @@ A **contextualização** deve ser desenvolvida de algo mais genérico para algo 
 A citação de pesquisas quantitativas é bem aceita aqui (corretamente referenciadas).
 
 Em seguida o aluno deve caminhar a contextualização para descrever o **problema** que o artigo trata. 
-O **problema** pode ser algo vivido em uma empresa específica.
+O **problema** pode ser algo vivido em uma empresa específica. -->
 
 
     1.1 Contextualização
@@ -46,11 +46,11 @@ Auxiliar os futuros pais e mães adotivos a gerenciarem o seu processo de adoç�
 		
     1.3.1 Objetivos específicos
 
-*Criar uma plataforma online que estabeleça uma conexão entre os pretendentes, disponibilizando para eles informações acerca do processo adotivo, bem como uma área de comunicação dedicada às perguntas.
+* Criar uma plataforma online que estabeleça uma conexão entre os pretendentes, disponibilizando para eles informações acerca do processo adotivo, bem como uma área de comunicação dedicada às perguntas.
 
-*Possibilitar uma maior interação entre os pretendentes por meio de uma comunidade organizada e colaborativa, proporcionando uma relação amigável e recíproca entre os pretendentes.
+* Possibilitar uma maior interação entre os pretendentes por meio de uma comunidade organizada e colaborativa, proporcionando uma relação amigável e recíproca entre os pretendentes.
 
-    1.4 Justificativas
+	1.4 Justificativas
 
 <!-- Mostre também as **justificativas** para o 
 desenvolvimento do seu trabalho e caso deseje, desta-que alguma contribuição do trabalho. -->
@@ -62,19 +62,18 @@ A motivação da nossa solução é ajudar todos aqueles que desejam adotar uma 
 **2. Projeto da Solução**
 
     2.1. Requisitos funcionais
-	
+<!--
 Enumere os requisitos funcionais previstos para a sua aplicação. 
 Use a tabela abaixo para enumerá-lo.  Esses requisitos devem estar 
-de acordo com as definições do modelo de negócio.
+de acordo com as definições do modelo de negócio.-->
 
 | Id            | Descrição                                                                                                    | Prioridade |
 | ------------- |:------------------------------------------------------------------------------------------------------------:| ----------:|
 | 01            | O usuário deve conseguir criar uma conta e logar no sistema                                                  |   Alta     |
 | 02            | O usuário deve ter uma checklist para gerenciar seu passos na adoção                                         |   Alta     |
 | 03            | O usuário deve ter acesso às perguntas frequentes (FAQ)                                                      |   Alta     |
-| 04            | O usuário deve ter acesso a uma interface gráfica contendo os dados para representar seu progresso na adoção |   Alta     |
-| 05            | O usuário deve conseguir visualizar posts de usuários                                                        |   Média    |
-| 06            | O usuário deve conseguir escrever posts                                                                      |   Média    |
+| 04            | O usuário deve conseguir visualizar posts de usuários                                                        |   Alta     |
+| 05            | O usuário deve conseguir escrever posts                                                                      |   Média    |
 
     2.2. Tecnologias
 <!--
@@ -107,7 +106,7 @@ e em que módulo será utilizado.
 	
 **3. Modelagem de dados**
 
-Apresente o modelo de dados. Defina o dicionário de dados com os respectivos formatos e significados.
+<!-- Apresente o modelo de dados. Defina o dicionário de dados com os respectivos formatos e significados. -->
 
     3.1. Diagrama de Entidade-Relacionamento
 
@@ -120,34 +119,36 @@ A Seguir, segue um exemplo de imagem adicionada ao documento.
 
 Faça aqui uma breve descrição do software e coloque as principais telas com uma explicação de como usar cada uma.
 
+## Página de Landing
+
+Página inicial do site do infoAdotar.
+
+<p align="center"><img src="imagens/landing.png" /></p>
+
+## Página de login e de cadastro
+
+Permite ao usuário criar uma conta no infoAdotar ou entrar com sua conta existente no sistema.
+
+<p align="center"><img src="imagens/login.png" /></p>
+<br>
+<p align="center"><img src="imagens/cadastro.png" /></p>
+
 ## Tela home
 
-Tela que contém um resumo das ferramentas do app. Nesta tela ficará disponível:
-1. Um resumo dos dados do CNA e um texto explicando a situação da adoção no Brasil.
-2. As três perguntas de usuários mais recorrentes, dessa forma, agilizando a busca por informações.
-3. Post mais relevante feito por um usuário sobre a experiência dele com nosso aplicativo.
+Painel principal do infoAdotar, onde o usuário controla os recursos do sistema. Estes são:
+1. Card que contém um resumo das atividades do usuário no sistema
+2. Card contendo as postagens da comunidade
+3. Card que dá acesso ao FAQ
 
-<p align="center"><img src="https://lh3.googleusercontent.com/uzmieR5j00rz9om4Q8-hpu21JbqfHycM42nN-Lk9P0TzmASuE4mLuXEyKlNsudio8dcqJm60GE-E_I7myMbrf16xgcp1Z1GyyP_LpY7PECGNhi3LzZsLzWOn522gzAh6nAC81uknJ3-GHNkM7Q" /></p>
+<p align="center"><img src="imagens/home.png" /></p>
 
 ## FAQ
 
-Este componente apresentará as 3 perguntas de usuários mais recorrentes.
-As perguntas são acessadas via JSON no local storage.
-Posteriormente, as perguntas serão ordenadas de acordo com a frequência requisitada pelos usuários, até o momento as perguntas mostradas são as 3 primeiras posições do vetor no local storage.
+Este componente dará acesso a um conjunto de perguntas frequentemente realizadas ao usuário.
+O usuário terá a possibilidade de pesquisar por uma dúvida em específico.
 
-<p align="center"><img src="https://lh5.googleusercontent.com/KSjGLibDR-94fo190h3M4Vylvey0KhBCPcMJuDx4VU_9CcUCmqQwC7Lf99bLambCyAw1UPENvSY2E48hA8k_zhhegJdou7fEZivWGD9EDtvgKXd-oEz-0DoAcv2ObV89g7AiQwRUdKzYAdAZPg" /></p>
+<p align="center"><img src="imagens/faq.png" /></p>
 
-## infoAjudar
-
-Tela onde o usuário tem acesso à ferramentas para ajudá-lo na adoção.
-
-<p align="center"><img src="https://lh4.googleusercontent.com/wbKzLqTywH8Gm4uc42Ff3Pn6FTc4DFtkM1gCyX9-josI2am-Erjlbd8LTJqWfohANu1ef5pBoJeA-Do5PDvm4oCx4JBm6njjymK68xlVtFpcMwFVee-Gca5VTvdbBUiW_N4fEMVolH59QP3V_Q" /></p>
-
-## Passos
-
-Conjunto de cartões que ajudam a guiar o usuário nos passos necessários para concluir uma adoção e uma barra de progresso que proporciona auxílio visual do avanço que esse está tendo.
-
-<p align="center"><img src="https://lh4.googleusercontent.com/wbKzLqTywH8Gm4uc42Ff3Pn6FTc4DFtkM1gCyX9-josI2am-Erjlbd8LTJqWfohANu1ef5pBoJeA-Do5PDvm4oCx4JBm6njjymK68xlVtFpcMwFVee-Gca5VTvdbBUiW_N4fEMVolH59QP3V_Q" /></p>
 
 **5. Avaliação**
 
