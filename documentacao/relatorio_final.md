@@ -49,6 +49,7 @@ Auxiliar os futuros pais e mães adotivos a gerenciarem o seu processo de adoç�
 * Criar uma plataforma online que estabeleça uma conexão entre os pretendentes, disponibilizando para eles informações acerca do processo adotivo, bem como uma área de comunicação dedicada às perguntas.
 
 * Possibilitar uma maior interação entre os pretendentes por meio de uma comunidade organizada e colaborativa, proporcionando uma relação amigável e recíproca entre os pretendentes.
+<br>
 
 	1.4 Justificativas
 
@@ -90,34 +91,65 @@ retornar uma resposta ao usuário. -->
     * HTML5
     * CSS em conjunto com a framework Bootstrap
     * JavaScript
+* Linguagem de desenvolvimento back-end:
+    * Java (com a framework Spark Java)
 * Base de dados:
-    * Local Storage dos navegadores
-* Hospedagem:
-    * Heroku
-* IDE:
+    * PostgreSQL
+* IDEs:
     * Microsoft Visual Studio Code
+    * Eclipse IDE
+<br>
 
-    2.3. Serviços inteligentes
-
+	2.3. Serviços inteligentes
+<!--
 Descreva o mecanismo de inteligência que será utilizado no seu sistema. Utilize a modelagem baseada em agente
 para definir as entradas e saídas do seu módulo de serviço inteligente. Apresente quem irá fornecer o serviço
-e em que módulo será utilizado.
+e em que módulo será utilizado.-->
+O sistema do infoAdotar ainda não conta com serviços inteligentes, embora este tópico esteja na lista de recursos a serem implementados.
 
 	
 **3. Modelagem de dados**
 
 <!-- Apresente o modelo de dados. Defina o dicionário de dados com os respectivos formatos e significados. -->
+O infoAdotar possui, em seu banco de dados, 4 relações:
+* Usuário
+* Postagem
+* Avaliação da postagem
+* Pergunta do FAQ
+
+##### O usuário contém os dados necessários para sua autenticação no sistema, que são:
+* Nome completo
+* Email
+* Senha
+##### A postagem contém:
+* Sigla para sua identificação
+* Email do usuário que a criou
+* Sigla da postagem a qual ela responde, se for o caso
+* Conteúdo da postagem
+##### A avaliação da postagem contém:
+* O email do usuário que a criou
+* A sigla identificadora da postagem
+* A nota da avaliação
+##### A pergunta do FAQ contém:
+* Sigla para sua identificação
+* O título da pergunta
+* A resposta da pergunta
+<br>
 
     3.1. Diagrama de Entidade-Relacionamento
 
-Apresente a estrutura das tabelas de banco de dados no modelo Diagrama de Entidade-Relacionamento. 
-A Seguir, segue um exemplo de imagem adicionada ao documento.
+<!-- Apresente a estrutura das tabelas de banco de dados no modelo Diagrama de Entidade-Relacionamento. 
+A Seguir, segue um exemplo de imagem adicionada ao documento. -->
 
 ![Diagrama de Entidade Relacionamento de Exemplo](imagens/er_diagram.png "Diagrama de Entidade Relacionamento de Exemplo")
 
 **4. Sistema desenvolvido**
 
-Faça aqui uma breve descrição do software e coloque as principais telas com uma explicação de como usar cada uma.
+<-- Faça aqui uma breve descrição do software e coloque as principais telas com uma explicação de como usar cada uma. -->
+O sistema do infoAdotar conta com 3 páginas web, sendo elas:
+* Página de landing, pela qual o usuário chega no sistema
+* Página de login e cadastro, que permite ao usuário utilizar suas credenciais no sistema
+* Página principal, a qual contém os recursos da plataforma disponíveis
 
 ## Página de Landing
 
