@@ -5,8 +5,7 @@ import java.sql.*;
 
 @TableAnnotation(name = "USUARIO")
 public class UsuarioModel {
-	@ColumnAnnotation(isPK = true, name = "cpf")
-	public String cpf;
+	@ColumnAnnotation(isPK = true, name = "email")
 	public String email;
 	public String nome;
 	public String hash;

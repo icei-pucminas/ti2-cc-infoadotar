@@ -147,24 +147,42 @@ conteudoFAQ = () => {
 
 conteudoComunidade();
 
+getSession = () => {
+	let session = JSON.parse(sessionStorage.getItem("userdata"))
+	let xhr = new XMLHttpRequest()
+	xhr.open("POST", `/session`)
+	// xhr.setRequestHeader("Content-Type", "application/json");
+	xhr.onload = () => {
+		let dados = JSON.parse(xhr.responseText)
+		for(elem of document.getElementsByClassName("campoNomeUsuario"))
+			elem.innerText = dados.nome
+		for(elem of document.getElementsByClassName("campoEmailUsuario"))
+			elem.innerText = dados.email
+
+	}
+	xhr.send(session.email)
+}
+
 onload = () => {
-	pickBackground();
+	pickBackground()
 
 	if(localStorage.getItem("darkmode_enabled") == undefined) {
-		localStorage.setItem("darkmode_enabled", JSON.stringify(switch_darkmode.checked));
+		localStorage.setItem("darkmode_enabled", JSON.stringify(switch_darkmode.checked))
 	} else {
 		let status = JSON.parse(localStorage.getItem("darkmode_enabled"));
 		if(status != switch_darkmode.checked) {
-			switch_darkmode.checked = status;
-			toggleDarkMode(switch_darkmode);
+			switch_darkmode.checked = status
+			toggleDarkMode(switch_darkmode)
 		}
 		if(status != switch_darkmode_mobile.checked) {
-			switch_darkmode_mobile.checked = status;
-			toggleDarkMode(switch_darkmode_mobile);
+			switch_darkmode_mobile.checked = status
+			toggleDarkMode(switch_darkmode_mobile)
 		}
 	}
-	
-	conteudoFAQ();
+
+	conteudoFAQ()
+
+	getSession()
 }
 
 document.getElementById("togglefaq").onclick = loadFAQ;

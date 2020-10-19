@@ -21,7 +21,6 @@ public class TesteController extends Controller {
 		
 		UsuarioModel[] s;
 		UsuarioModel newUsr = new UsuarioModel();
-		newUsr.cpf = "65130484002";
 		newUsr.email = "fulano.ciclano@mail.com";
 		newUsr.nome = "Fulano Ciclano";
 		newUsr.hash = "12345";
