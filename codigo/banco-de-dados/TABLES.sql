@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS public."FAQ"
 
 CREATE TABLE IF NOT EXISTS public."PERGUNTA_AVALIACAO" 
 (
-  "usuario_email" CHAR(11) NOT NULL,
+  "usuario_email" VARCHAR(100) NOT NULL,
   "faq_sigla" CHAR(10) NOT NULL,
   "nota" INT NOT NULL,
   PRIMARY KEY ("usuario_email", "faq_sigla"),
