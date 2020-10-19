@@ -49,6 +49,7 @@ Auxiliar os futuros pais e mães adotivos a gerenciarem o seu processo de adoç�
 * Criar uma plataforma online que estabeleça uma conexão entre os pretendentes, disponibilizando para eles informações acerca do processo adotivo, bem como uma área de comunicação dedicada às perguntas.
 
 * Possibilitar uma maior interação entre os pretendentes por meio de uma comunidade organizada e colaborativa, proporcionando uma relação amigável e recíproca entre os pretendentes.
+<br>
 
 	1.4 Justificativas
 
