@@ -34,15 +34,15 @@
                 <img src="http://picsum.photos/512">
             </div>
             <a href="#user"><img class="circle" src="http://picsum.photos/50/50"></a>
-            <a href="#name"><span class="white-text name campoNomeUsuario">Nome do Usuário</span></a>
-            <a href="#email"><span class="white-text email campoEmailUsuario">emaiusuário@gmail.com</span></a>
+            <a href="#name"><span class="white-text name campoNomeUsuario"><small>Carregando</small></span></a>
+            <a href="#email"><span class="white-text email campoEmailUsuario"><small>Carregando</small></span></a>
         </div></li>
-        <li><a href="#!"><i class="material-icons waves-effect">cloud</i>Opção 1</a></li>
+        <!-- <li><a href="#!"><i class="material-icons waves-effect">cloud</i>Opção 1</a></li>
         <li><a href="#!"><i class="material-icons waves-effect">update</i>Opção 2</a></li>
         <li><a href="#!"><i class="material-icons waves-effect">help</i>Opção 3</a></li>
         <li><div class="divider"></div></li>
-        <li><a class="subheader">Subheader</a></li>
-        <li><a class="waves-effect" href="#!">Ação</a></li>
+        <li><a class="subheader">Subheader</a></li> -->
+        <li><a class="waves-effect" href="index.html">Sair</a></li>
         <li class="row center-align">
             <label class="col s12">
                 <span class="pink-text">Modo escuro</span>
@@ -59,16 +59,16 @@
                     <img class="activator" style="border-radius: 50%; padding: 1em;" src="https://picsum.photos/50">
                 </div>
                 <div class="col s12 center-align card-content">
-                    <span class="card-title activator grey-text text-darken-4 campoNomeUsuario" style="font-size: 1.3em;"> Nome do Usuário </span>
+                    <span class="card-title activator grey-text text-darken-4 campoNomeUsuario" style="font-size: 1.3em;"> <small>Carregando</small> </span>
                 </div>
                 <div class="col s12 center-align card-reveal">
-                    <span class="card-title grey-text text-darken-4 campoNomeUsuario">Nome do Usuário<i class="material-icons right">close</i></span>
-                    <p>Alguma informação Relevante.</p>
+                    <span class="card-title grey-text text-darken-4 campoNomeUsuario"><small>Carregando</small><i class="material-icons right">close</i></span>
+                    <p>Alguma dúvida? Consulte agora o FAQ Adotivo.</p>
                 </div>
                 <hr class="divider">
-                <div class="col s12 center-align card-content"><span class="grey-text">Ação 1</span></div>
+                <!-- <div class="col s12 center-align card-content"><span class="grey-text">Ação 1</span></div>
                 <div class="col s12 center-align card-content"><span class="grey-text">Ação 2</span></div>
-                <div class="col s12 center-align card-content"><span class="grey-text">Ação 3</span></div>
+                <div class="col s12 center-align card-content"><span class="grey-text">Ação 3</span></div> -->
                 <div class="switch bottom-item">
                     <label>
                         <i class="fas fa-sun"></i>
@@ -76,7 +76,7 @@
                         <span class="lever pink accent-2"></span>
                         <i class="fas fa-moon"></i>
                     </label>
-                    <div class="col s12 center-align card-content"><span class="grey-text text-darken-4">Sair</span></div>
+                    <div class="col s12 center-align card-content"><a class="grey-text text-darken-4" href="index.html">Sair</a></div>
                 </div>
             </div>
         </div>
@@ -90,12 +90,33 @@
                         <div class="card" style="margin-bottom: 0;">
                             <div class="card-content">
                                 <span class="card-title grey-text">Resumo</span>
-                                <p><canvas id="myChart" width="400" height="400"></canvas></p>
+                                <!-- <p><canvas id="myChart" width="400" height="400"></canvas></p> -->
+                                
+
+                                <div id="resumocontent">
+
+                                    <div class="card card-faq-post">
+                                        <div class="card-content">
+                                            <span class="card-title grey-text text-lighten-2">Seu post recebeu uma avaliação</span>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.</p>
+                                        </div>
+                                    </div>
+                                    <div class="card card-faq-post">
+                                        <div class="card-content">
+                                            <span class="card-title grey-text text-lighten-2">Posts mais avaliados</span>
+                                            <ul id="postsmaisavaliados">
+                                                <li><span class="modal-trigger" data-target="post1">Post #1</span></li>
+                                                <li><span class="modal-trigger" data-target="post2">Post #2</span></li>
+                                                <li><span class="modal-trigger" data-target="post3">Post #3</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="card-action">
+                            <!-- <div class="card-action">
                                 <a href="#" class="pink-text">Ação 1</a>
                                 <a href="#" class="green-text">Ação 2</a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
 

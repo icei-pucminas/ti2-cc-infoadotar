@@ -3,6 +3,20 @@ canvas {
     max-height: 30rem;
 }
 
+#postsmaisavaliados { padding-left: 2em; }
+
+#postsmaisavaliados > li{
+    display: list-item;
+    list-style-type: disc;
+}
+
+#postsmaisavaliados span {
+    color: #f7f7f7;
+    cursor: pointer;
+    font-size: large;
+    font-weight: 500;
+}
+
 .card-faq a.waves-effect {
 	background: none;
 	border-radius: 3rem;

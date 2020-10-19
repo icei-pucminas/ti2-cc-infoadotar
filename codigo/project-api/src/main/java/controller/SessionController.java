@@ -22,10 +22,8 @@ public class SessionController extends Controller {
 		dao.conectar();
 		res.header("Content-Type", "application/json");
 
-		CadastroController.CadastroData data = gson.fromJson(req.body(), CadastroController.CadastroData.class);
-		System.out.println("email -> " + data.email);
-
-		Usuario usuario = dao.getUsuario(data.email);
+		Usuario usuario = dao.getUsuario(req.body());
+		System.out.println(usuario);
 
 		dao.close();
 		return gson.toJson(new UserSession(usuario.getNome(), usuario.getEmail()));

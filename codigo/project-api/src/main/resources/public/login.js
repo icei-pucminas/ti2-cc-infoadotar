@@ -116,21 +116,6 @@ document.body.oninput = () => {
     document.getElementById("submitcadastro").disabled = ! (validSenha && validEmail && validSenhasIguais && notEmpty);
 }
 
-getSession = (data) => {
-	let xhr = new XMLHttpRequest()
-	xhr.open("POST", `/session`)
-	// xhr.setRequestHeader("Content-Type", "application/json");
-	xhr.onload = () => {
-		alert(session)
-		let session = JSON.parse(this.responseText)
-		sessionStorage.setItem("nome", JSON.stringify(session.nome))
-		sessionStorage.setItem("email", JSON.stringify(session.email))
-
-		window.location.href = "home.html"
-	}
-	xhr.send(data)
-}
-
 cadastroEnviado = () => {
 	let xhr = new XMLHttpRequest()
 	xhr.open("POST", "/cadastro-auth")
@@ -146,7 +131,8 @@ cadastroEnviado = () => {
 
 		if(resposta.status == 200) {
 			// login deu certo
-			getSession(json)
+			sessionStorage.setItem("userdata", json)
+			window.location.href = "home.html"
 		} else if(resposta.status == 400) {
 			// senha incorreta
 			alert("Email já cadastrado.")
@@ -176,7 +162,8 @@ loginEnviado = () => {
 		if(resposta.status == 200) {
 			// login deu certo
 			
-			getSession(json)
+			sessionStorage.setItem("userdata", json)
+			window.location.href = "home.html"
 		} else if(resposta.status == 403) {
 			// senha incorreta
 			alert("Senha incorreta")
