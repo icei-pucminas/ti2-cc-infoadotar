@@ -97,8 +97,9 @@ retornar uma resposta ao usuário. -->
 * IDEs:
     * Microsoft Visual Studio Code
     * Eclipse IDE
+<br>
 
-    2.3. Serviços inteligentes
+	2.3. Serviços inteligentes
 <!--
 Descreva o mecanismo de inteligência que será utilizado no seu sistema. Utilize a modelagem baseada em agente
 para definir as entradas e saídas do seu módulo de serviço inteligente. Apresente quem irá fornecer o serviço
@@ -132,7 +133,7 @@ O infoAdotar possui, em seu banco de dados, 4 relações:
 * Sigla para sua identificação
 * O título da pergunta
 * A resposta da pergunta
-
+<br>
 
     3.1. Diagrama de Entidade-Relacionamento
 
