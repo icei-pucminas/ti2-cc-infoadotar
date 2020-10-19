@@ -105,6 +105,11 @@ document.body.oninput = () => {
     document.getElementById("submitlogin").disabled = ! (validSenha && validEmail);
     document.getElementById("submitcadastro").disabled = ! (validSenha && validEmail && validSenhasIguais && notEmpty);
 }
+formEnviado = (e) => {
+    console.log(e.target.status);
+}
+document.getElementById("form-cadastro").addEventListener("submit", formEnviado);
+document.getElementById("form-login").addEventListener("submit", formEnviado);
 
 onload = () => {
     document.getElementById("submitlogin").disabled = true;

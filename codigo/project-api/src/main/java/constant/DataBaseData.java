@@ -1,7 +1,7 @@
 package constant;
 
 public class DataBaseData {
-	public static String driverName = "org.postgresql.Driver";                    
+	public static String driverName = "org.postgresql.Driver";
 	public static String serverName = "localhost";
 	public static String dataBase = "infoAdotarDB";
 	public static int port = 5432;

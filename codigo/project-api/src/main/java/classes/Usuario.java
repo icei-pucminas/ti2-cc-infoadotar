@@ -1,3 +1,5 @@
+package classes;
+
 import java.time.LocalDateTime;
 
 public class Usuario{
@@ -8,6 +10,7 @@ public class Usuario{
     private String hash;
     private String token = null;
     private LocalDateTime token_validade = null;
+
     public Usuario(/*String cpf,*/ String email, String nome, String hash) throws Exception {
         if(isValid(/*cpf,*/ email, nome, hash)){
         //    this.cpf = cpf;
@@ -18,7 +21,7 @@ public class Usuario{
     }
 	/**
 	 *  Verifica se os parametros passados para a criação de um novo usuario são validos.
-	 * @param cpf Atributo cpf do BD
+	 * @param cpf Atributo cpf do BD (removido)
 	 * @param email Atributo email do BD
 	 * @param nome Atributo nome do BD
 	 * @param hash Atributo hash(senha criptografada) do BD
@@ -41,7 +44,18 @@ public class Usuario{
         return resp;
     }
 
-    /**
+	@Override
+	public String toString() {
+		return "Usuario{" +
+				"email='" + email + '\'' +
+				", nome='" + nome + '\'' +
+				", hash='" + hash + '\'' +
+				", token='" + token + '\'' +
+				", token_validade=" + token_validade +
+				'}';
+	}
+
+	/**
 	 * @return the cpf
 	 */
 /*	public String getCpf(){

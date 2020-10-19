@@ -7,6 +7,8 @@ public final class Main {
 	public static void includeControllers() {
 		new TesteController();
 		new MainController();
+		new LoginController();
+		new CadastroController();
 	}
 
 	public static void main(String[] args) {
