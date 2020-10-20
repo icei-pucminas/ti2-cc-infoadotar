@@ -25,7 +25,7 @@ public class DAO {
 					DataBaseData.url, 
 					DataBaseData.userName, 
 					DataBaseData.password);
-			status = (conexao == null);
+			status = (conexao != null);
 			System.out.println("Conexão efetuada com o postgres!");
 		} catch (ClassNotFoundException e) { 
 			System.err.println("Conexão NÃO efetuada com o postgres -- Driver não encontrado -- " + e.getMessage());
@@ -48,6 +48,23 @@ public class DAO {
 		return status;
 	}
 	
+	public static String getFieldData (Field f, Object obj) throws IllegalArgumentException, IllegalAccessException {
+		String result;
+		Object aux = f.get(obj);
+		
+		if (aux != null) {
+			if (aux.getClass() == String.class) {
+				result = "'" + aux.toString() + "'";
+			} else {
+				result = aux.toString();
+			}
+		} else {
+			result = "NULL";
+		}
+		
+		return result;
+	}
+	
 	public boolean insert(Object obj) {
 		
 		boolean status = false;
@@ -60,11 +77,12 @@ public class DAO {
 			
 			ColumnAnnotation column;
 			String valueAux;
+			Object aux;
 			
 			for (Field f : fields) {
 				try {
 					//Add only valid fields
-					valueAux = f.get(obj).toString() + ",";
+					valueAux = getFieldData(f, obj) + ",";
 					
 					column = f.getAnnotation(ColumnAnnotation.class);
 					columns += (column == null? f.getName() : column.name()) + ",";
@@ -73,8 +91,8 @@ public class DAO {
 				} catch (IllegalAccessException e) {}
 			}
 			
-			columns.substring(0, columns.length()-1);
-			values.substring(0, values.length()-1);
+			columns = columns.substring(0, columns.length()-1);
+			values = values.substring(0, values.length()-1);
 			
 			TableAnnotation table = type.getAnnotation(TableAnnotation.class);
 			
@@ -110,7 +128,7 @@ public class DAO {
 			for (Field f : fields) {
 				try {
 					//Add only valid fields
-					valueAux = f.get(obj).toString();
+					valueAux = getFieldData(f, obj);
 					
 					column = f.getAnnotation(ColumnAnnotation.class);
 					
@@ -129,8 +147,8 @@ public class DAO {
 			if (where.length() == 0)
 				throw new SQLException("Object has no primary key");
 			
-			where.substring(0, where.length()-5);
-			values.substring(0, values.length()-1);
+			where = where.substring(0, where.length()-5);
+			values = values.substring(0, values.length()-1);
 			
 			TableAnnotation table = type.getAnnotation(TableAnnotation.class);
 			
@@ -165,7 +183,7 @@ public class DAO {
 			for (Field f : fields) {
 				try {
 					//Add only valid fields
-					valueAux = f.get(obj).toString();
+					valueAux = getFieldData(f, obj);
 					
 					column = f.getAnnotation(ColumnAnnotation.class);
 					
@@ -179,7 +197,7 @@ public class DAO {
 			if (where.length() == 0)
 				throw new SQLException("Object has no primary key");
 			
-			where.substring(0, where.length()-5);
+			where = where.substring(0, where.length()-5);
 			
 			TableAnnotation table = type.getAnnotation(TableAnnotation.class);
 			
@@ -199,7 +217,7 @@ public class DAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	public <T> T[] select(Class<T> model) {
+	public <T> List<T> select(Class<T> model) {
 		try {
 			TableAnnotation table = model.getAnnotation(TableAnnotation.class);
 			Statement st = conexao.createStatement();
@@ -209,7 +227,7 @@ public class DAO {
 			st.close();
 			
 			T tmp;
-			List<T> values = new ArrayList<T>();
+			ArrayList<T> values = new ArrayList<T>();
 			Field[] fields = model.getFields();
 			ColumnAnnotation column;
 			while (rs.next()) {
@@ -221,14 +239,14 @@ public class DAO {
 				values.add(tmp);
 			}
 			
-			return (T[]) values.toArray();
+			return values;
 		} catch (SQLException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException u) {  
 			throw new RuntimeException(u);
 		}
 	}
 	
 	@SuppressWarnings("unchecked")
-	public <T> T[] select(Class<T> model, String where) {
+	public <T> List<T> select(Class<T> model, String where) {
 		try {
 			TableAnnotation table = model.getAnnotation(TableAnnotation.class);
 			Statement st = conexao.createStatement();
@@ -251,7 +269,7 @@ public class DAO {
 				values.add(tmp);
 			}
 			
-			return (T[]) values.toArray();
+			return values;
 		} catch (SQLException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException u) {  
 			throw new RuntimeException(u);
 		}

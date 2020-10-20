@@ -3,7 +3,7 @@ package model;
 import model.annotation.*;
 import java.sql.*;
 
-@TableAnnotation(name = "USUARIO")
+@TableAnnotation(name = "\"USUARIO\"")
 public class UsuarioModel {
 	@ColumnAnnotation(isPK = true, name = "email")
 	public String email;

@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.List;
+
 import controller.annotation.ControllerAnnotation;
 import controller.util.*;
 import spark.*;
@@ -19,7 +21,7 @@ public class TesteController extends Controller {
 		DAO con = new DAO();
 		con.conectar();
 		
-		UsuarioModel[] s;
+		List<UsuarioModel> s;
 		UsuarioModel newUsr = new UsuarioModel();
 		newUsr.email = "fulano.ciclano@mail.com";
 		newUsr.nome = "Fulano Ciclano";
@@ -38,8 +40,8 @@ public class TesteController extends Controller {
 		
 		//P2
 		try {
-			s = con.select(newUsr.getClass());
-			if (s.length > 0) {
+			s = con.<UsuarioModel>select(UsuarioModel.class);
+			if (s.size() > 0) {
 				result += "ok\t";
 			} else {
 				result += "er\t";
@@ -73,8 +75,8 @@ public class TesteController extends Controller {
 
 		//P5
 		try {
-			s = con.select(newUsr.getClass());
-			if (s.length == 0) {
+			s = con.<UsuarioModel>select(UsuarioModel.class);
+			if (s.size() == 0) {
 				result += "ok\t";
 			} else {
 				result += "er\t";
