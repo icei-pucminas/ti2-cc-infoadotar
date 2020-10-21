@@ -1,29 +1,29 @@
 CREATE TABLE IF NOT EXISTS public."USUARIO"
 (
-	"email" VARCHAR(50) UNIQUE NOT NULL,
-	"nome" VARCHAR(100) NOT NULL,
-	"hash" VARCHAR(250) UNIQUE NOT NULL,
-	"token" VARCHAR(250) UNIQUE,
-	"token_validade" TIMESTAMP,
-	 PRIMARY KEY ("email")
+	"Email" CHAR(50) UNIQUE NOT NULL,
+	"Nome" VARCHAR(100) NOT NULL,
+	"Hash" VARCHAR(250) UNIQUE NOT NULL,
+	"Token" VARCHAR(250) UNIQUE,
+	"Token_validade" TIMESTAMP,
+	 PRIMARY KEY ("Email")
 );
 
 
 CREATE TABLE IF NOT EXISTS public."POST" 
 (
-  "sigla" SERIAL UNIQUE NOT NULL,
-  "usuario_cpf" CHAR(11) NOT NULL,
-  "answer_to" INT NULL,
-  "texto" VARCHAR(500) NOT NULL,
-  PRIMARY KEY ("sigla", "usuario_email"),
-  CONSTRAINT "FK_POST_USER"
-    FOREIGN KEY ("usuario_email")
-    REFERENCES public."USUARIO" ("email")
+  "Id" SERIAL UNIQUE NOT NULL,
+  "Usuario_email" CHAR(50) NOT NULL,
+  "Answer_to" INT NULL,
+  "Texto" VARCHAR(500) NOT NULL,
+  PRIMARY KEY ("Id", "Usuario_email"),
+  CONSTRAINT "FK_POST_USUARIO"
+    FOREIGN KEY ("Usuario_email")
+    REFERENCES public."USUARIO" ("Email")
     ON DELETE CASCADE
-    ON UPDATE NO ACTION,
+    ON UPDATE CASCADE,
   CONSTRAINT "FK_POST_POST"
-    FOREIGN KEY ("answer_to")
-    REFERENCES public."POST" ("sigla")
+    FOREIGN KEY ("Answer_to")
+    REFERENCES public."POST" ("Id")
     ON DELETE SET NULL
     ON UPDATE NO ACTION
 );
@@ -31,27 +31,27 @@ CREATE TABLE IF NOT EXISTS public."POST"
 
 CREATE TABLE IF NOT EXISTS public."FAQ" 
 (
-  "sigla" SERIAL UNIQUE NOT NULL,
-  "pergunta" VARCHAR(200) NOT NULL,
-  "resposta" VARCHAR(400) NOT NULL,
-  PRIMARY KEY ("sigla")
+  "Id" SERIAL UNIQUE NOT NULL,
+  "Pergunta" VARCHAR(200) NOT NULL,
+  "Resposta" VARCHAR(400) NOT NULL,
+  PRIMARY KEY ("Id")
 );
 
 
-CREATE TABLE IF NOT EXISTS public."PERGUNTA_AVALIACAO" 
+CREATE TABLE IF NOT EXISTS public."POST_AVALIACAO" 
 (
-  "usuario_email" VARCHAR(100) NOT NULL,
-  "faq_sigla" INT NOT NULL,
-  "nota" INT NOT NULL,
-  PRIMARY KEY ("usuario_email", "faq_sigla"),
-  CONSTRAINT "FK_PERG_USER"
-    FOREIGN KEY ("usuario_email")
-    REFERENCES public."USUARIO" ("email")
+  "Usuario_email" CHAR(50) UNIQUE NOT NULL,
+  "Post_id" INT NOT NULL,
+  "Nota" INT NOT NULL,
+  PRIMARY KEY ("Usuario_email", "Post_id"),
+  CONSTRAINT "FK_POST_AVALIACAO_USUARIO"
+    FOREIGN KEY ("Usuario_email")
+    REFERENCES public."USUARIO" ("Email")
     ON DELETE CASCADE
-    ON UPDATE NO ACTION,
-  CONSTRAINT "FK_PERG_FAQ"
-    FOREIGN KEY ("faq_sigla")
-    REFERENCES public."FAQ" ("sigla")
+    ON UPDATE CASCADE,
+  CONSTRAINT "FK_POST_AVALIACAO_POST"
+    FOREIGN KEY ("Post_id")
+    REFERENCES public."POST" ("Id")
     ON DELETE CASCADE
     ON UPDATE NO ACTION
 );

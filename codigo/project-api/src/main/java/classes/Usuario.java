@@ -11,9 +11,8 @@ public class Usuario{
     private String token = null;
     private LocalDateTime token_validade = null;
 
-    public Usuario(/*String cpf,*/ String email, String nome, String hash) throws Exception {
-        if(isValid(/*cpf,*/ email, nome, hash)){
-        //    this.cpf = cpf;
+    public Usuario(String email, String nome, String hash) throws Exception {
+        if(isValid(email, nome, hash)){
             this.email = email;
             this.nome = nome;
             this.hash = hash;
@@ -21,25 +20,23 @@ public class Usuario{
     }
 	/**
 	 *  Verifica se os parametros passados para a criação de um novo usuario são validos.
-	 * @param cpf Atributo cpf do BD (removido)
 	 * @param email Atributo email do BD
 	 * @param nome Atributo nome do BD
 	 * @param hash Atributo hash(senha criptografada) do BD
 	 * @return Retorna um valor booleano indicando se os valores passados são válidos
 	 * @throws Exception informa caso algum valor seja invalido
 	 */
-    public static boolean isValid(/*String cpf,*/ String email, String nome, String hash) throws Exception {
+    public static boolean isValid(String email, String nome, String hash) throws Exception {
         boolean resp = false;
-//        boolean cond1 = cpf.length() == 11;
-        boolean cond2 = email.length() <= 50;
-        boolean cond3 = nome.length() >= 5 && nome.length() <= 100;
-        boolean cond4 = hash.length() <= 250;
-		if(/*cond1 &&*/ cond2 && cond3 && cond4) resp = true;
+        boolean cond1 = email.length() <= 50;
+        boolean cond2 = nome.length() >= 5 && nome.length() <= 100;
+        boolean cond3 = hash.length() <= 250;
+		if(cond1 && cond2 && cond3) resp = true;
 		else{
 			//if(!cond1) throw new Exception("ERRO: cpf invalido");
-			if(!cond2) throw new Exception("ERRO: email invalido");
-			if(!cond3) throw new Exception("ERRO: nome invalido");
-			if(!cond4) throw new Exception("ERRO: hash invalido");
+			if(!cond1) throw new Exception("ERRO: email invalido");
+			if(!cond2) throw new Exception("ERRO: nome invalido");
+			if(!cond3) throw new Exception("ERRO: hash invalido");
 		}
         return resp;
     }
@@ -55,21 +52,6 @@ public class Usuario{
 				'}';
 	}
 
-	/**
-	 * @return the cpf
-	 */
-/*	public String getCpf(){
-		return cpf;
-	}
-*/
-	/**
-	 * @param cpf the cpf to set
-	 */
-/*	public void setCpf(String cpf) throws Exception{
-        if(cpf.length() == 11) this.cpf = cpf;
-        else throw new Exception("ERRO: cpf invalido");
-	}
-*/
 	/**
 	 * @return the email
 	 */

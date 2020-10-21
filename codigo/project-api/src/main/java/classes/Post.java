@@ -1,75 +1,69 @@
 package classes;
 
 public class Post{
-    private String sigla;
-    private String usuario_cpf;
-    private String answer_to;
+    private int id;
+    private String usuario_email;
+    private int answer_to = -1;
     private String texto;
 
-    public Post(String sigla, String usuario_cpf, String answer_to, String texto) throws Exception{
-        if(isValid(sigla, usuario_cpf, answer_to, texto)){
-            this.sigla = sigla;
-            this.usuario_cpf = usuario_cpf;
+    public Post(int id, String usuario_email, int answer_to, String texto) throws Exception{
+        if(isValid(id, usuario_email, answer_to, texto)){
+            this.id = id;
+            this.usuario_email = usuario_email;
             this.answer_to = answer_to;
             this.texto = texto;
         }
     }
-    public Post(String sigla, String usuario_cpf, String texto) throws Exception{
-        this(sigla, usuario_cpf, null, texto);
+    public Post(int id, String usuario_email, String texto) throws Exception{
+        this(id, usuario_email, null, texto);
     }
-    public static boolean isValid(String sigla, String usuario_cpf, String answer_to, String texto) throws Exception{
+    public static boolean isValid(int id, String usuario_email, int answer_to, String texto) throws Exception{
         boolean resp = false;
-        boolean cond1 = sigla.length() <= 10;
-        boolean cond2 = usuario_cpf.length() == 11;
-        boolean cond3 = answer_to == null || answer_to.length() <= 10;
-        boolean cond4 = texto.length() <= 500;
-        if(cond1 && cond2 && cond3 && cond4) resp = true;
+        boolean cond1 = usuario_email.length() <= 50;
+        boolean cond2 = texto.length() <= 500;
+        if(cond1 && cond2) resp = true;
         else{
-            if(!cond1) throw new Exception("ERRO: sigla invalida");
-            if(!cond2) throw new Exception("ERRO: usuario_cpf invalido");
-            if(!cond3) throw new Exception("ERRO: answer_to invalido");
-            if(!cond4) throw new Exception("ERRO: texto invalido");
+            if(!cond1) throw new Exception("ERRO: usuario_email invalido");
+            if(!cond2) throw new Exception("ERRO: texto invalido");
         }
         return resp;
     }
     /**
-	 * @return the sigla
+	 * @return the id
 	 */
-	public String getSigla() {
-		return sigla;
+	public int getid() {
+		return id;
 	}
 	/**
-	 * @param sigla the sigla to set
+	 * @param id the id to set
 	 */
-	public void setSigla(String sigla) throws Exception{
-        if(sigla.length() <= 10) this.sigla = sigla;
-        else throw new Exception("ERRO: sigla invalida");
+	public void setid(int id){
+        this.id = id;
 	}
 	/**
-	 * @return the usuario_cpf
+	 * @return the usuario_email
 	 */
-	public String getUsuario_cpf() {
-		return usuario_cpf;
+	public String getUsuario_email() {
+		return usuario_email;
 	}
 	/**
-	 * @param usuario_cpf the usuario_cpf to set
+	 * @param usuario_email the usuario_email to set
 	 */
-	public void setUsuario_cpf(String usuario_cpf) throws Exception{
-        if(usuario_cpf.length() == 11) this.usuario_cpf = usuario_cpf;
-        else throw new Exception("ERRO: usuario_cpf invalido");
+	public void setUsuario_email(String usuario_email) throws Exception{
+        if(usuario_email.length() <= 50) this.usuario_email = usuario_email;
+        else throw new Exception("ERRO: usuario_email invalido");
 	}
 	/**
 	 * @return the answer_to
 	 */
-	public String getAnswer_to() {
+	public int getAnswer_to() {
 		return answer_to;
 	}
 	/**
 	 * @param answer_to the answer_to to set
 	 */
-	public void setAnswer_to(String answer_to) throws Exception{
-        if(answer_to == null || answer_to.length() <= 10) this.answer_to = answer_to;
-        else throw new Exception("ERRO: answer_to invalido");
+	public void setAnswer_to(int answer_to){
+        this.answer_to = answer_to;
 	}
 	/**
 	 * @return the texto

@@ -1,42 +1,39 @@
 package classes;
 
 public class Faq{
-    private String sigla;
+    private int id;
     private String pergunta;
     private String resposta;
-    public Faq(String sigla, String pergunta, String resposta) throws Exception{
-        if(isValid(sigla, pergunta, resposta))
+    public Faq(int id, String pergunta, String resposta) throws Exception{
+        if(isValid(id, pergunta, resposta))
         {
-            this.sigla = sigla;
+            this.id = id;
             this.pergunta = pergunta;
             this.resposta = resposta;
         }
     }
-    public static boolean isValid(String sigla, String pergunta, String resposta) throws Exception{
+    public static boolean isValid(int id, String pergunta, String resposta) throws Exception{
         boolean resp = false;
-        boolean cond1 = sigla.length() <= 10;
-        boolean cond2 = pergunta.length() <= 200;
-        boolean cond3 = resposta.length() <= 400;
-        if(cond1 && cond2 && cond3) resp = true;
+        boolean cond1 = pergunta.length() <= 200;
+        boolean cond2 = resposta.length() <= 400;
+        if(cond1 && cond2) resp = true;
         else{
-            if(!cond1) throw new Exception("ERRO: sigla invalida");
-            if(!cond2) throw new Exception("ERRO: pergunta invalida");
-            if(!cond3) throw new Exception("ERRO: resposta invalida");
+            if(!cond1) throw new Exception("ERRO: pergunta invalida");
+            if(!cond2) throw new Exception("ERRO: resposta invalida");
         }
         return resp;
     }
     /**
-	 * @return the sigla
+	 * @return the id
 	 */
-	public String getSigla() {
-		return sigla;
+	public int getId() {
+		return id;
 	}
 	/**
-	 * @param sigla the sigla to set
+	 * @param id the id to set
 	 */
-	public void setSigla(String sigla) throws Exception{
-        if(sigla.length() <= 10) this.sigla = sigla;
-        else throw new Exception("ERRO: sigla invalida");
+	public void setId(int id) throws Exception{
+        this.id = id;
 	}
 	/**
 	 * @return the pergunta
