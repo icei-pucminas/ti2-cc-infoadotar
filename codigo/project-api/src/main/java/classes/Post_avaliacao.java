@@ -4,7 +4,7 @@ public class Post_avaliacao{
     private String usuario_email;
     private int post_id = -1;
     private int nota;
-    public Pergunta_avaliacao(String usuario_email, int post_id, int nota) throws Exception{
+    public Post_avaliacao(String usuario_email, int post_id, int nota) throws Exception{
         if(isValid(usuario_email, post_id, nota))
         {
             this.usuario_email = usuario_email;

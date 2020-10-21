@@ -1,12 +1,14 @@
 package dal;
 
+import constant.DataBaseData;
+import model.annotation.ColumnAnnotation;
+import model.annotation.TableAnnotation;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
-import java.util.*;
-
-import model.annotation.*;
-import constant.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DAO {
 	
@@ -26,11 +28,11 @@ public class DAO {
 					DataBaseData.userName, 
 					DataBaseData.password);
 			status = (conexao != null);
-			System.out.println("Conexão efetuada com o postgres!");
+			System.out.println("Conexï¿½o efetuada com o postgres!");
 		} catch (ClassNotFoundException e) { 
-			System.err.println("Conexão NÃO efetuada com o postgres -- Driver não encontrado -- " + e.getMessage());
+			System.err.println("Conexï¿½o Nï¿½O efetuada com o postgres -- Driver nï¿½o encontrado -- " + e.getMessage());
 		} catch (SQLException e) {
-			System.err.println("Conexão NÃO efetuada com o postgres -- " + e.getMessage());
+			System.err.println("Conexï¿½o Nï¿½O efetuada com o postgres -- " + e.getMessage());
 		}
 
 		return status;
@@ -74,11 +76,11 @@ public class DAO {
 			Field[] fields = type.getFields();
 			String columns = "";
 			String values = "";
-			
+
 			ColumnAnnotation column;
 			String valueAux;
 			Object aux;
-			
+
 			for (Field f : fields) {
 				try {
 					//Add only valid fields
@@ -105,7 +107,8 @@ public class DAO {
 			st.close();
 			status = true;
 			
-		} catch (SQLException u) {  
+		} catch (SQLException u) {
+			System.out.println("catch");
 			throw new RuntimeException(u);
 		}
 		

@@ -10,6 +10,7 @@ public final class Main {
 		new LoginController();
 		new CadastroController();
 		new SessionController();
+		new FAQController();
 	}
 
 	public static void main(String[] args) {

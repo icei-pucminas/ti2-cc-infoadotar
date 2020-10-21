@@ -1,13 +1,13 @@
 package controller;
 
-import java.util.List;
-
 import controller.annotation.ControllerAnnotation;
-import controller.util.*;
-import spark.*;
-import model.*;
+import controller.util.HTTPMethod;
+import dal.DAO;
+import model.UsuarioModel;
+import spark.Request;
+import spark.Response;
 
-import dal.*;
+import java.util.List;
 
 public class TesteController extends Controller {
 
@@ -20,7 +20,7 @@ public class TesteController extends Controller {
 		String result = "";
 		DAO con = new DAO();
 		con.conectar();
-		
+
 		List<UsuarioModel> s;
 		UsuarioModel newUsr = new UsuarioModel();
 		newUsr.email = "fulano.ciclano@mail.com";

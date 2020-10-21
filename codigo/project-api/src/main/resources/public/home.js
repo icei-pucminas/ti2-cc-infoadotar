@@ -88,7 +88,7 @@ window.onscroll = function() {
 	});
 };
 
-loadFAQ = () => {
+loadComunidade = () => {
 	let xhr = new XMLHttpRequest();
 	xhr.open("GET", "/comunidade");
 	xhr.onload = conteudoComunidade;
@@ -124,21 +124,23 @@ loadFAQ = () => {
 	xhr.send();
 }
 loadFAQSearch = (e) => {
-	if(e.target.value.length > 0 || e.target.value != " ") {
+	let entrada = e.target.value;
+	if(entrada.length > 0 || entrada != " ") {
 		let xhr = new XMLHttpRequest();
-		xhr.open("GET", `/faq/:${e.target.value}`);
+		xhr.open("GET", entrada.length == 0 ? "/faq" : `/faq/${entrada}`);
 		xhr.onload = conteudoFAQ;
 		xhr.send();
 	} else loadFAQ();
 }
-conteudoFAQ = () => {
+conteudoFAQ = (e) => {
 	let conteudo = "";
-	for(let i=1 ; i < 10 ; i++) {
+	let faq = JSON.parse(e.target.responseText)
+	for(let i=0 ; i < faq.length ; i++) {
 		conteudo += `
 		<div class="card card-faq-post">
 			<div class="card-content">
-			<span class="card-title grey-text text-lighten-2">FAQ #${i}</span>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.</p>
+			<span class="card-title grey-text text-lighten-2">${faq[i].pergunta}</span>
+			<p>${faq[i].resposta}</p>
 			</div>
 		</div>`;
 	}
@@ -186,4 +188,4 @@ onload = () => {
 }
 
 document.getElementById("togglefaq").onclick = loadFAQ;
-document.getElementById("pesquisafaq").oninput = loadFAQSearch;
+document.getElementById("pesquisafaq").oninput =  loadFAQSearch;

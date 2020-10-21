@@ -15,7 +15,7 @@ public class Post{
         }
     }
     public Post(int id, String usuario_email, String texto) throws Exception{
-        this(id, usuario_email, null, texto);
+        this(id, usuario_email, -1, texto);
     }
     public static boolean isValid(int id, String usuario_email, int answer_to, String texto) throws Exception{
         boolean resp = false;
