@@ -122,16 +122,16 @@ O infoAdotar possui, em seu banco de dados, 4 relações:
 * Email
 * Senha
 ##### A postagem contém:
-* Sigla para sua identificação
+* Id para sua identificação
 * Email do usuário que a criou
-* Sigla da postagem a qual ela responde, se for o caso
+* Id da postagem a qual ela responde, se for o caso
 * Conteúdo da postagem
 ##### A avaliação da postagem contém:
 * O email do usuário que a criou
-* A sigla identificadora da postagem
+* O Id identificador da postagem
 * A nota da avaliação
 ##### A pergunta do FAQ contém:
-* Sigla para sua identificação
+* Id para sua identificação
 * O título da pergunta
 * A resposta da pergunta
 <br>
