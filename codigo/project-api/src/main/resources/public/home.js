@@ -94,28 +94,30 @@ loadComunidade = () => {
 	xhr.onload = conteudoComunidade;
 	xhr.send();
 }
-conteudoComunidade = () => {
+conteudoComunidade = (e) => {
 	let conteudo = "";
-	for(let i=1 ; i < 10 ; i++) {
+	let posts = JSON.parse(e.target.responseText)
+	for(let i=0 ; i < posts.length ; i++) {
 		conteudo += `
 		<div class="card card-post">
 			<div id="post${i}" class="modal card">
 				<div class="modal-content">
-					<h4 class="black-text">Post #${i}</h4>
-					<p class="black-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.</p>
+					<h4 class="black-text">${posts[i].usuario_email} postou</h4>
+					<p class="black-text">${posts[i].texto}</p>
 				</div>
 				<div class="modal-footer">
 					<a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
 				</div>
 			</div>
 			<div class="card-content modal-trigger post-preview" data-target="post${i}">
-				<span class="card-title grey-text text-lighten-2">Post #${i}</span>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.</p>
+				<span class="card-title grey-text text-lighten-2">${posts[i].usuario_email}</span>
+				<p>${posts[i].texto}</p>
 			</div>
 		</div>`;
 	}
 	document.getElementById("comunidade").innerHTML = conteudo;
 }
+loadComunidade() 
 
 loadFAQ = () => {
 	let xhr = new XMLHttpRequest();
@@ -146,8 +148,6 @@ conteudoFAQ = (e) => {
 	}
 	document.getElementById("faqcontent").innerHTML = conteudo;
 }
-
-conteudoComunidade();
 
 getSession = () => {
 	let session = JSON.parse(sessionStorage.getItem("userdata"))
@@ -182,7 +182,6 @@ onload = () => {
 		}
 	}
 
-	conteudoFAQ()
 
 	getSession()
 }

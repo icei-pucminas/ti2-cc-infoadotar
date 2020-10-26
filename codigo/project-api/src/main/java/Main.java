@@ -11,6 +11,7 @@ public final class Main {
 		new CadastroController();
 		new SessionController();
 		new FAQController();
+		new ComunidadeController();
 	}
 
 	public static void main(String[] args) {

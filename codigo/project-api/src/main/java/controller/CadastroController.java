@@ -40,7 +40,7 @@ public class CadastroController extends Controller {
 			}
 		} catch (Exception e) {
 			res.status(500);
-			return gson.toJson(new Resposta(200, e.getMessage()));
+			resposta = new Resposta(500, e.getMessage());
 		}
 
 		dao.close();
