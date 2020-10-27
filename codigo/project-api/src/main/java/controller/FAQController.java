@@ -19,6 +19,7 @@ public class FAQController extends Controller {
         super();
     }
 
+    // retorna todo o conteudo da FAQ
     @ControllerAnnotation(method = HTTPMethod.get, path = "/faq")
     public String all(Request req, Response res) {
         dao.conectar();
@@ -31,6 +32,7 @@ public class FAQController extends Controller {
         return listagem;
     }
 
+    // retorna o conteudo que contenha na pergunta a query recebida
     @ControllerAnnotation(method = HTTPMethod.get, path = "/faq/:query")
     public String search(Request req, Response res) {
         dao.conectar();
@@ -43,6 +45,7 @@ public class FAQController extends Controller {
         return listagem;
     }
 
+    // insere uma faq na base de dados
     @ControllerAnnotation(method = HTTPMethod.post, path = "/faq")
     public String insert(Request req, Response res) {
         dao.conectar();

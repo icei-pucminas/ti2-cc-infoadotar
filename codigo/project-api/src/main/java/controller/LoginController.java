@@ -19,15 +19,16 @@ public class LoginController extends Controller {
 		super();
 	}
 
-//	@ControllerAnnotation (method = HTTPMethod.get, path = "/")
-//	public String loginPage(Request req, Response res) {
-//		res.type("text/html");
-//		try {
-//			return render.renderContent("/login.html");
-//		} catch (Exception e) {
-//			return e.getMessage();
-//		}
-//	}
+	@ControllerAnnotation (method = HTTPMethod.get, path = "/login")
+	public String loginPage(Request req, Response res) {
+		res.type("text/html");
+		try {
+			return render.renderContent("/login.html");
+		} catch (Exception e) {
+			return e.getMessage();
+		}
+	}
+
 	@ControllerAnnotation (method = HTTPMethod.post, path = "/login")
 	public String login(Request req, Response res) {
 		dao.conectar();
