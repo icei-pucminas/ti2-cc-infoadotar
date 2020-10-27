@@ -107,6 +107,12 @@ para definir as entradas e saídas do seu módulo de serviço inteligente. Apres
 e em que módulo será utilizado.-->
 O sistema do infoAdotar ainda não conta com serviços inteligentes, embora este tópico esteja na lista de recursos a serem implementados.
 
+O sistema do infoadotar conta com serviços inteligentes de chatbot de informações, no qual responde à perguntas definidas em um conjunto de conhecimentos utilizando o QnA Maker dos Serviços Cognitivos e responde outras perguntas gerais utilizando o Azure Cognitive Search, a fim de enriquecer a experiência do usuario, melhorar a performance do projeto e possibilitar com que os usuarios sanem suas dúvidas de forma rápida e prática.
+
+##### Estrutura do Chatbot: 
+
+##### Informações sobre o fluxo:
+
 	
 **3. Modelagem de dados**
 
