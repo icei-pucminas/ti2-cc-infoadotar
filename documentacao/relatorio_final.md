@@ -105,7 +105,16 @@ retornar uma resposta ao usuário. -->
 Descreva o mecanismo de inteligência que será utilizado no seu sistema. Utilize a modelagem baseada em agente
 para definir as entradas e saídas do seu módulo de serviço inteligente. Apresente quem irá fornecer o serviço
 e em que módulo será utilizado.-->
-O sistema do infoAdotar ainda não conta com serviços inteligentes, embora este tópico esteja na lista de recursos a serem implementados.
+
+O sistema do infoadotar conta com serviços inteligentes de chatbot de informações, no qual responde à perguntas definidas em um conjunto de conhecimentos utilizando o QnA Maker dos Serviços Cognitivos e responde outras perguntas gerais utilizando o Azure Cognitive Search, a fim de enriquecer a experiência do usuario, melhorar a performance do projeto e possibilitar com que os usuarios sanem suas dúvidas de forma rápida e prática.
+
+##### Estrutura do Chatbot: 
+
+<p align="center"><img src="imagens/EstruturaSI.png" /></p>
+
+##### Informações sobre o fluxo:
+
+<p align="center"><img src="imagens/FluxoEstruturaSI.png" /></p>
 
 	
 **3. Modelagem de dados**
