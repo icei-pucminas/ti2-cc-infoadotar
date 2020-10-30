@@ -24,7 +24,7 @@ main {
 }
 
 .painel-lateral {
-	background: url("backdrop4.jpg");
+	background: url("../../img/backdrop4.jpg");
 	background-position: center;
 	background-repeat: no-repeat;
 	color: whitesmoke;

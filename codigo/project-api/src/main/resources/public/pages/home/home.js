@@ -1,5 +1,3 @@
-//#region Home
-
 const switch_darkmode = document.getElementById("toggle_nightmode");
 const switch_darkmode_mobile = document.getElementById("toggle_nightmode_mobile");
 
@@ -90,67 +88,6 @@ window.onscroll = function() {
 	});
 };
 
-loadComunidade = () => {
-	let xhr = new XMLHttpRequest();
-	xhr.open("GET", "/comunidade");
-	xhr.onload = conteudoComunidade;
-	xhr.send();
-}
-conteudoComunidade = (e) => {
-	let conteudo = "";
-	let posts = JSON.parse(e.target.responseText)
-	for(let i=0 ; i < posts.length ; i++) {
-		conteudo += `
-		<div class="card card-post">
-			<div id="post${i}" class="modal card">
-				<div class="modal-content">
-					<h4 class="black-text">${posts[i].usuario_email} postou</h4>
-					<p class="black-text">${posts[i].texto}</p>
-				</div>
-				<div class="modal-footer">
-					<a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
-				</div>
-			</div>
-			<div class="card-content modal-trigger post-preview" data-target="post${i}">
-				<span class="card-title grey-text text-lighten-2">${posts[i].usuario_email}</span>
-				<p>${posts[i].texto}</p>
-			</div>
-		</div>`;
-	}
-	document.getElementById("comunidade").innerHTML = conteudo;
-}
-loadComunidade() 
-
-loadFAQ = () => {
-	let xhr = new XMLHttpRequest();
-	xhr.open("GET", "/faq");
-	xhr.onload = conteudoFAQ;
-	xhr.send();
-}
-loadFAQSearch = (e) => {
-	let entrada = e.target.value;
-	if(entrada.length > 0 || entrada != " ") {
-		let xhr = new XMLHttpRequest();
-		xhr.open("GET", entrada.length == 0 ? "/faq" : `/faq/${entrada}`);
-		xhr.onload = conteudoFAQ;
-		xhr.send();
-	} else loadFAQ();
-}
-conteudoFAQ = (e) => {
-	let conteudo = "";
-	let faq = JSON.parse(e.target.responseText)
-	for(let i=0 ; i < faq.length ; i++) {
-		conteudo += `
-		<div class="card card-faq-post">
-			<div class="card-content">
-			<span class="card-title grey-text text-lighten-2">${faq[i].pergunta}</span>
-			<p>${faq[i].resposta}</p>
-			</div>
-		</div>`;
-	}
-	document.getElementById("faqcontent").innerHTML = conteudo;
-}
-
 getSession = () => {
 	let session = JSON.parse(sessionStorage.getItem("userdata"))
 	let xhr = new XMLHttpRequest()
@@ -190,48 +127,3 @@ onload = () => {
 
 document.getElementById("togglefaq").onclick = loadFAQ;
 document.getElementById("pesquisafaq").oninput =  loadFAQSearch;
-
-//#endregion
-
-//#region Graphs
-
-Chart.defaults.global.defaultFontColor = 'black';
-const ctx = document.getElementById('myChart').getContext('2d');
-let myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Etapa 1', 'Etapa 2', 'Etapa 3', 'Etapa 4', 'Etapa 5', 'Etapa 6'],
-        datasets: [{
-            label: 'Andamenento',
-            data: [100, 60, 20, 35, 15, 25],
-            backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(54, 162, 235)',
-                'rgb(255, 206, 86)',
-                'rgb(75, 192, 192)',
-                'rgb(153, 102, 255)',
-                'rgb(255, 159, 64)'
-            ],
-            borderColor: [
-                'rgb(255, 99, 132)',
-                'rgb(54, 162, 235)',
-                'rgb(255, 206, 86)',
-                'rgb(75, 192, 192)',
-                'rgb(153, 102, 255)',
-                'rgb(255, 159, 64)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
-
-//#endregion

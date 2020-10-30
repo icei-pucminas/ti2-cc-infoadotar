@@ -1,0 +1,99 @@
+* {
+    font-family: Manrope;
+}
+
+main {
+	margin: 0px 1em 1em 1em !important;
+}
+
+hr {
+	color: gray;
+    border: 0;
+    width: 80%;
+    border-radius: 60%;
+}
+
+.sidenav-overlay{
+    height: 100% !important;
+}
+
+.side-area
+{
+    top: -10px;
+    max-width: 201px;
+}
+
+
+.nav-wrapper, nav {
+    border-radius: 1em;
+}
+header {
+	margin: 0.8em;
+}
+
+nav > .nav-wrapper { height: 3rem; }
+
+.dropdown-trigger img { height: 1vh; }
+
+.profile-menu {
+    height: 61em;
+    box-shadow: none;
+}
+
+.bottom-item {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+    position: absolute;
+    bottom: 5em;
+    margin: auto;
+    width: 100%;
+}
+
+.name{
+   padding: 0 .75rem !important;
+}
+
+#nightmode-state { padding-right: 1em ; }
+
+.card {
+    border-radius: 2em 2em!important;
+    transition: all 0.7s ease-in-out;
+}
+.card-action { border-radius: 1.3em 1.3em 2em 2em !important; }
+
+@media (max-width: 800px) {
+    nav > .nav-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+	}
+}
+@media (min-width: 801px) {
+    nav > .nav-wrapper {
+        padding-left: 1rem;
+    }
+	.main-area { padding: 3rem !important; }
+	body{
+		overflow: hidden;
+	}
+}
+
+.nav-wrapper { transition: all 0.7s; }
+body { transition: all 0.7s; }
+body.dark  {
+    background-color: #212121;
+    color: whitesmoke;
+}
+.card.dark {
+    transition: background-color 0.7s;
+    background-color: #8d8d8d;
+}
+.card-content { color: whitesmoke; }
+
+.sidenav.dark {
+	background-color: #414141;
+}
+.sidenav.dark a { color: whitesmoke; }
+.sidenav.dark a .material-icons { color: whitesmoke; }
+
+.rosa { color: #E64398; }

@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Início - infoAdotar</title>
     <link rel="favicon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="views/home/style.css">
+    <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="general.css">
-
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.bundle.min.js" integrity="sha256-TQq84xX6vkwR0Qs1qH5ADkP+MvH0W+9E7TdHJsoIQiM=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <!-- Fontes -->
@@ -17,9 +17,11 @@
     <!-- Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.2/nouislider.min.js" integrity="sha512-hwgsSKm7cPjNHLACxyMGVRrd7cH+wveyYM1ZxWxxbCZd/pXdMukyuIrrCjt2I7iLsmYDk02B1ZUcarEv1A3RVQ==" crossorigin="anonymous"></script>
+
 </head>
 <body>
-    <header class="hide-on-med-and-up">
+    <header class="hide-on-large-only">
         <nav class="center-align">
             <div class="nav-wrapper white">
                 <a href="#" data-target="sidenav-home" class="sidenav-trigger waves-effect left-align"><i class="material-icons pink-text">menu</i></a>
@@ -42,7 +44,7 @@
         <li><a href="#!"><i class="material-icons waves-effect">help</i>Opção 3</a></li>
         <li><div class="divider"></div></li>
         <li><a class="subheader">Subheader</a></li> -->
-        <li><a class="waves-effect" href="/">Sair</a></li>
+        <li><a class="waves-effect" href="index.html">Sair</a></li>
         <li class="row center-align">
             <label class="col s12">
                 <span class="pink-text">Modo escuro</span>
@@ -53,12 +55,12 @@
     </ul>
 
     <main class="row">
-        <div class="col s0 m1 hide-on-small-only side-area">
+        <div class="col m0 l2 xl1 hide-on-med-and-down side-area">
             <div class="card profile-menu row">
                 <div class="col s12 center-align card-image waves-effect waves-block waves-light">
-                    <img class="activator" style="border-radius: 50%; padding: 1em;" src="https://picsum.photos/50">
+                    <img class="activator" style="border-radius: 50%; padding: 5px;" src="https://picsum.photos/50">
                 </div>
-                <div class="col s12 center-align card-content">
+                <div class="col s12 center-align card-content name">
                     <span class="card-title activator grey-text text-darken-4 campoNomeUsuario" style="font-size: 1.3em;"> <small>Carregando</small> </span>
                 </div>
                 <div class="col s12 center-align card-reveal">
@@ -81,7 +83,7 @@
             </div>
         </div>
 
-        <div class="col s12 m11 main-area">
+        <div class="col m12 l10 xl11 main-area">
 
             <div class="row">
                 <div class="col s12 m8">
@@ -91,7 +93,7 @@
                             <div class="card-content">
                                 <span class="card-title grey-text">Resumo</span>
                                 <!-- <p><canvas id="myChart" width="400" height="400"></canvas></p> -->
-                                
+
 
                                 <div id="resumocontent">
 
@@ -164,7 +166,41 @@
                     <div class="row">
                         <div class="card">
                             <div class="card-content">
-                                <span class="card-title grey-text" style="height: fit-content;">Comunidade</span>
+								<div class="row newpost-header" style="flex-wrap: wrap; display: flex;">
+									<span class="card-title grey-text col s12" style="text-align: center; height: fit-content; margin: auto !important;">Comunidade </span> 
+									<a class="center-align waves-effect waves-light btn modal-trigger col s12 l8 xl6" id="togglenewpost" href="#addpost"><i class="material-icons left">add</i>NOVO POST</a>
+								</div>
+								<div id="addpost" class="card modal">
+									<div class="modal-content card-content">
+										<span class="grey-text realizar-post-modal">
+											<div class="row topo-faq">
+												<h4 style="width: -webkit-fill-available;" class="card-title black-text text-lighten-2">Realizar postagem</h4>
+												<div class="modal-footer">
+													<a href="#!" class="modal-close btn-flat"><i class="material-icons" style="font-size: xx-large !important;">close</i></a>
+												</div>
+											</div>
+											<div id="postcontent">
+												<iframe name="dummyframe2" id="dummyframe2" style="display: none;"></iframe>                     
+												<div class="row">
+													<form class="col s12" id="post-form" onsubmit="postar()" target="dummyframe2" enctype="application/x-www-form-urlencoded">
+														<div class="row">
+														<div class="input-field col s12">
+															<i class="material-icons prefix">mode_edit</i>
+															<textarea name="texto" id="text-post" class="materialize-textarea"></textarea>
+															<label for="text-post">Escreva seu post aqui</label>
+															<input name="answer_to" id="answer_to_value" type="hidden" value="">
+															<input name="id" type="hidden" id="post_id_value" value="">
+															<input name="usuario_email" type="hidden" id="email_crarpost">
+														</div>
+														<button type="submit" style="float: right; border-radius: 2em;" class="waves-effect waves-light blue darken-1 btn" id="sendpost" type="submit"><i style="color: #0b4591;" class="material-icons left">send</i>enviar</button>
+														</div>
+													</form>
+												</div>
+											</div>
+										</span>
+									</div>
+								</div>
+
 								<div id="comunidade">	<!-- Conteudo da comunidade -->
 
 									<div class="card card-post">
@@ -176,14 +212,34 @@
 
 								</div>
 
-								<div id="postmodal" class="modal card">
+								<!-- <div id="postmodal" class="modal card">
 									<div class="modal-content">
-										<h4 class="black-text">Post #1</h4>
-										<p class="black-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.</p>
-									</div>
-									<div class="modal-footer">
-										<a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
-									</div>
+                                        <h4 class="black-text">Post #1</h4>
+                                        <div>
+                                            <p class="black-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
+                                            </p>
+                                            <span class="rating-area">
+                                                <span class="card-title grey-text">Avalie esse post</span>
+                                                <form action="#">
+                                                    <p class="range-field">
+                                                        <input type="range" id="nota" value="1" min="1" max="5" oninput="this.nextElementSibling.value = 'Nota: ' + this.value + '/5'"/>
+                                                        <output for="nota" class="grey-text">Nota: 1/5</output>
+                                                    </p>
+                                                    <div class="center-align">
+                                                        <button class="btn waves-effect waves-light" type="submit" name="action">Avaliar
+                                                            <i class="material-icons right">send</i>
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </span>
+                                        </div>
+                                    </div> -->
 								</div>
 								
                             </div>
@@ -197,7 +253,109 @@
         </div>
     </main>
 
-	<script src="views/home/script.js"></script>
+    <!-- <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+    <div id="postmodal" class="modal card">
+        <div class="modal-content">
+            <h4 class="black-text" id="postemail">Post #1</h4>
+            <div class="conteudo-postagem">
+                <p class="black-text" id="posttexto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
+                </p>
+                <span class="rating-area">
+                    <span class="card-title grey-text">Avalie esse post</span>
+                    <form target="dummyframe" onsubmit="avaliar()">
+                        <p class="range-field">
+                            <input type="hidden" name="post_id" id="avaliarpost_id">
+                            <input type="hidden" name="usuario_email" id="avaliarusuario_email">
+                            <input type="range" id="nota" value="1" min="1" max="5" oninput="this.nextElementSibling.value = 'Nota: ' + this.value + '/5'"/>
+                            <output for="nota" class="grey-text">Nota: 1/5</output>
+                        </p>
+                        <div class="center-align">
+                            <button class="btn waves-effect waves-light" type="submit" name="action">Avaliar
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </form>
+                </span>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+        </div>
+    </div> -->
+    
+    <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+    <div id="postmodal" class="modal card">
+        <div class="modal-content">
+            <div>
+                <h4 class="black-text" id="postemail">Post #1</h4>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close btn-flat"><i class="material-icons" style="font-size: xx-large !important;">close</i></a>
+                </div>
+            </div>
+            <div class="conteudo-postagem">
+                <p class="black-text" id="posttexto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
+                </p>
+                <span class="rating-area">
+                    <span class="card-title grey-text">Avalie esse post</span>
+                    <form target="dummyframe" onsubmit="avaliar()">
+                        <p class="range-field">
+                            <input type="hidden" name="post_id" id="avaliarpost_id">
+                            <input type="hidden" name="usuario_email" id="avaliarusuario_email">
+                            <input type="range" id="nota" value="1" min="1" max="5" oninput="this.nextElementSibling.value = 'Nota: ' + this.value + '/5'"/>
+                            <output for="nota" class="grey-text">Nota: 1/5</output>
+                        </p>
+                        <div class="center-align">
+                            <button class="btn waves-effect waves-light type-btn" type="submit" name="action">Avaliar
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </form>
+                </span>
+            </div>
+
+            <h4 class="black-text">Respostas</h4>
+            <div id="campo-respostas" class="row">  <!-- Campo que recebe as respostas -->
+
+                <div class="card card-post col s12">
+                    <div class="card-content modal-trigger post-preview">
+                        <span class="card-title grey-text text-lighten-2">Resposta #1</span>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.</p>
+                    </div>
+                </div>
+
+            </div>
+                
+            <form class="col s12" id="resposta-form" onsubmit="responder()" target="dummyframe" enctype="application/x-www-form-urlencoded">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">mode_edit</i>
+                        <textarea name="texto" id="text-resposta" class="materialize-textarea"></textarea>
+                        <label for="text-resposta">Responder post</label>
+                        <input name="answer_to" id="answer_to_id" type="hidden" value="">
+                        <input name="usuario_email" type="hidden" id="email_responder">
+                    </div>
+                    
+                    <button type="submit" class="btn waves-effect waves-light type-btn" id="sendresposta" type="submit">
+                        <i class="material-icons right">send</i>Responder
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    <script src="modal.js"></script>
+	<script src="home.js"></script>
     <script>
         M.AutoInit();
     </script>
