@@ -1,3 +1,5 @@
+//#region Home
+
 const switch_darkmode = document.getElementById("toggle_nightmode");
 const switch_darkmode_mobile = document.getElementById("toggle_nightmode_mobile");
 
@@ -88,93 +90,36 @@ window.onscroll = function() {
 	});
 };
 
-openpost = (e) => {
-    let email = e.querySelector(".card-title").innerText // o email tem que ser do usuário logado, desse jeito o email ta sendo o de quem fez o post
-    let texto = e.querySelector("p").innerText
-	let post_id = e.querySelector(".post_idholder").value
-
-    document.getElementById("postemail").innerHTML = email + "<span style=\"font-size: 0.6em; padding-left: 0.5em;\"> postou</span>"
-	document.getElementById("posttexto").innerText = texto
-	
-	document.getElementById("avaliarusuario_email").value = email
-	document.getElementById("avaliarpost_id").value = post_id
-
-	let temp = ""
-	for(let i=0 ; i < conteudo_comunidade.length ; i++) {
-		if(conteudo_comunidade[i].answer_to == post_id) {
-			tempo += `
-			<div class="card card-post col s12">
-				<div class="card-content modal-trigger post-preview">
-					<span class="card-title grey-text text-lighten-2">${conteudo_comunidade[i].email}</span>
-					<p>${conteudo_comunidade[i].text}</p>
-				</div>
-			</div>`
-		}
-	}
-	document.getElementById("campo-respostas").innerHTML = temp
-
-    modalpost.open()
-}
-
-avaliar = (e) => {
-	fetch("/avaliar", {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json"
-		},
-		body: JSON.stringify({
-            "usuario_email": document.getElementById("avaliarusuario_email").value, //email,
-            "post_id": document.getElementById("avaliarpost_id").value,
-            "nota": document.getElementById("nota").value
-		}),
-		redirect: "manual"
-	})  .then(res => res.json())
-	    .then(data => {
-			modalpost.close()
-			if(data.status == 200) {
-				alert("Postagem avaliada com sucesso!")
-			} else {
-					alert("Algum erro ocorreu durante a avaliação da postagem.")
-			}
-	  })
-}
-
 loadComunidade = () => {
-	let xhr = new XMLHttpRequest()
-	xhr.open("GET", "/comunidade")
-	xhr.onload = conteudoComunidadeGeneral
-	xhr.send()
+	let xhr = new XMLHttpRequest();
+	xhr.open("GET", "/comunidade");
+	xhr.onload = conteudoComunidade;
+	xhr.send();
 }
-openpost = (e) => {
-    let email = e.querySelector(".card-title").innerText // o email tem que ser do usuário logado, desse jeito o email ta sendo o de quem fez o post
-    let texto = e.querySelector("p").innerText
-	let post_id = e.querySelector(".post_idholder").value
-
-    document.getElementById("postemail").innerHTML = email + "<span style=\"font-size: 0.6em; padding-left: 0.5em;\"> postou</span>"
-	document.getElementById("posttexto").innerText = texto
-	
-	document.getElementById("avaliarusuario_email").value = email
-	document.getElementById("avaliarpost_id").value = post_id
-
-    modalpost.open()
-
-}
-conteudoComunidadeGeneral = (e) => {
+conteudoComunidade = (e) => {
 	let conteudo = "";
 	let posts = JSON.parse(e.target.responseText)
 	for(let i=0 ; i < posts.length ; i++) {
 		conteudo += `
 		<div class="card card-post">
-			<div class="card-content post-preview" onclick="openpost(this)">
+			<div id="post${i}" class="modal card">
+				<div class="modal-content">
+					<h4 class="black-text">${posts[i].usuario_email} postou</h4>
+					<p class="black-text">${posts[i].texto}</p>
+				</div>
+				<div class="modal-footer">
+					<a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+				</div>
+			</div>
+			<div class="card-content modal-trigger post-preview" data-target="post${i}">
 				<span class="card-title grey-text text-lighten-2">${posts[i].usuario_email}</span>
-				<input type="hidden" class="post_idholder" value="${posts[i].id}"/>
 				<p>${posts[i].texto}</p>
 			</div>
 		</div>`;
 	}
 	document.getElementById("comunidade").innerHTML = conteudo;
 }
-
+loadComunidade() 
 
 loadFAQ = () => {
 	let xhr = new XMLHttpRequest();
@@ -243,34 +188,8 @@ onload = () => {
 	getSession()
 }
 
-responder = (e) => {
-	fetch("/postar", {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json"
-		},
-		body: JSON.stringify({
-            "id": JSON.parse(sessionStorage.getItem("last_post")) + 1,
-            "texto": document.getElementById("text-resposta").value,
-            "usuario_email": document.getElementById("email_crarpost").value,
-            "answer_to": document.getElementById("answer_to_id").value
-		}),
-		redirect: "manual"
-	})  .then(res => res.json())
-	    .then(data => {
-			if(data.status == 200) {
-				alert("Postagem realizada com sucesso!")
-			} else {
-				alert("Algum erro ocorreu durante a criação da postagem.")
-			}
-			loadComunidade()	// recarrega a comunidade
-			document.getElementById("text-resposta").value = ""		// limpa a caixa de texto
-	  })
-}
-
 document.getElementById("togglefaq").onclick = loadFAQ;
 document.getElementById("pesquisafaq").oninput =  loadFAQSearch;
-
 
 //#endregion
 

@@ -69,69 +69,6 @@ canvas {
     background-color: #707070 !important;
 }
 
-#postmodal > .modal-content > div {
-    display: flex;
-    justify-content: space-between;
-}
-
-#postmodal > .modal-content > div > p {
-    padding: 1em;
-}
-
-.rating-area {
-    padding: 1em;
-    min-width: 15em;
-    display: flex;
-    flex-direction: column;
-
-    justify-content: flex-start;
-    border-left: #d0d0d0 solid 1px;
-}
-
-.rating-area button {
-    border-radius: 2em;
-    margin: 15px;
-}
-
-#postmodal::-webkit-scrollbar, #modalfaq::-webkit-scrollbar {
-    width: 1px;
-} 
-
-textarea.materialize-textarea:focus:not([readonly])
-{
-    border-bottom: 1px solid #E64398 !important;
-    -webkit-box-shadow: 0 1px 0 0#E64398 !important;
-    box-shadow: 0 1px 0 0#E64398 !important;
-}
-textarea.materialize-textarea:focus:not([readonly])+label {
-    color:#E64398 !important;
-}
-.input-field .prefix.active{
-    color: #E64398 !important;
-}
-
-input[type=range] + .thumb .value {
-    color: #E64398 !important;
-}
-input[type=range]::-webkit-slider-thumb {
-    background-color: #E64398 !important;
-}
-
-.type-btn  {
-    border-radius: 2em !important;
-    margin: 15px;
-	background: #E64398 !important;
-}
-.type-btn :hover {
-    border: solid #E64398 2px;
-    background: white !important;
-    color: #707070;
-    font-weight: 400;
-}
-.type-btn :active {
-    border: solid #E64398 1px;
-}
-
 .modal-footer { background: none !important; }
 
 @media (max-width: 768px) {

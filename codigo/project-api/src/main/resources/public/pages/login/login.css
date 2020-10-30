@@ -1,0 +1,105 @@
+* {	
+	overflow: hidden;
+	font-family: Quicksand;
+}
+
+small {
+	font-size: 1rem !important;
+	font-weight: 500;
+}
+
+body {
+	background-color: grey;
+}
+
+#login * {z-index: 0;}
+#cadastro * {z-index: 2;}
+
+.row {
+	margin: 0 !important;
+}
+
+main {
+	height: 100vh;
+}
+
+.painel-lateral {
+	background: url("backdrop4.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	color: whitesmoke;
+	display: flex;
+	flex-direction: column;
+    justify-content: space-evenly;
+	height: 100vh;
+}
+.painel-lateral > div {
+	font-size: 1.4em;
+	line-height: 2.2em;
+	text-align: center;
+}
+
+#cadastro > .painel-lateral {
+	background-size: cover;
+}
+
+h3 {
+	font-weight: 800 !important;
+	font-size: 5em !important;
+}
+
+.painel-login {
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+    justify-content: space-evenly;
+    height: 100vh;
+}
+.painel-login > h2 { font-weight: 800; }
+.painel-login button {
+	background: none;
+	color: black;
+	border-radius: 3rem;
+	outline: none;
+	border: 2px solid black;
+	box-shadow: none;
+}
+
+a.waves-effect {
+	background: none;
+	border-radius: 3rem;
+	outline: none;
+	border: 2px solid white;
+	box-shadow: none;
+	max-width: 14em;
+	margin-top: 2em;
+}
+
+.hide-on-large-only .waves-effect {
+	background: none;
+	border-radius: 3rem;
+	outline: none;
+	color: rgb(204, 34, 63);
+	border: 2px solid  rgb(204, 34, 63);
+	box-shadow: none;
+	max-width: 14em;
+	margin-top: 2em;
+}
+
+button:disabled {
+	border: 2px solid grey;
+}
+
+.rosa { color: #E64398; }
+.botao {
+	border: 2px solid white;
+	border-radius: 3em;
+	font-variant: small-caps;
+	padding: 5px 10px;
+}
+
+.btmobile{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
