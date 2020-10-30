@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS public."FAQ"
 
 CREATE TABLE IF NOT EXISTS public."POST_AVALIACAO" 
 (
-  "usuario_email" CHAR(50) UNIQUE NOT NULL,
+  "usuario_email" CHAR(50) NOT NULL,
   "post_id" INT NOT NULL,
   "nota" INT NOT NULL,
   PRIMARY KEY ("usuario_email", "post_id"),
