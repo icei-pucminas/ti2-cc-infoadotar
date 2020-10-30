@@ -69,7 +69,7 @@ switch_darkmode_mobile.onchange = () => toggleDarkMode(switch_darkmode_mobile);
 
 pickBackground = () => {
 	let x = Math.floor(Math.random() * 6);
-	document.body.style.background =  `url(backdrop${x}.jpg)`;
+	document.body.style.background =  `url(../../img/backdrop${x}.jpg)`;
 	document.body.style.backgroundSize = "cover";
 	document.body.style.backgroundPosition = "center";
 	document.body.style.backgroundRepeat = "no-repeat";
