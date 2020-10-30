@@ -1,5 +1,6 @@
 package controller.util;
 
+import constant.Constants;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -28,4 +29,7 @@ public class Render {
         return null;
     }
 
+    public String renderView(String viewName) {
+    	return this.renderContent(Constants.viewPath + viewName + "/index.html");
+    }
 }

@@ -1,6 +1,6 @@
 package dal;
 
-import constant.DataBaseData;
+import constant.Constants;
 import model.annotation.ColumnAnnotation;
 import model.annotation.TableAnnotation;
 
@@ -22,11 +22,11 @@ public class DAO {
 		boolean status = false;
 
 		try {
-			Class.forName(DataBaseData.driverName);
+			Class.forName(Constants.driverName);
 			conexao = DriverManager.getConnection(
-					DataBaseData.url, 
-					DataBaseData.userName, 
-					DataBaseData.password);
+					Constants.url, 
+					Constants.userName, 
+					Constants.password);
 			status = (conexao != null);
 			System.out.println("Conex�o efetuada com o postgres!");
 		} catch (ClassNotFoundException e) { 
@@ -54,8 +54,9 @@ public class DAO {
 		String result;
 		Object aux = f.get(obj);
 		
+		Class<?> type = aux.getClass();
 		if (aux != null) {
-			if (aux.getClass() == String.class) {
+			if (type == String.class || type == Timestamp.class) {
 				result = "'" + aux.toString() + "'";
 			} else {
 				result = aux.toString();

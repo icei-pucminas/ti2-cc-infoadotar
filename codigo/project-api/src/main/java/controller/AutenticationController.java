@@ -4,31 +4,44 @@ import controller.annotation.*;
 import controller.util.*;
 import spark.*;
 import model.*;
+import dal.*;
+
 import java.security.*;
 import java.util.*;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.math.*;
-import dal.*;
 import java.sql.Timestamp;
+
+import org.eclipse.jetty.util.MultiMap;
+import org.eclipse.jetty.util.UrlEncoded;
 
 
 
 public class AutenticationController extends Controller {
 	
 	public static DAO dao = new DAO();
-	
+	public static Render render = new Render();
+
+
+	@ControllerAnnotation (method = HTTPMethod.get, path = "/login")
+	public String loginGet (Request req, Response res) {
+		res.type("text/html");
+		try {
+			return render.renderView("login");
+		} catch (Exception e) {
+			return e.getMessage();
+		}
+	}
 	
 	@ControllerAnnotation(method = HTTPMethod.post, path = "/login")
-	public void login (Request req, Response res) {
+	public void loginPost (Request req, Response res) {
 		
 		try {
 		
-		System.out.println("body::" + req.body());
-		
-		// 3 - Processamento 
-		String email = req.queryParams("email");
-		String senha = req.queryParams("senha");
+		FormReader fr = new FormReader(req);
+		String email = fr.readValue("email");
+		String senha = fr.readValue("senha");
 		
 		MessageDigest m=MessageDigest.getInstance("MD5");
 		m.update(email.getBytes(),0,email.length());
@@ -37,7 +50,7 @@ public class AutenticationController extends Controller {
 		
 		// 4 - Verificação
 		dao.conectar();
-		List<UsuarioModel> usuario = dao.<UsuarioModel>select(UsuarioModel.class, "hash = " + hash );
+		List<UsuarioModel> usuario = dao.<UsuarioModel>select(UsuarioModel.class, "hash = '" + hash + "'");
 		
 		if (usuario.size() == 0) {
 			

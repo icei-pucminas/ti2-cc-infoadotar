@@ -5,11 +5,8 @@ import static spark.Spark.*;
 public final class Main {
 	
 	public static void includeControllers() {
-		new TesteController();
 		new MainController();
-		new LoginController();
-		new CadastroController();
-		new SessionController();
+		new AutenticationController();
 		new FAQController();
 		new ComunidadeController();
 	}

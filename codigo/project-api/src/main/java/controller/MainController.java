@@ -15,17 +15,7 @@ public class MainController extends Controller {
 	public String index(Request req, Response res) {
 		res.type("text/html");
 		try {
-			return render.renderContent("/index.html");
-		} catch (Exception e) {
-			return e.getMessage();
-		}
-	}
-
-	@ControllerAnnotation (method = HTTPMethod.get, path = "/login")
-	public String login(Request req, Response res) {
-		res.type("text/html");
-		try {
-			return render.renderContent("/login.html");
+			return render.renderView("index");
 		} catch (Exception e) {
 			return e.getMessage();
 		}
