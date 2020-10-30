@@ -132,7 +132,7 @@ cadastroEnviado = () => {
 		if(resposta.status == 200) {
 			// login deu certo
 			sessionStorage.setItem("userdata", json)
-			window.location.href = "home.html"
+			window.location.href = "../home/home.html"
 		} else if(resposta.status == 400) {
 			// senha incorreta
 			alert("Email já cadastrado.")
@@ -163,7 +163,7 @@ loginEnviado = () => {
 			// login deu certo
 			
 			sessionStorage.setItem("userdata", json)
-			window.location.href = "home.html"
+			window.location.href = "../home/home.html"
 		} else if(resposta.status == 403) {
 			// senha incorreta
 			alert("Senha incorreta")
