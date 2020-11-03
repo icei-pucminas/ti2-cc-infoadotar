@@ -12,5 +12,5 @@ public class Constants {
 	public static String password = "ti@cc";
 	
 	//Url
-	public static String viewPath = "/public/views/";
+	public static String viewPath = "/public/pages/";
 }

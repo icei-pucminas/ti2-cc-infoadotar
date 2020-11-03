@@ -15,7 +15,7 @@ public class MainController extends Controller {
 	public String index(Request req, Response res) {
 		res.type("text/html");
 		try {
-			return render.renderView("index");
+			return render.renderContent("pages/index/index.html");
 		} catch (Exception e) {
 			return e.getMessage();
 		}
