@@ -6,7 +6,7 @@ public final class Main {
 	
 	public static void includeControllers() {
 		new MainController();
-		new AutenticationController();
+		new AuthenticationController();
 		new FAQController();
 		new ComunidadeController();
 	}

@@ -12,7 +12,7 @@ import spark.Response;
 import java.util.List;
 
 public class FAQController extends Controller {
-    public static DAO dao = new DAO();
+	
     public static Gson gson	= new Gson();
 
     public FAQController() {
@@ -20,7 +20,7 @@ public class FAQController extends Controller {
     }
 
     // retorna todo o conteudo da FAQ
-    @ControllerAnnotation(method = HTTPMethod.get, path = "/faq")
+    @ControllerAnnotation(method = HTTPMethod.get, path = "/faq", isPrivate = true)
     public String all(Request req, Response res) {
         dao.conectar();
         res.header("Content-Type", "application/json");
@@ -33,7 +33,7 @@ public class FAQController extends Controller {
     }
 
     // retorna o conteudo que contenha na pergunta a query recebida
-    @ControllerAnnotation(method = HTTPMethod.get, path = "/faq/:query")
+    @ControllerAnnotation(method = HTTPMethod.get, path = "/faq/:query", isPrivate = true)
     public String search(Request req, Response res) {
         dao.conectar();
         res.header("Content-Type", "application/json");
@@ -46,7 +46,7 @@ public class FAQController extends Controller {
     }
 
     // insere uma faq na base de dados
-    @ControllerAnnotation(method = HTTPMethod.post, path = "/faq")
+    @ControllerAnnotation(method = HTTPMethod.post, path = "/faq", isPrivate = true)
     public String insert(Request req, Response res) {
         dao.conectar();
         res.header("Content-Type", "application/json");

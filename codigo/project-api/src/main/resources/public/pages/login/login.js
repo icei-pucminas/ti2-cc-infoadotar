@@ -62,7 +62,7 @@ checkEmail = (e) => {
     }
 }
 checkSenha = (e) => {
-    if(e.target.value.length < 7) {
+    if(e.target.value.length < 5) {
         for(i of document.getElementsByClassName("active")) {
             i.style.color = "red"
         }

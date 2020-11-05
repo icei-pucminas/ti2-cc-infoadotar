@@ -13,7 +13,7 @@ import spark.Response;
 import java.util.List;
 
 public class ComunidadeController extends Controller {
-    public static DAO dao = new DAO();
+	
     public static Gson gson	= new Gson();
 
     public ComunidadeController() {
@@ -21,7 +21,7 @@ public class ComunidadeController extends Controller {
     }
 
     // retorna todos os posts da comunidade
-    @ControllerAnnotation(method = HTTPMethod.get, path = "/comunidade")
+    @ControllerAnnotation(method = HTTPMethod.get, path = "/comunidade", isPrivate = true)
     public String all(Request req, Response res) {
         dao.conectar();
         res.header("Content-Type", "application/json");
@@ -33,7 +33,7 @@ public class ComunidadeController extends Controller {
         return listagem;
     }
 
-    @ControllerAnnotation(method = HTTPMethod.get, path = "/comunidade/:query")
+    @ControllerAnnotation(method = HTTPMethod.get, path = "/comunidade/:query", isPrivate = true)
     public String search(Request req, Response res) {
         dao.conectar();
         res.header("Content-Type", "application/json");
@@ -46,7 +46,7 @@ public class ComunidadeController extends Controller {
     }
 
     // insere um post na comunidade
-    @ControllerAnnotation(method = HTTPMethod.post, path = "/postar")
+    @ControllerAnnotation(method = HTTPMethod.post, path = "/postar", isPrivate = true)
     public String insert(Request req, Response res) {
         dao.conectar();
         res.header("Content-Type", "application/json");
@@ -66,7 +66,7 @@ public class ComunidadeController extends Controller {
     }
 
     // avalia um post
-    @ControllerAnnotation(method = HTTPMethod.post, path = "/avaliar")
+    @ControllerAnnotation(method = HTTPMethod.post, path = "/avaliar", isPrivate = true)
     public String rate(Request req, Response res) {
         dao.conectar();
         res.header("Content-Type", "application/json");

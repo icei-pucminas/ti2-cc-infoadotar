@@ -13,4 +13,5 @@ import controller.util.HTTPMethod;
 public @interface ControllerAnnotation {
 	HTTPMethod method();
 	String path();
+	boolean isPrivate();
 }
