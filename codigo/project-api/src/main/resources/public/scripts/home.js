@@ -69,7 +69,7 @@ switch_darkmode_mobile.onchange = () => toggleDarkMode(switch_darkmode_mobile);
 
 pickBackground = () => {
 	let x = Math.floor(Math.random() * 6);
-	document.body.style.background =  `url(../../img/backdrop${x}.jpg)`;
+	document.body.style.background =  `url(../assets/img/backdrop${x}.jpg)`;
 	document.body.style.backgroundSize = "cover";
 	document.body.style.backgroundPosition = "center";
 	document.body.style.backgroundRepeat = "no-repeat";
@@ -89,19 +89,32 @@ window.onscroll = function() {
 };
 
 getSession = () => {
-	let session = JSON.parse(sessionStorage.getItem("userdata"))
-	let xhr = new XMLHttpRequest()
-	xhr.open("POST", `/session`)
-	// xhr.setRequestHeader("Content-Type", "application/json");
-	xhr.onload = () => {
-		let dados = JSON.parse(xhr.responseText)
-		for(elem of document.getElementsByClassName("campoNomeUsuario"))
-			elem.innerText = dados.nome
-		for(elem of document.getElementsByClassName("campoEmailUsuario"))
-			elem.innerText = dados.email
+	let cookies = document.cookie.split(';');
+	let aux;
 
+	let nameFlag = false;
+	let emailFlag = false;
+	for (let i = 0; (!nameFlag || !emailFlag) && i < cookies.length; i++) {
+		aux = cookies[i].split('=');
+		switch (aux[0].trim()) {
+			case "usuario_nome":
+				nameFlag = true;
+				fetchNome(aux[1].trim().replace(/\_/g,' '));
+				break;
+			case "usuario_email":
+				emailFlag = true;
+				fetchEmail(aux[1].trim());
+				break;
+		}
 	}
-	xhr.send(session.email)
+}
+
+fetchNome = (nome) => {
+	document.querySelectorAll(".campoNomeUsuario").forEach((e) => { e.innerHTML = nome; });
+}
+
+fetchEmail = (email) => {
+	document.querySelectorAll(".campoEmailUsuario").forEach((e) => { e.innerHTML = email; });
 }
 
 onload = () => {

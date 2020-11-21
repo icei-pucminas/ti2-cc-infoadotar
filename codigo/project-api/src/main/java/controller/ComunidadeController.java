@@ -1,10 +1,8 @@
 package controller;
 
-import com.google.gson.Gson;
 import controller.annotation.ControllerAnnotation;
 import controller.util.HTTPMethod;
 import controller.util.Resposta;
-import dal.DAO;
 import model.AvaliacaoModel;
 import model.PostModel;
 import spark.Request;
@@ -13,11 +11,9 @@ import spark.Response;
 import java.util.List;
 
 public class ComunidadeController extends Controller {
-	
-    public static Gson gson	= new Gson();
 
-    public ComunidadeController() {
-        super();
+    public ComunidadeController(List<Controller> controllers) {
+        super(controllers);
     }
 
     // retorna todos os posts da comunidade
@@ -54,10 +50,11 @@ public class ComunidadeController extends Controller {
         String resposta;
         try {
             PostModel post = gson.fromJson(req.body(), PostModel.class);
+            post.usuario_email = this.user.email;
             dao.insert(post);
             resposta = gson.toJson(new Resposta(200, "Postagem criada com sucesso."));
         } catch (Exception e) {
-            resposta = gson.toJson(new Resposta(500, "Erro na cria√ß√£o da postagem."));
+            resposta = gson.toJson(new Resposta(500, "Erro na criaÁ„o da postagem."));
             System.out.println(e.getMessage());
         }
 
@@ -74,14 +71,15 @@ public class ComunidadeController extends Controller {
         String resposta;
         try {
             AvaliacaoModel avaliacao = gson.fromJson(req.body(), AvaliacaoModel.class);
+            avaliacao.usuario_email = this.user.email;
             if(avaliacao.nota < 1 || avaliacao.nota > 5) {
-                resposta = gson.toJson(new Resposta(500, "Nota inv√°lida. Intervalo permitido (1-5)."));
+                resposta = gson.toJson(new Resposta(500, "Nota inv·lida. Intervalo permitido (1-5)."));
             } else {
                 dao.insert(avaliacao);
                 resposta = gson.toJson(new Resposta(200, "Postagem avaliada com sucesso."));
             }
         } catch (Exception e) {
-            resposta = gson.toJson(new Resposta(500, "Erro na avalia√ß√£o da postagem."));
+            resposta = gson.toJson(new Resposta(500, "Erro ao avaliar postagem"));
             System.out.println(e.getMessage());
         }
 

@@ -1,34 +1,45 @@
 package controller;
 
 import controller.annotation.ControllerAnnotation;
-import controller.util.Render;
+import controller.util.*;
 import dal.DAO;
-import spark.Route;
+import model.UsuarioModel;
+import spark.*;
 import constant.Constants;
 
 import java.lang.reflect.Method;
+import java.util.List;
 
-import static spark.Spark.*;
+import com.google.gson.Gson;
 
 public class Controller {
 	
-	public static DAO dao = new DAO();
-	public static Render render = new Render();
+	public static final DAO dao = new DAO();
+	public static final Render render = new Render();
+    public static final Gson gson = new Gson();
+    
+    protected UsuarioModel user;
+    protected final List<Controller> controllers;
 	
-	public static Route auth (Route exeIfTrue) {
+	private Route auth (Route exeIfTrue) {
 		return (req, res) -> {
-			if (Constants.isLoggedIn(req, dao)) {
-				exeIfTrue.handle(req, res);
+			Object result = null;
+			this.user = Constants.getUser(req, dao);
+			if (user != null) {
+				result = exeIfTrue.handle(req, res);
 			} else {
 				res.redirect(Constants.loginPath, 401);
 			}
-			
-			return res;
+			return result;
 		};
 	}
+	
+	public Controller(List<Controller> controllers) {
+		this.controllers = controllers;
+		this.ignite();
+	}
 
-	public Controller() {
-
+	private void ignite() {
 		for (Method m: this.getClass().getMethods()) {
 			ControllerAnnotation endpoint = m.getAnnotation(ControllerAnnotation.class);
 			Class<?>[] params = m.getParameterTypes();
@@ -38,63 +49,63 @@ public class Controller {
 				if (endpoint.isPrivate()) {
 					switch (endpoint.method()) {
 						case get:
-							get(endpoint.path(), 	
-								auth((req, res) -> m.invoke(this, req, res)));
+							Spark.get(endpoint.path(), 	
+								this.auth((req, res) -> m.invoke(this, req, res)));
 							break;
 						case post:
-							post(endpoint.path(), 
-								auth((req, res) -> m.invoke(this, req, res)));
+							Spark.post(endpoint.path(), 
+								this.auth((req, res) -> m.invoke(this, req, res)));
 							break;  
 						case put:
-							put(endpoint.path(), 
-								auth((req, res) -> m.invoke(this, req, res)));
+							Spark.put(endpoint.path(), 
+								this.auth((req, res) -> m.invoke(this, req, res)));
 							break; 
 						case delete:
-							delete(endpoint.path(), 
-								auth((req, res) -> m.invoke(this, req, res)));
+							Spark.delete(endpoint.path(), 
+								this.auth((req, res) -> m.invoke(this, req, res)));
 							break; 
 						case head:
-							head(endpoint.path(), 
-								auth((req, res) -> m.invoke(this, req, res)));
+							Spark.head(endpoint.path(), 
+								this.auth((req, res) -> m.invoke(this, req, res)));
 							break; 
 						case trace:
-							trace(endpoint.path(), 
-								auth((req, res) -> m.invoke(this, req, res)));
+							Spark.trace(endpoint.path(), 
+								this.auth((req, res) -> m.invoke(this, req, res)));
 							break; 
 						case connect:
-							connect(endpoint.path(), 
-								auth((req, res) -> m.invoke(this, req, res)));
+							Spark.connect(endpoint.path(), 
+								this.auth((req, res) -> m.invoke(this, req, res)));
 							break; 
 						case options:
-							options(endpoint.path(), 
-								auth((req, res) -> m.invoke(this, req, res)));
+							Spark.options(endpoint.path(), 
+								this.auth((req, res) -> m.invoke(this, req, res)));
 							break; 
 					}
 				} else {
 					switch (endpoint.method()) {
 						case get:
-							get(endpoint.path(), (req, res) -> m.invoke(this, req, res));
+							Spark.get(endpoint.path(), (req, res) -> m.invoke(this, req, res));
 							break;
 						case post:
-							post(endpoint.path(), (req, res) -> m.invoke(this, req, res));
+							Spark.post(endpoint.path(), (req, res) -> m.invoke(this, req, res));
 							break;  
 						case put:
-							put(endpoint.path(), (req, res) -> m.invoke(this, req, res));
+							Spark.put(endpoint.path(), (req, res) -> m.invoke(this, req, res));
 							break; 
 						case delete:
-							delete(endpoint.path(), (req, res) -> m.invoke(this, req, res));
+							Spark.delete(endpoint.path(), (req, res) -> m.invoke(this, req, res));
 							break; 
 						case head:
-							head(endpoint.path(), (req, res) -> m.invoke(this, req, res));
+							Spark.head(endpoint.path(), (req, res) -> m.invoke(this, req, res));
 							break; 
 						case trace:
-							trace(endpoint.path(), (req, res) -> m.invoke(this, req, res));
+							Spark.trace(endpoint.path(), (req, res) -> m.invoke(this, req, res));
 							break; 
 						case connect:
-							connect(endpoint.path(), (req, res) -> m.invoke(this, req, res));
+							Spark.connect(endpoint.path(), (req, res) -> m.invoke(this, req, res));
 							break; 
 						case options:
-							options(endpoint.path(), (req, res) -> m.invoke(this, req, res));
+							Spark.options(endpoint.path(), (req, res) -> m.invoke(this, req, res));
 							break; 
 					}
 				}

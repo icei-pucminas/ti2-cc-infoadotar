@@ -12,7 +12,6 @@ responder = (e) => {
 		body: JSON.stringify({
             "id": JSON.parse(sessionStorage.getItem("last_post")) + 1,
             "texto": document.getElementById("text-resposta").value,
-            "usuario_email": document.getElementById("email_crarpost").value,
             "answer_to": document.getElementById("avaliarpost_id").value
 		}),
 		redirect: "manual"
@@ -38,7 +37,6 @@ postar = (e) => {
 		body: JSON.stringify({
             "id": JSON.parse(sessionStorage.getItem("last_post")) + 1,
             "texto": document.getElementById("text-post").value,
-            "usuario_email": document.getElementById("email_crarpost").value,
             "answer_to": null
 		}),
 		redirect: "manual"
@@ -62,7 +60,6 @@ avaliar = (e) => {
 			"Content-Type": "application/json"
 		},
 		body: JSON.stringify({
-            "usuario_email": document.getElementById("avaliarusuario_email").value, //email,
             "post_id": document.getElementById("avaliarpost_id").value,
             "nota": document.getElementById("nota").value
 		}),
@@ -85,7 +82,7 @@ loadComunidade = () => {
 	xhr.send()
 }
 openpost = (e) => {
-    let email = e.querySelector(".card-title").innerText // o email tem que ser do usuário logado, desse jeito o email ta sendo o de quem fez o post
+    let email = e.querySelector(".card-title").innerText // email do usuário que fez o post
     let texto = e.querySelector("p").innerText
 	let post_id = e.querySelector(".post_idholder").value
 
@@ -218,8 +215,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
     loadComunidade()
 });
-
-document.getElementById("email_crarpost").value = JSON.parse(sessionStorage.getItem("userdata")).email
-document.getElementById("email_responder").value = JSON.parse(sessionStorage.getItem("userdata")).email
 
 // conteudoComunidadeGeneral()

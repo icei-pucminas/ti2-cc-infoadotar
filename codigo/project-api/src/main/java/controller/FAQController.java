@@ -12,12 +12,12 @@ import spark.Response;
 import java.util.List;
 
 public class FAQController extends Controller {
-	
+    public static DAO dao = new DAO();
     public static Gson gson	= new Gson();
 
-    public FAQController() {
-        super();
-    }
+    public FAQController(List<Controller> controllers) {
+		super(controllers);
+	}
 
     // retorna todo o conteudo da FAQ
     @ControllerAnnotation(method = HTTPMethod.get, path = "/faq", isPrivate = true)
@@ -55,9 +55,9 @@ public class FAQController extends Controller {
         try {
             FAQModel faq = gson.fromJson(req.body(), FAQModel.class);
             dao.insert(faq);
-            resposta = gson.toJson(new Resposta(200, "FAQ inserida com sucesso."));
+            resposta = gson.toJson(new Resposta(200, "Pergunta submetida com sucesso."));
         } catch (Exception e) {
-            resposta = gson.toJson(new Resposta(500, "Erro na inserção da FAQ."));
+            resposta = gson.toJson(new Resposta(500, "Erro ao submeter pergunta."));
             System.out.println(e.getMessage());
         }
 

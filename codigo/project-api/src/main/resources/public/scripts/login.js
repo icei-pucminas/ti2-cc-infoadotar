@@ -116,11 +116,12 @@ document.body.oninput = () => {
     document.getElementById("submitcadastro").disabled = ! (validSenha && validEmail && validSenhasIguais && notEmpty);
 }
 
-cadastroEnviado = () => {
-	let xhr = new XMLHttpRequest()
-	xhr.open("POST", "/cadastro-auth")
+cadastroEnviado = (event) => {
+    event.preventDefault();
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", "/cadastrarUsuario");
 
-	let formData = new FormData(document.getElementById("form-cadastro"))
+	let formData = new FormData(document.getElementById("form-cadastro"));
 	let temp = {};
 	formData.forEach((value, key) => {temp[key] = value});
 	let json = JSON.stringify(temp);
@@ -131,58 +132,21 @@ cadastroEnviado = () => {
 
 		if(resposta.status == 200) {
 			// login deu certo
-			sessionStorage.setItem("userdata", json)
-			window.location.href = "../home/home.html"
+            signIn();
+            alert("Cadastro efetuado com sucesso!");
 		} else if(resposta.status == 400) {
 			// senha incorreta
-			alert("Email já cadastrado.")
-			window.location.href = "login.html"
+			alert("Email já cadastrado.");
 		} else {
 			// erro desconhecido
-			alert("Erro desconhecido. Pedimos desculpas pelo inconveniente.")
-			window.location.href = "login.html"
+			alert("Erro desconhecido. Pedimos desculpas pelo inconveniente.");
 		}
 	}
 
 	xhr.send(json)
 }
-loginEnviado = () => {
-	let xhr = new XMLHttpRequest()
-	xhr.open("POST", "/login-auth")
 
-	let formData = new FormData(document.getElementById("form-login"))
-	let temp = {};
-	formData.forEach((value, key) => {temp[key] = value});
-	let json = JSON.stringify(temp);
-
-	xhr.onload = function (e) {
-		let resposta = JSON.parse(e.target.response);
-		// e.preventDefault()
-
-		if(resposta.status == 200) {
-			// login deu certo
-			
-			sessionStorage.setItem("userdata", json)
-			window.location.href = "../home/home.html"
-		} else if(resposta.status == 403) {
-			// senha incorreta
-			alert("Senha incorreta")
-			window.location.href = "login.html"
-		} else if(resposta.status == 400) {
-			// usuário não encontrado
-			alert("Usuário não encontrado")
-			window.location.href = "login.html"
-		} else {
-			// erro desconhecido
-			alert("Erro desconhecido. Pedimos desculpas pelo inconveniente.")
-			window.location.href = "login.html"
-		}
-	}
-
-	xhr.send(json)
-}
 document.getElementById("form-cadastro").addEventListener("submit", cadastroEnviado);
-document.getElementById("form-login").addEventListener("submit", loginEnviado);
 
 onload = () => {
     document.getElementById("submitlogin").disabled = true;

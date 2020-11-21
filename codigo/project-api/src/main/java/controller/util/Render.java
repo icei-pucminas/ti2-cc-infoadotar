@@ -16,7 +16,7 @@ public class Render {
             // will be in a folder called resources.
             // getResource() gets that folder
             // and any files you specify.
-            URL url = getClass().getResource(htmlFile);
+            URL url = getClass().getResource(Constants.viewPath + htmlFile);
 //            System.out.println(url);
 
             // Return a String which has all

@@ -22,11 +22,11 @@ public class DAO {
 		boolean status = false;
 
 		try {
-			Class.forName(Constants.dbDriverName);
+			Class.forName(Constants.driverName);
 			conexao = DriverManager.getConnection(
-					Constants.dbUrl, 
-					Constants.dbUserName, 
-					Constants.dbPassword);
+					Constants.url, 
+					Constants.userName, 
+					Constants.password);
 			status = (conexao != null);
 			System.out.println("Conex�o efetuada com o postgres!");
 		} catch (ClassNotFoundException e) { 
@@ -54,8 +54,8 @@ public class DAO {
 		String result;
 		Object aux = f.get(obj);
 		
-		Class<?> type = aux.getClass();
 		if (aux != null) {
+			Class<?> type = aux.getClass();
 			if (type == String.class || type == Timestamp.class) {
 				result = "'" + aux.toString() + "'";
 			} else {

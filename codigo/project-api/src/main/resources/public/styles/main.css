@@ -3,7 +3,7 @@
 }
 
 body {
-    background: url("../../img/landing.jpg");
+    background: url("../assets/img/landing.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

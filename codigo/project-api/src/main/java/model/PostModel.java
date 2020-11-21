@@ -9,5 +9,5 @@ public class PostModel {
 	public int id;
 	public String texto;
 	public String usuario_email;
-	public int answer_to;
+	public Integer answer_to;
 }

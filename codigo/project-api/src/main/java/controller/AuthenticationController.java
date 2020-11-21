@@ -4,8 +4,6 @@ import controller.annotation.*;
 import controller.util.*;
 import spark.*;
 import model.*;
-import dal.*;
-
 import java.security.*;
 import java.util.*;
 import java.time.*;
@@ -13,27 +11,28 @@ import java.time.format.DateTimeFormatter;
 import java.math.*;
 import java.sql.Timestamp;
 
-import org.eclipse.jetty.util.MultiMap;
-import org.eclipse.jetty.util.UrlEncoded;
-
 import constant.Constants;
 
-
-
 public class AuthenticationController extends Controller {
+
+	public AuthenticationController(List<Controller> controllers) {
+		super(controllers);
+	}
 
 	@ControllerAnnotation (method = HTTPMethod.get, path = "/login", isPrivate = false)
 	public String loginGet (Request req, Response res) {
 		res.type("text/html");
 		try {
-			return render.renderView("login");
+			return render.renderContent("login.html");
 		} catch (Exception e) {
 			return e.getMessage();
 		}
 	}
 	
 	@ControllerAnnotation(method = HTTPMethod.post, path = "/login", isPrivate = false)
-	public Response loginPost (Request req, Response res) {
+	public Object loginPost (Request req, Response res) {
+		
+		Object result = null;
 		
 		try {
 		
@@ -52,7 +51,7 @@ public class AuthenticationController extends Controller {
 			
 			if (usuario.size() == 0) {
 				//validação de erro
-				res.redirect("/login", 401);
+				result = this.loginGet(req, res);
 			} else {
 					
 				// 5 - Cookies
@@ -65,7 +64,11 @@ public class AuthenticationController extends Controller {
 				m.update(time.getBytes(),0,time.length());
 				String usuario_token = new BigInteger(1,m.digest()).toString(16);
 					
-				res.cookie(Constants.userToken, usuario_token, 3600);
+				res.cookie(Constants.userTokenCookie, usuario_token, Constants.sessionCookiesDuration);
+				
+				//Salvando dados para exibição
+				res.cookie(Constants.userEmailCookie, usuarioLogado.email, Constants.sessionCookiesDuration);
+				res.cookie(Constants.userNameCookie, usuarioLogado.nome.replace(" ", "_"), Constants.sessionCookiesDuration);
 					
 				// 6 - Armazenamento
 				usuarioLogado.token = usuario_token;
@@ -73,13 +76,45 @@ public class AuthenticationController extends Controller {
 				dao.update(usuarioLogado);
 				dao.close();
 				
-				res.redirect("/home", 200);
+				res.type("text/html");
+				result = "<script>window.location.assign(\"/home\")</script>";
 			}
 		} catch (Exception e) {
-			res.redirect("/login", 500);
+			result = this.loginGet(req, res);
 		}
 		
-		return res;
+		return result;
 	}
-	
+
+	@ControllerAnnotation(method = HTTPMethod.post, path = "/cadastrarUsuario", isPrivate = false)
+	public Object cadastro (Request req, Response res) {
+		dao.conectar();
+	    res.header("Content-Type", "application/json");
+
+	    String resposta;
+	    try {
+	    	CadastroUsuarioModel cadUser = gson.fromJson(req.body(), CadastroUsuarioModel.class);
+	    	
+			MessageDigest m = MessageDigest.getInstance("MD5");
+			m.update(cadUser.email.getBytes(), 0, cadUser.email.length());
+			m.update(cadUser.senha.getBytes(), 0, cadUser.senha.length());
+			String hash  = new BigInteger(1,m.digest()).toString(16);
+			
+			UsuarioModel user = new UsuarioModel();
+			user.nome = cadUser.nome;
+			user.email = cadUser.email;
+			user.hash = hash;
+			user.token = null;
+			user.tokenValidade = null;
+			
+	        dao.insert(user);
+	        resposta = gson.toJson(new Resposta(200, "Usuário cadastrado com sucesso."));
+	    } catch (Exception e) {
+	    	resposta = gson.toJson(new Resposta(500, "Erro no cadastro de usuário."));
+	        System.out.println(e.getMessage());
+	    }
+
+	    dao.close();
+	    return resposta;
+	}
 }
