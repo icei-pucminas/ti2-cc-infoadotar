@@ -1,24 +1,27 @@
 package constant;
 
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
-import java.util.List;
-
 import dal.DAO;
 import model.UsuarioModel;
 import spark.Request;
+
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.List;
 
 public class Constants {
 	
 	//DataBase
 	public static String driverName = "org.postgresql.Driver";
-	public static String serverName = "localhost";
-	public static String dataBase = "InfoAdotar";
-	public static int port = 5433;
-	public static String url = "jdbc:postgresql://" + serverName + ":" + port +"/" + dataBase;
-	public static String userName = "ti2cc";
-	public static String password = "ti@cc";
-	
+	public static String serverName = "ec2-52-206-15-227.compute-1.amazonaws.com";
+	public static String dataBase = "d3m765c4cdadqo";
+	public static int port = 5432;
+	public static String userName = "lsocucrdvtfvmg";
+	public static String password = "a6693ddd35493a23bdd0cfeb403c4b0438bd1017dbc24891ab742e0f48339168";
+	public static String url = "jdbc:postgresql://"+serverName+":"+port+"/"+dataBase+"?user="+userName+"&password="+password;
+//	public static String url = "jdbc:postgresql://lsocucrdvtfvmg:a6693ddd35493a23bdd0cfeb403c4b0438bd1017dbc24891ab742e0f48339168@ec2-52-206-15-227.compute-1.amazonaws.com:5432/d3m765c4cdadqo";
+//	public static String url = "jdbc:postgresql://" + serverName + ":" + port + "/" + dataBase + "?password=" + password + "sslmode=require&user=" + userName;
+//	public static String url;
+
 	//Url
 	public static String viewPath = "/public/";
 

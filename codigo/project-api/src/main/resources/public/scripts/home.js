@@ -120,6 +120,12 @@ fetchEmail = (email) => {
 onload = () => {
 	pickBackground()
 
+	new BlipChat()
+		.withAppKey('bWFyaWE0NDo5NTViZjJlMC1hNWMxLTQ2MDUtYjI0My02MTI5ODBjYThjZTg=')
+		.withButton({"color":"#ea37ba","icon":""})
+		.withCustomCommonUrl('https://chat.blip.ai/')
+		.build();
+
 	if(localStorage.getItem("darkmode_enabled") == undefined) {
 		localStorage.setItem("darkmode_enabled", JSON.stringify(switch_darkmode.checked))
 	} else {

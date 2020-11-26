@@ -1,17 +1,21 @@
 package controller;
 
-import controller.annotation.*;
-import controller.util.*;
-import spark.*;
-import model.*;
-import java.security.*;
-import java.util.*;
-import java.time.*;
-import java.time.format.DateTimeFormatter;
-import java.math.*;
-import java.sql.Timestamp;
-
 import constant.Constants;
+import controller.annotation.ControllerAnnotation;
+import controller.util.FormReader;
+import controller.util.HTTPMethod;
+import controller.util.Resposta;
+import model.CadastroUsuarioModel;
+import model.UsuarioModel;
+import spark.Request;
+import spark.Response;
+
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class AuthenticationController extends Controller {
 
@@ -63,13 +67,18 @@ public class AuthenticationController extends Controller {
 				String time = LocalDateTime.now().format(formatter);
 				m.update(time.getBytes(),0,time.length());
 				String usuario_token = new BigInteger(1,m.digest()).toString(16);
+
+				String updated = usuarioLogado.nome.replace(" ", "_");
+				System.out.println(updated);
 					
 				res.cookie(Constants.userTokenCookie, usuario_token, Constants.sessionCookiesDuration);
-				
+				System.out.println("nome = " + usuarioLogado.email);
+				System.out.println("nome = " + usuarioLogado.nome);
+
 				//Salvando dados para exibição
-				res.cookie(Constants.userEmailCookie, usuarioLogado.email, Constants.sessionCookiesDuration);
+				res.cookie(Constants.userEmailCookie, usuarioLogado.email.replace(" ", ""), Constants.sessionCookiesDuration);
 				res.cookie(Constants.userNameCookie, usuarioLogado.nome.replace(" ", "_"), Constants.sessionCookiesDuration);
-					
+
 				// 6 - Armazenamento
 				usuarioLogado.token = usuario_token;
 				usuarioLogado.tokenValidade = Timestamp.valueOf(LocalDateTime.now().plusHours(1));
