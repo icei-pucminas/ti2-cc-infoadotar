@@ -23,8 +23,6 @@ Com o avançar dos anos, a adoção ganhou destaque no cenário nacional. Em 199
 
 
 **1. Introdução**
-<!--
-A introdução deve apresentar de dois ou quatro parágrafos de contextualização do trabalho. 
 
 Na **contextualização**, o aluno deve dizer do que se trata o trabalho, em que área ou contexto se insere. 
 A **contextualização** deve ser desenvolvida de algo mais genérico para algo mais específico. 
@@ -53,9 +51,6 @@ Auxiliar os futuros pais e mães adotivos a gerenciarem o seu processo de adoç�
 
 	1.4 Justificativas
 
-<!-- Mostre também as **justificativas** para o 
-desenvolvimento do seu trabalho e caso deseje, desta-que alguma contribuição do trabalho. -->
-
 A motivação da nossa solução é ajudar todos aqueles que desejam adotar uma criança, mas, por conta da burocracia, da rudimentaridade e da ineficácia do processo adotivo no Brasil, motivos que fazem com tais indivíduos tenham de lidar com a falta de informação, deixando-os sem orientação em um procedimento tão importante para suas vidas. 
 
 
@@ -63,10 +58,6 @@ A motivação da nossa solução é ajudar todos aqueles que desejam adotar uma 
 **2. Projeto da Solução**
 
     2.1. Requisitos funcionais
-<!--
-Enumere os requisitos funcionais previstos para a sua aplicação. 
-Use a tabela abaixo para enumerá-lo.  Esses requisitos devem estar 
-de acordo com as definições do modelo de negócio.-->
 
 | Id            | Descrição                                                                                                    | Prioridade |
 | ------------- |:------------------------------------------------------------------------------------------------------------:| ----------:|
@@ -77,12 +68,6 @@ de acordo com as definições do modelo de negócio.-->
 | 05            | O usuário deve conseguir escrever posts                                                                      |   Média    |
 
     2.2. Tecnologias
-<!--
-Descreva qual(is) tecnologias você vai usar para resolver o seu problema, ou seja implementar a sua solução. 
-Liste todas as tecnologias envolvidas, linguagens a serem utilizadas, serviços web, frameworks, bibliotecas, 
-IDEs de desenvolvimento, e ferramentas.  Apresente também uma figura explicando como as tecnologias estão 
-relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até 
-retornar uma resposta ao usuário. -->
 
 <!-- ![Arquitetura do sistema](imagens/arquitetura.png "Arquitetura do sistema") -->
 <p align="center"><img src="imagens/arquitetura.png" /></p>
@@ -115,7 +100,6 @@ O sistema do infoadotar conta com serviços inteligentes de chatbot de informaç
 	
 **3. Modelagem de dados**
 
-<!-- Apresente o modelo de dados. Defina o dicionário de dados com os respectivos formatos e significados. -->
 O infoAdotar possui, em seu banco de dados, 4 relações:
 * Usuário
 * Postagem
@@ -143,14 +127,10 @@ O infoAdotar possui, em seu banco de dados, 4 relações:
 
     3.1. Diagrama de Entidade-Relacionamento
 
-<!-- Apresente a estrutura das tabelas de banco de dados no modelo Diagrama de Entidade-Relacionamento. 
-A Seguir, segue um exemplo de imagem adicionada ao documento. -->
-
 ![Diagrama de Entidade Relacionamento de Exemplo](imagens/er_diagram.png "Diagrama de Entidade Relacionamento de Exemplo")
 
 **4. Sistema desenvolvido**
 
-<-- Faça aqui uma breve descrição do software e coloque as principais telas com uma explicação de como usar cada uma. -->
 O sistema do infoAdotar conta com 3 páginas web, sendo elas:
 * Página de landing, pela qual o usuário chega no sistema
 * Página de login e cadastro, que permite ao usuário utilizar suas credenciais no sistema
