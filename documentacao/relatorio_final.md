@@ -110,7 +110,7 @@ O sistema do infoadotar conta com serviços inteligentes de chatbot de informaç
 
 ##### Estrutura do Chatbot: 
 
-<p align="center"><img src="imagens/EstruturaSI.png" /></p>
+<p align="center"><img src="imagens/Fluxo_de_Diálogo .png" /></p>
 
 ##### Informações sobre o fluxo:
 
