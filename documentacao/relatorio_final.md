@@ -29,7 +29,7 @@ A **contextualização** deve ser desenvolvida de algo mais genérico para algo 
 A citação de pesquisas quantitativas é bem aceita aqui (corretamente referenciadas).
 
 Em seguida o aluno deve caminhar a contextualização para descrever o **problema** que o artigo trata. 
-O **problema** pode ser algo vivido em uma empresa específica. -->
+O **problema** pode ser algo vivido em uma empresa específica. 
 
 
     1.1 Contextualização
