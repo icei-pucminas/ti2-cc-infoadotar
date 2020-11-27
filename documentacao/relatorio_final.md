@@ -101,10 +101,6 @@ retornar uma resposta ao usuário. -->
 <br>
 
 	2.3. Serviços inteligentes
-<!--
-Descreva o mecanismo de inteligência que será utilizado no seu sistema. Utilize a modelagem baseada em agente
-para definir as entradas e saídas do seu módulo de serviço inteligente. Apresente quem irá fornecer o serviço
-e em que módulo será utilizado.-->
 
 O sistema do infoadotar conta com serviços inteligentes de chatbot de informações, no qual responde à perguntas definidas em um conjunto de conhecimentos utilizando os Serviços Cognitivos da plataforma Blip, a fim de enriquecer a experiência do usuario, melhorar a performance do projeto e possibilitar com que os usuarios sanem suas dúvidas de forma rápida e prática.
 
