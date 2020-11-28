@@ -66,6 +66,7 @@ A motivação da nossa solução é ajudar todos aqueles que desejam adotar uma 
 | 03            | O usuário deve ter acesso às perguntas frequentes (FAQ)                                                      |   Alta     |
 | 04            | O usuário deve conseguir visualizar posts de usuários                                                        |   Alta     |
 | 05            | O usuário deve conseguir escrever posts                                                                      |   Média    |
+| 06            | Deve haver um chatbot à disposição do usuário                                                                |   Média    |
 
     2.2. Tecnologias
 
@@ -83,6 +84,8 @@ A motivação da nossa solução é ajudar todos aqueles que desejam adotar uma 
 * IDEs:
     * Microsoft Visual Studio Code
     * Eclipse IDE
+* Provedor de Chatbot:
+    * BLiP
 <br>
 
 	2.3. Serviços inteligentes
@@ -156,6 +159,7 @@ Painel principal do infoAdotar, onde o usuário controla os recursos do sistema.
 1. Card que contém um resumo das atividades do usuário no sistema
 2. Card contendo as postagens da comunidade
 3. Card que dá acesso ao FAQ
+4. Botão de acesso ao chatbot
 
 <p align="center"><img src="imagens/home.png" /></p>
 
