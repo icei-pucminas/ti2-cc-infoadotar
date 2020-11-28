@@ -112,7 +112,7 @@ O infoAdotar possui, em seu banco de dados, 4 relações:
 ##### O usuário contém os dados necessários para sua autenticação no sistema, que são:
 * Nome completo
 * Email
-* Senha
+* Hash composto pela senha e email criptografados em MD5
 ##### A postagem contém:
 * Id para sua identificação
 * Email do usuário que a criou
