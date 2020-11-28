@@ -86,88 +86,13 @@
         <div class="col m12 l10 xl11 main-area">
 
             <div class="row">
-                <div class="col s12 m8">
-
-                    <div class="row">
-                        <div class="card" style="margin-bottom: 0;">
-                            <div class="card-content">
-                                <span class="card-title grey-text">Resumo</span>
-                                <!-- <p><canvas id="myChart" width="400" height="400"></canvas></p> -->
-
-
-                                <div id="resumocontent">
-
-                                    <div class="card card-faq-post">
-                                        <div class="card-content">
-                                            <span class="card-title grey-text text-lighten-2">Seu post recebeu uma avaliação</span>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.</p>
-                                        </div>
-                                    </div>
-                                    <div class="card card-faq-post">
-                                        <div class="card-content">
-                                            <span class="card-title grey-text text-lighten-2">Posts mais avaliados</span>
-                                            <ul id="postsmaisavaliados">
-                                                <li><span class="modal-trigger" data-target="post1">Post #1</span></li>
-                                                <li><span class="modal-trigger" data-target="post2">Post #2</span></li>
-                                                <li><span class="modal-trigger" data-target="post3">Post #3</span></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- <div class="card-action">
-                                <a href="#" class="pink-text">Ação 1</a>
-                                <a href="#" class="green-text">Ação 2</a>
-                            </div> -->
-                        </div>
-                    </div>
-
-					<div class="row">
-						<div class="card card-faq">
-							<span class="card-title grey-text">FAQ adotivo</span>
-							<a class="waves-effect waves-light btn-large modal-trigger" id="togglefaq" href="#modalfaq"><i class="material-icons left">add</i>ABRIR FAQ</a>
-
-							<div id="modalfaq" class="card modal">
-								<div class="modal-content">
-									<div class="row topo-faq">
-										<h4 style="width: -webkit-fill-available;">FAQ adotivo</h4>
-										<div class="modal-footer">
-											<a href="#!" class="modal-close btn-flat"><i class="material-icons" style="font-size: xx-large !important;">close</i></a>
-										</div>
-									</div>
-									<p>Tem alguma dúvida?</p>
-
-									<div class="input-field">
-										<label for="pesquisafaq">Pesquisar algo</label>
-										<input type="text" id="pesquisafaq" autocomplete="off">
-									</div>
-
-									<div id="faqcontent">
-
-										<div class="card card-faq-post">
-											<div class="card-content">
-												<span class="card-title grey-text text-lighten-2">FAQ #1</span>
-												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.</p>
-											</div>
-										</div>
-
-									</div>
-
-								</div>
-							</div>
-
-						</div>
-					</div>
-
-                </div>
-
-                <div class="col s12 m4">
+                <div class="col s12 m7">
 
                     <div class="row">
                         <div class="card">
                             <div class="card-content">
 								<div class="row newpost-header" style="flex-wrap: wrap; display: flex;">
-									<span class="card-title grey-text col s12" style="text-align: center; height: fit-content; margin: auto !important;">Comunidade </span> 
+									<span class="card-title grey-text text-darken-2 col s12" style="text-align: center; height: fit-content; margin: auto !important;">Comunidade </span> 
 									<a class="center-align waves-effect waves-light btn modal-trigger col s12 l8 xl6" id="togglenewpost" href="#addpost"><i class="material-icons left">add</i>NOVO POST</a>
 								</div>
 								<div id="addpost" class="card modal">
@@ -211,40 +136,79 @@
 									</div>
 
 								</div>
+								
+                            </div>
+                        </div>
+                    </div>
 
-								<!-- <div id="postmodal" class="modal card">
-									<div class="modal-content">
-                                        <h4 class="black-text">Post #1</h4>
-                                        <div>
-                                            <p class="black-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
-                                            </p>
-                                            <span class="rating-area">
-                                                <span class="card-title grey-text">Avalie esse post</span>
-                                                <form action="#">
-                                                    <p class="range-field">
-                                                        <input type="range" id="nota" value="1" min="1" max="5" oninput="this.nextElementSibling.value = 'Nota: ' + this.value + '/5'"/>
-                                                        <output for="nota" class="grey-text">Nota: 1/5</output>
-                                                    </p>
-                                                    <div class="center-align">
-                                                        <button class="btn waves-effect waves-light" type="submit" name="action">Avaliar
-                                                            <i class="material-icons right">send</i>
-                                                        </button>
-                                                    </div>
-                                                </form>
-                                            </span>
-                                        </div>
-                                    </div> -->
+                </div>
+
+                <div class="col s12 m5">
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-content card-faq">
+                                <div class="topo-faq"><span class="card-title grey-text text-darken-2 col s12">FAQ Adotivo </span></div> 
+
+                                <p class="grey-text text-darken-1">Tem alguma dúvida?</p>
+
+                                <div class="input-field">
+                                    <label for="pesquisafaq">Pesquisar algo</label>
+                                    <input type="text" id="pesquisafaq" autocomplete="off">
+                                </div>
+								<div id="faqcontent">	<!-- Conteudo da comunidade -->
+
+									<div class="card card-post">
+										<div class="card-content modal-trigger post-preview" data-target="postmodal">
+											<span class="card-title grey-text text-lighten-2">Post #1</span>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.</p>
+										</div>
+									</div>
+
 								</div>
 								
                             </div>
                         </div>
                     </div>
+
+					<!-- <div class="row">
+                        
+						<div class="card card-faq">
+							<span class="card-title grey-text">FAQ adotivo</span>
+							 <a class="waves-effect waves-light btn-large modal-trigger" id="togglefaq" href="#modalfaq"><i class="material-icons left">add</i>ABRIR FAQ</a> 
+                            <div class="conteudo-faq">
+                                <div class="row topo-faq">
+                                    <h4 style="width: -webkit-fill-available;">FAQ adotivo</h4>
+                                    <div class="modal-footer">
+                                        <a href="#!" class="modal-close btn-flat"><i class="material-icons" style="font-size: xx-large !important;">close</i></a>
+                                    </div>
+                                </div>
+                                <p>Tem alguma dúvida?</p>
+
+                                <div class="input-field">
+                                    <label for="pesquisafaq">Pesquisar algo</label>
+                                    <input type="text" id="pesquisafaq" autocomplete="off">
+                                </div>
+
+                                <div id="faqcontent">
+
+                                    <div class="card card-faq-post">
+                                        <div class="card-content">
+                                            <span class="card-title grey-text text-lighten-2">FAQ #1</span>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+							<div id="modalfaq" class="card modal">
+								<div class="modal-content">
+
+								</div>
+							</div>
+
+						</div>
+					</div> -->
 					
                 </div>
 
@@ -253,42 +217,6 @@
         </div>
     </main>
 
-    <!-- <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
-    <div id="postmodal" class="modal card">
-        <div class="modal-content">
-            <h4 class="black-text" id="postemail">Post #1</h4>
-            <div class="conteudo-postagem">
-                <p class="black-text" id="posttexto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
-                </p>
-                <span class="rating-area">
-                    <span class="card-title grey-text">Avalie esse post</span>
-                    <form target="dummyframe" onsubmit="avaliar()">
-                        <p class="range-field">
-                            <input type="hidden" name="post_id" id="avaliarpost_id">
-                            <input type="hidden" name="usuario_email" id="avaliarusuario_email">
-                            <input type="range" id="nota" value="1" min="1" max="5" oninput="this.nextElementSibling.value = 'Nota: ' + this.value + '/5'"/>
-                            <output for="nota" class="grey-text">Nota: 1/5</output>
-                        </p>
-                        <div class="center-align">
-                            <button class="btn waves-effect waves-light" type="submit" name="action">Avaliar
-                                <i class="material-icons right">send</i>
-                            </button>
-                        </div>
-                    </form>
-                </span>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
-        </div>
-    </div> -->
-    
     <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
     <div id="postmodal" class="modal card">
         <div class="modal-content">
@@ -316,7 +244,8 @@
                             <input type="range" id="nota" value="1" min="1" max="5" oninput="this.nextElementSibling.value = 'Nota: ' + this.value + '/5'"/>
                             <output for="nota" class="grey-text">Nota: 1/5</output>
                         </p>
-                        <div class="center-align">
+                        <div class="center-align avaliacao">
+                            <div>Média: <span id="media-avaliacao">0.0</span></div>
                             <button class="btn waves-effect waves-light type-btn" type="submit" name="action">Avaliar
                                 <i class="material-icons right">send</i>
                             </button>

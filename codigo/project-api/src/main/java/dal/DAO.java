@@ -1,6 +1,7 @@
 package dal;
 
 import constant.Constants;
+import model.Avaliacao;
 import model.annotation.ColumnAnnotation;
 import model.annotation.TableAnnotation;
 
@@ -248,7 +249,58 @@ public class DAO {
 			throw new RuntimeException(u);
 		}
 	}
-	
+
+	public List<Avaliacao> getAvaliacoes(String query) {
+		List<model.Avaliacao> values = new ArrayList<model.Avaliacao>();
+
+		try {
+			Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+			ResultSet rs = st.executeQuery(query);
+			st.close();
+
+			Avaliacao tmp = new Avaliacao();
+			Field[] fields = tmp.getClass().getFields();
+			ColumnAnnotation column;
+			while (rs.next()) {
+				tmp = new Avaliacao();
+				for (Field f : fields) {
+					f.set(tmp, rs.getObject(f.getName()));
+				}
+				values.add(tmp);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
+		return values;
+	}
+
+	public <T> List<T> customselect(Class<T> model, String command) {
+		try {
+			TableAnnotation table = model.getAnnotation(TableAnnotation.class);
+			Statement st = conexao.createStatement();
+			ResultSet rs = st.executeQuery(command);
+			st.close();
+
+			T tmp;
+			List<T> values = new ArrayList<T>();
+			Field[] fields = model.getFields();
+			ColumnAnnotation column;
+			while (rs.next()) {
+				tmp = model.getConstructor().newInstance();
+				for (Field f : fields) {
+					column = f.getAnnotation(ColumnAnnotation.class);
+					f.set(tmp, rs.getObject((column == null? f.getName() : column.name())));
+				}
+				values.add(tmp);
+			}
+
+			return values;
+		} catch (SQLException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException u) {
+			throw new RuntimeException(u);
+		}
+	}
+
 	@SuppressWarnings("unchecked")
 	public <T> List<T> select(Class<T> model, String where) {
 		try {

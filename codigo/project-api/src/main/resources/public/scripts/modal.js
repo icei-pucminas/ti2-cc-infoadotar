@@ -2,6 +2,7 @@ var modalpost
 var modalcriarpost
 
 let conteudo_comunidade
+let avaliacoes
 
 responder = (e) => {
 	fetch("/postar", {
@@ -75,11 +76,38 @@ avaliar = (e) => {
 	  })
 }
 
+media_avaliacoes = (e) => {
+	let ratings = []
+	fetch("/avaliacoes", {
+		method: "GET",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		redirect: "manual"
+	})
+	.then(res => res.json())
+	.then(data => {
+		// console.log(data)
+		sessionStorage.setItem("avaliacoes", JSON.stringify(data))
+	})
+}
+
 loadComunidade = () => {
 	let xhr = new XMLHttpRequest()
 	xhr.open("GET", "/comunidade")
 	xhr.onload = conteudoComunidadeGeneral
 	xhr.send()
+}
+
+avaliacao_post = (id) => {
+	let ratings = JSON.parse(sessionStorage.getItem("avaliacoes"))
+	let media
+	for(let i of ratings) {
+		if(i.post_id == id) {
+			media = i.media
+			return media
+		}
+	}
 }
 openpost = (e) => {
     let email = e.querySelector(".card-title").innerText // email do usuário que fez o post
@@ -92,6 +120,10 @@ openpost = (e) => {
 	document.getElementById("avaliarusuario_email").value = email
 	document.getElementById("avaliarpost_id").value = post_id
 
+	media_avaliacoes()
+
+	media = avaliacao_post(post_id)
+	document.getElementById("media-avaliacao").innerText = media == undefined ? 0 : media
 	preencherRespostas()
 
     modalpost.open()
@@ -118,6 +150,7 @@ conteudoComunidadeGeneral = (e) => {
 	let lastpost_id = Number.MIN_VALUE;
 	let posts = JSON.parse(e.target.responseText)
 	conteudo_comunidade = posts
+
 	let conteudo = ""
 	for(let i=posts.length-1 ; i >= 0 ; i--) {
 		if(conteudo_comunidade[i].answer_to == null) {
@@ -192,8 +225,9 @@ loadFAQSearch = (e) => {
 	} else loadFAQ();
 }
 conteudoFAQ = (e) => {
-	let conteudo = "";
+	let conteudo = ""
 	let faq = JSON.parse(e.target.responseText)
+	console.log(faq.length)
 	for(let i=0 ; i < faq.length ; i++) {
 		conteudo += `
 		<div class="card card-faq-post">
@@ -214,6 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
     modalcriarpost = M.Modal.getInstance(document.getElementById("addpost"))
 
     loadComunidade()
+	loadFAQ()
 });
 
 // conteudoComunidadeGeneral()

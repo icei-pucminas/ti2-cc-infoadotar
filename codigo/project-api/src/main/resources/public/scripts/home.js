@@ -117,7 +117,20 @@ fetchEmail = (email) => {
 	document.querySelectorAll(".campoEmailUsuario").forEach((e) => { e.innerHTML = email; });
 }
 
+bestrated = () => {
+	let ratings = JSON.parse(sessionStorage.getItem("avaliacoes"))
+	let maiores = {}
+	for(let i=0 ; i < ratings.length ; i++) {
+		if(ratings[i].media == id) {
+			media = ratings[i].media
+		}
+	}
+}
+
 onload = () => {
+	media_avaliacoes()
+	// bestrated()
+
 	pickBackground()
 
 	new BlipChat()
@@ -144,5 +157,5 @@ onload = () => {
 	getSession()
 }
 
-document.getElementById("togglefaq").onclick = loadFAQ;
+// document.getElementById("togglefaq").onclick = loadFAQ;
 document.getElementById("pesquisafaq").oninput =  loadFAQSearch;

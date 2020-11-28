@@ -17,45 +17,22 @@ canvas {
     font-weight: 500;
 }
 
-.card-faq a.waves-effect {
-	background: none;
-	border-radius: 3rem;
-	outline: none;
-    border: 2px solid #E64398;
-    color: #E64398;
-	box-shadow: none;
-	max-width: 14em;
-}
-
-.card-faq a.waves-effect:hover {
-	background: #E64398;
-	border-radius: 3rem;
-	outline: none;
-    border: 2px solid white;
-    color: white;
-	box-shadow: none;
-	max-width: 14em;
-}
-
 .card-faq {
     padding: 1em;
-    max-height: 6em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 .topo-faq {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    margin-bottom: 3em;
+    text-align: center;
+    height: fit-content;
+    /* margin: auto !important; */
 }
 
-#comunidade {
+#comunidade, #faqcontent {
     overflow: auto;
     max-height: 76vh;
 }
 
-#comunidade::-webkit-scrollbar, #modalfaq::-webkit-scrollbar, #postmodal::-webkit-scrollbar {
+#comunidade::-webkit-scrollbar, #faqcontent::-webkit-scrollbar, #postmodal::-webkit-scrollbar {
     width: 1px;
 }
 
@@ -147,6 +124,18 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 
     justify-content: flex-start;
     border-left: #d0d0d0 solid 1px;
+}
+
+.avaliacao {
+    display: flex;
+    justify-content: space-evenly;
+    vertical-align: middle;
+    align-items: center;
+}
+.avaliacao > div {
+    border: 2px solid green;
+    padding: 0.2em;
+    border-radius: 30%;
 }
 
 input[type=range] + .thumb .value {
