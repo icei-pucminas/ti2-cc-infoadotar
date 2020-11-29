@@ -1,10 +1,22 @@
 const clientWidth = document.body.clientWidth;
 const clientHeight = document.body.clientHeight;
-const loginHeight = document.getElementById("login").clientHeight;
-const cadastroHeight = document.getElementById("cadastro").clientHeight;
+let loginHeight = document.getElementById("login").clientHeight;
+let cadastroHeight = document.getElementById("cadastro").clientHeight;
+let userState = 0;
+window.onresize = () => {
+    loginHeight = document.getElementById("login").clientHeight;
+    cadastroHeight = document.getElementById("cadastro").clientHeight;
+    if(userState == 1) 
+    {
+        anime({
+            targets: '#cadastro',
+            translateY: - cadastroHeight,
+        });
+    }
+}
 
 signUp = () => {
-
+    userState = 1;
     anime({
         targets: '#cadastro',
         translateY: - cadastroHeight,
@@ -13,7 +25,7 @@ signUp = () => {
     // document.getElementsByClassName("painel-lateral")[0].style.background = `url("backdrop5.jpg")`;
 }
 signIn = () => {
-
+    userState = 0;
     anime({
         targets: '#cadastro',
         translateY: (clientHeight - cadastroHeight),
