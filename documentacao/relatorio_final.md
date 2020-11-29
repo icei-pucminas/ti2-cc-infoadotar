@@ -23,15 +23,13 @@ Com o avançar dos anos, a adoção ganhou destaque no cenário nacional. Em 199
 
 
 **1. Introdução**
-<!--
-A introdução deve apresentar de dois ou quatro parágrafos de contextualização do trabalho. 
 
 Na **contextualização**, o aluno deve dizer do que se trata o trabalho, em que área ou contexto se insere. 
 A **contextualização** deve ser desenvolvida de algo mais genérico para algo mais específico. 
 A citação de pesquisas quantitativas é bem aceita aqui (corretamente referenciadas).
 
 Em seguida o aluno deve caminhar a contextualização para descrever o **problema** que o artigo trata. 
-O **problema** pode ser algo vivido em uma empresa específica. -->
+O **problema** pode ser algo vivido em uma empresa específica. 
 
 
     1.1 Contextualização
@@ -53,9 +51,6 @@ Auxiliar os futuros pais e mães adotivos a gerenciarem o seu processo de adoç�
 
 	1.4 Justificativas
 
-<!-- Mostre também as **justificativas** para o 
-desenvolvimento do seu trabalho e caso deseje, desta-que alguma contribuição do trabalho. -->
-
 A motivação da nossa solução é ajudar todos aqueles que desejam adotar uma criança, mas, por conta da burocracia, da rudimentaridade e da ineficácia do processo adotivo no Brasil, motivos que fazem com tais indivíduos tenham de lidar com a falta de informação, deixando-os sem orientação em um procedimento tão importante para suas vidas. 
 
 
@@ -63,10 +58,6 @@ A motivação da nossa solução é ajudar todos aqueles que desejam adotar uma 
 **2. Projeto da Solução**
 
     2.1. Requisitos funcionais
-<!--
-Enumere os requisitos funcionais previstos para a sua aplicação. 
-Use a tabela abaixo para enumerá-lo.  Esses requisitos devem estar 
-de acordo com as definições do modelo de negócio.-->
 
 | Id            | Descrição                                                                                                    | Prioridade |
 | ------------- |:------------------------------------------------------------------------------------------------------------:| ----------:|
@@ -75,14 +66,9 @@ de acordo com as definições do modelo de negócio.-->
 | 03            | O usuário deve ter acesso às perguntas frequentes (FAQ)                                                      |   Alta     |
 | 04            | O usuário deve conseguir visualizar posts de usuários                                                        |   Alta     |
 | 05            | O usuário deve conseguir escrever posts                                                                      |   Média    |
+| 06            | Deve haver um chatbot à disposição do usuário                                                                |   Média    |
 
     2.2. Tecnologias
-<!--
-Descreva qual(is) tecnologias você vai usar para resolver o seu problema, ou seja implementar a sua solução. 
-Liste todas as tecnologias envolvidas, linguagens a serem utilizadas, serviços web, frameworks, bibliotecas, 
-IDEs de desenvolvimento, e ferramentas.  Apresente também uma figura explicando como as tecnologias estão 
-relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até 
-retornar uma resposta ao usuário. -->
 
 <!-- ![Arquitetura do sistema](imagens/arquitetura.png "Arquitetura do sistema") -->
 <p align="center"><img src="imagens/arquitetura.png" /></p>
@@ -98,19 +84,17 @@ retornar uma resposta ao usuário. -->
 * IDEs:
     * Microsoft Visual Studio Code
     * Eclipse IDE
+* Provedor de Chatbot:
+    * BLiP
 <br>
 
 	2.3. Serviços inteligentes
-<!--
-Descreva o mecanismo de inteligência que será utilizado no seu sistema. Utilize a modelagem baseada em agente
-para definir as entradas e saídas do seu módulo de serviço inteligente. Apresente quem irá fornecer o serviço
-e em que módulo será utilizado.-->
 
-O sistema do infoadotar conta com serviços inteligentes de chatbot de informações, no qual responde à perguntas definidas em um conjunto de conhecimentos utilizando o QnA Maker dos Serviços Cognitivos e responde outras perguntas gerais utilizando o Azure Cognitive Search, a fim de enriquecer a experiência do usuario, melhorar a performance do projeto e possibilitar com que os usuarios sanem suas dúvidas de forma rápida e prática.
+O sistema do infoadotar conta com serviços inteligentes de chatbot de informações, no qual responde à perguntas definidas em um conjunto de conhecimentos utilizando os Serviços Cognitivos da plataforma Blip, a fim de enriquecer a experiência do usuario, melhorar a performance do projeto e possibilitar com que os usuarios sanem suas dúvidas de forma rápida e prática.
 
 ##### Estrutura do Chatbot: 
 
-<p align="center"><img src="imagens/EstruturaSI.png" /></p>
+<p align="center"><img src="imagens/Fluxo_de_Diálogo .png" /></p>
 
 ##### Informações sobre o fluxo:
 
@@ -119,7 +103,6 @@ O sistema do infoadotar conta com serviços inteligentes de chatbot de informaç
 	
 **3. Modelagem de dados**
 
-<!-- Apresente o modelo de dados. Defina o dicionário de dados com os respectivos formatos e significados. -->
 O infoAdotar possui, em seu banco de dados, 4 relações:
 * Usuário
 * Postagem
@@ -129,7 +112,7 @@ O infoAdotar possui, em seu banco de dados, 4 relações:
 ##### O usuário contém os dados necessários para sua autenticação no sistema, que são:
 * Nome completo
 * Email
-* Senha
+* Hash composto pela senha e email criptografados em MD5
 ##### A postagem contém:
 * Id para sua identificação
 * Email do usuário que a criou
@@ -147,14 +130,10 @@ O infoAdotar possui, em seu banco de dados, 4 relações:
 
     3.1. Diagrama de Entidade-Relacionamento
 
-<!-- Apresente a estrutura das tabelas de banco de dados no modelo Diagrama de Entidade-Relacionamento. 
-A Seguir, segue um exemplo de imagem adicionada ao documento. -->
-
 ![Diagrama de Entidade Relacionamento de Exemplo](imagens/er_diagram.png "Diagrama de Entidade Relacionamento de Exemplo")
 
 **4. Sistema desenvolvido**
 
-<-- Faça aqui uma breve descrição do software e coloque as principais telas com uma explicação de como usar cada uma. -->
 O sistema do infoAdotar conta com 3 páginas web, sendo elas:
 * Página de landing, pela qual o usuário chega no sistema
 * Página de login e cadastro, que permite ao usuário utilizar suas credenciais no sistema
@@ -180,6 +159,7 @@ Painel principal do infoAdotar, onde o usuário controla os recursos do sistema.
 1. Card que contém um resumo das atividades do usuário no sistema
 2. Card contendo as postagens da comunidade
 3. Card que dá acesso ao FAQ
+4. Botão de acesso ao chatbot
 
 <p align="center"><img src="imagens/home.png" /></p>
 
