@@ -5,6 +5,7 @@ import controller.annotation.ControllerAnnotation;
 import controller.util.FormReader;
 import controller.util.HTTPMethod;
 import controller.util.Resposta;
+import controller.util.Tools;
 import model.CadastroUsuarioModel;
 import model.UsuarioModel;
 import spark.Request;
@@ -76,8 +77,8 @@ public class AuthenticationController extends Controller {
 				System.out.println("nome = " + usuarioLogado.nome);
 
 				//Salvando dados para exibição
-				res.cookie(Constants.userEmailCookie, usuarioLogado.email.replace(" ", ""), Constants.sessionCookiesDuration);
-				res.cookie(Constants.userNameCookie, usuarioLogado.nome.replace(" ", "_"), Constants.sessionCookiesDuration);
+				res.cookie(Constants.userEmailCookie, Tools.stripAccents(usuarioLogado.email).replace(" ", ""), Constants.sessionCookiesDuration);
+				res.cookie(Constants.userNameCookie, Tools.stripAccents(usuarioLogado.nome).replace(" ", "_"), Constants.sessionCookiesDuration);
 
 				// 6 - Armazenamento
 				usuarioLogado.token = usuario_token;

@@ -116,7 +116,7 @@ openpost = (e) => {
 	media_avaliacoes()
 
 	media = avaliacao_post(post_id)
-	document.getElementById("media-avaliacao").innerText = media == undefined ? 0 : media
+	document.getElementById("media-avaliacao").innerText = media == undefined ? 0 : (media - Math.floor(media) == 0 ? media : (Math.round(media * 100) / 100).toFixed(2))
 	preencherRespostas()
 
     modalpost.open()

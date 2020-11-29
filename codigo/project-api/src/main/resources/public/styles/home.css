@@ -118,6 +118,8 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
     padding: 1em;
 }
 
+#campo-respostas { flex-wrap: wrap; }
+
 .rating-area {
     padding: 1em;
     min-width: 15em;
