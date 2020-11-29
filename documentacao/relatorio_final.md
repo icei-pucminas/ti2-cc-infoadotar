@@ -89,8 +89,9 @@ A motivação da nossa solução é ajudar todos aqueles que desejam adotar uma 
 <br>
 
 	2.3. Serviços inteligentes
+Grande parte dos pretendentes à adoção apresentam dúvidas acerca do processo adotivo, e não há muitos locais para sanar essas dificuldades. Tendo em vista isso, a fim de trazer informação à população sobre o sistema adotivo e facilitar o entendimento dos futuros pais e mães, houve a necessidade da criação de um agente inteligente que correspondesse com a situação antes informada.
 
-O sistema do infoadotar conta com serviços inteligentes de chatbot de informações, no qual responde à perguntas definidas em um conjunto de conhecimentos utilizando os Serviços Cognitivos da plataforma Blip, a fim de enriquecer a experiência do usuario, melhorar a performance do projeto e possibilitar com que os usuarios sanem suas dúvidas de forma rápida e prática.
+Portanto, o sistema do infoadotar conta com serviços inteligentes de chatbot de informações, no qual responde à perguntas definidas em um conjunto de conhecimentos utilizando os Serviços Cognitivos da plataforma Blip, a fim de enriquecer a experiência do pretendente, melhorar a performance do projeto e possibilitar com que os usuarios sanem suas dúvidas de forma rápida e prática acerca do processo adotivo.
 
 ##### Estrutura do Chatbot: 
 
