@@ -182,7 +182,9 @@ Para não ficar subjetivo, o ideal é fazer um questionário e pedir ao usuário
 **6. Conclusão**
 
 Ao final do desenvolvimento avaliamos que conseguimos desenvolver uma solução que entrega valor ao nosso cliente, por meio de uma plataforma informativa que promove a formação de comunidades (como especificado no objetivo). Visualizamos margem para crescimento onde podemos aprimorar a capacidade de informar os nossos usuários a respeito do processo adotivo (aumentando a base de dados e lapidando funcionalidades) e expandir com novas ferramentas de auxílio acopladas ao sistema.
+
 Percebemos que a metodologia Scrum com o sistema Kanbam foi de grande ajuda na sinergia do grupo de modo geral. A técnica mencionada aumentou de forma considerável a produtividade e o trabalho em equipe ao longo do projeto, segmentando responsabilidades e delimitando entregas.
+
 Com relação a parte técnica do projeto, atingimos um ótimo resultado no código, tendo contato com tecnologias web como o protocolo HTTP com a framework Spark e a tecnologia AJAX, além da possibilidades de aplicar os conhecimentos adquiridos nas aulas de Banco de dados, ISI e AED2. Entre os conteúdos não estudados que foram aplicados entram POO (Programação Orientada a Objeto) e arquitetura MVC (Model, View, Controller) ambos utilizados em todo o desenvolvimento da API em Java, gerando aprendizado para todo o grupo durante o trabalho.
 
 
