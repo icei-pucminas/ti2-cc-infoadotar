@@ -29,7 +29,7 @@ canvas {
 
 #comunidade, #faqcontent {
     overflow: auto;
-    max-height: 76vh;
+    max-height: 67vh;
 }
 
 #comunidade::-webkit-scrollbar, #faqcontent::-webkit-scrollbar, #postmodal::-webkit-scrollbar {
@@ -73,6 +73,8 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 .modal-footer { background: none !important; }
 
 .newpost-header {
+    display: flex;
+    justify-content: space-between;
     margin: 0 !important;
 }
 

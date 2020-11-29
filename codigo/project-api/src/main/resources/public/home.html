@@ -91,8 +91,8 @@
                     <div class="row">
                         <div class="card">
                             <div class="card-content">
-								<div class="row newpost-header" style="flex-wrap: wrap; display: flex;">
-									<span class="card-title grey-text text-darken-2 col s12" style="text-align: center; height: fit-content; margin: auto !important;">Comunidade </span> 
+								<div class="row newpost-header">
+									<span class="card-title grey-text text-darken-2 col s12" style="height: fit-content; margin: auto !important;">Comunidade </span> 
 									<a class="center-align waves-effect waves-light btn modal-trigger col s12 l8 xl6" id="togglenewpost" href="#addpost"><i class="material-icons left">add</i>NOVO POST</a>
 								</div>
 								<div id="addpost" class="card modal">
@@ -130,8 +130,10 @@
 
 									<div class="card card-post">
 										<div class="card-content modal-trigger post-preview" data-target="postmodal">
-											<span class="card-title grey-text text-lighten-2">Post #1</span>
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.</p>
+											<span class="card-title grey-text text-lighten-2">Carregando postagens</span>
+                                            <div class="progress" style="background-color: #E64398 !important;">
+                                                <div class="indeterminate" style="background-color: #6f6f6f !important;"></div>
+                                            </div>
 										</div>
 									</div>
 
@@ -159,8 +161,10 @@
 
 									<div class="card card-post">
 										<div class="card-content modal-trigger post-preview" data-target="postmodal">
-											<span class="card-title grey-text text-lighten-2">Post #1</span>
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.</p>
+                                            <span class="card-title grey-text text-lighten-2">Carregando perguntas</span>
+                                            <div class="progress" style="background-color: #E64398 !important;">
+                                                <div class="indeterminate" style="background-color: #6f6f6f !important;"></div>
+                                            </div>
 										</div>
 									</div>
 
@@ -169,46 +173,6 @@
                             </div>
                         </div>
                     </div>
-
-					<!-- <div class="row">
-                        
-						<div class="card card-faq">
-							<span class="card-title grey-text">FAQ adotivo</span>
-							 <a class="waves-effect waves-light btn-large modal-trigger" id="togglefaq" href="#modalfaq"><i class="material-icons left">add</i>ABRIR FAQ</a> 
-                            <div class="conteudo-faq">
-                                <div class="row topo-faq">
-                                    <h4 style="width: -webkit-fill-available;">FAQ adotivo</h4>
-                                    <div class="modal-footer">
-                                        <a href="#!" class="modal-close btn-flat"><i class="material-icons" style="font-size: xx-large !important;">close</i></a>
-                                    </div>
-                                </div>
-                                <p>Tem alguma dúvida?</p>
-
-                                <div class="input-field">
-                                    <label for="pesquisafaq">Pesquisar algo</label>
-                                    <input type="text" id="pesquisafaq" autocomplete="off">
-                                </div>
-
-                                <div id="faqcontent">
-
-                                    <div class="card card-faq-post">
-                                        <div class="card-content">
-                                            <span class="card-title grey-text text-lighten-2">FAQ #1</span>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.</p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-							<div id="modalfaq" class="card modal">
-								<div class="modal-content">
-
-								</div>
-							</div>
-
-						</div>
-					</div> -->
 					
                 </div>
 
@@ -227,14 +191,7 @@
                 </div>
             </div>
             <div class="conteudo-postagem">
-                <p class="black-text" id="posttexto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.
-                </p>
+                <p class="black-text" id="posttexto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, officiis.</p>
                 <span class="rating-area">
                     <span class="card-title grey-text">Avalie esse post</span>
                     <form target="dummyframe" onsubmit="avaliar()">
@@ -283,6 +240,7 @@
             </form>
 
         </div>
+    </div>
     <script src="scripts/modal.js"></script>
 	<script src="scripts/home.js"></script>
     <script>

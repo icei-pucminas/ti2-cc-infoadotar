@@ -37,6 +37,7 @@ public class FAQController extends Controller {
     public String search(Request req, Response res) {
         dao.conectar();
         res.header("Content-Type", "application/json");
+        System.out.println(req.params("query"));
 
         List<FAQModel> x = dao.<FAQModel>select(FAQModel.class, String.format("LOWER(pergunta) LIKE '%%" + req.params("query").toLowerCase() + "%%'"));
         String listagem = gson.toJson(x);

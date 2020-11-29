@@ -92,13 +92,6 @@ media_avaliacoes = (e) => {
 	})
 }
 
-loadComunidade = () => {
-	let xhr = new XMLHttpRequest()
-	xhr.open("GET", "/comunidade")
-	xhr.onload = conteudoComunidadeGeneral
-	xhr.send()
-}
-
 avaliacao_post = (id) => {
 	let ratings = JSON.parse(sessionStorage.getItem("avaliacoes"))
 	let media
@@ -146,9 +139,26 @@ preencherRespostas = () => {
 	document.getElementById("campo-respostas").innerHTML = temp
 }
 
-conteudoComunidadeGeneral = (e) => {
+loadComunidade = () => {
+	// let xhr = new XMLHttpRequest()
+	// xhr.open("GET", "/comunidade")
+	// xhr.onload = conteudoComunidadeGeneral
+	// xhr.send()
+	fetch("/comunidade", {
+		method: "GET",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		redirect: "manual"
+	})  .then(res => res.json())
+	    .then(data => {
+			sessionStorage.setItem("comunidade", JSON.stringify(data))
+			conteudoComunidadeGeneral(data)
+	  })
+}
+
+conteudoComunidadeGeneral = (posts) => {
 	let lastpost_id = Number.MIN_VALUE;
-	let posts = JSON.parse(e.target.responseText)
 	conteudo_comunidade = posts
 
 	let conteudo = ""
@@ -169,65 +179,52 @@ conteudoComunidadeGeneral = (e) => {
 	sessionStorage.setItem("last_post", JSON.stringify(lastpost_id))
 }
 
-// conteudoComunidade = (e) => {
-// 	let conteudo = "";
-// 	let posts = JSON.parse(e.target.responseText)
-// 	for(let i=0 ; i < posts.length ; i++) {
-// 		conteudo += `
-// 		<div class="card card-post">
-// 			<div id="post${i}" class="modal card">
-// 				<div class="modal-content">
-// 					<h4 class="black-text">${posts[i].usuario_email} postou</h4>
-//                     <div>
-//     					<p class="black-text">${posts[i].texto}</p>
-//                         <span class="rating-area">
-//                             <span class="card-title grey-text">Avalie esse post</span>
-//                             <form id="avalicao${posts[i].id}" onsubmit="avaliar()">
-//                                 <p class="range-field">
-//                                     <input type="range" name="nota" id="nota${posts[i].id}" value="1" min="1" max="5" oninput="this.nextElementSibling.value = 'Nota: ' + this.value + '/5'"/>
-//                                     <output for="nota${posts[i].id}" class="grey-text">Nota: 1/5</output>
-//                                 </p>
-//                             </form>
-//                             <div class="center-align">
-//                                 <button class="btn waves-effect waves-light" id="avaliar${posts[i].id}" type="submit" name="action">Avaliar
-//                                     <i class="material-icons right">send</i>
-//                                 </button>
-//                             </div>
-//                         </span>
-//                     </div>
-//                 </div>
-// 				<div class="modal-footer">
-// 					<a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
-// 				</div>
-// 			</div>
-// 			<div class="card-content modal-trigger post-preview" data-target="post${i}">
-// 				<span class="card-title grey-text text-lighten-2">${posts[i].usuario_email}</span>
-// 				<p>${posts[i].texto}</p>
-// 			</div>
-// 		</div>`;
-// 	}
-// 	document.getElementById("comunidade").innerHTML = conteudo;
-// }
-
 loadFAQ = () => {
-	let xhr = new XMLHttpRequest();
-	xhr.open("GET", "/faq");
-	xhr.onload = conteudoFAQ;
-	xhr.send();
+	fetch("/faq", {
+		method: "GET",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		redirect: "manual"
+	})  .then(res => res.json())
+	    .then(data => {
+			loadComunidade()
+			sessionStorage.setItem("faq", JSON.stringify(data))
+			conteudoFAQ(data)
+	  })
 }
 loadFAQSearch = (e) => {
-	let entrada = e.target.value;
-	if(entrada.length > 0 || entrada != " ") {
-		let xhr = new XMLHttpRequest();
-		xhr.open("GET", entrada.length == 0 ? "/faq" : `/faq/${entrada}`);
-		xhr.onload = conteudoFAQ;
-		xhr.send();
-	} else loadFAQ();
-}
-conteudoFAQ = (e) => {
+	let entrada = e.target.value
+	const faq = JSON.parse(sessionStorage.getItem("faq"))
+
 	let conteudo = ""
-	let faq = JSON.parse(e.target.responseText)
-	console.log(faq.length)
+	if(entrada.length > 0) {
+		for(let i of faq) {
+			if(i.pergunta.toLowerCase().includes(entrada.toLowerCase())) {
+				conteudo += `
+				<div class="card card-faq-post">
+					<div class="card-content">
+					<span class="card-title grey-text text-lighten-2">${i.pergunta}</span>
+					<p>${i.resposta}</p>
+					</div>
+				</div>`;
+			}
+		}
+	} else {
+		for(let i of faq) {
+			conteudo += `
+			<div class="card card-faq-post">
+				<div class="card-content">
+				<span class="card-title grey-text text-lighten-2">${i.pergunta}</span>
+				<p>${i.resposta}</p>
+				</div>
+			</div>`;
+		}
+	}
+	document.getElementById("faqcontent").innerHTML = conteudo
+}
+conteudoFAQ = (faq) => {
+	let conteudo = ""
 	for(let i=0 ; i < faq.length ; i++) {
 		conteudo += `
 		<div class="card card-faq-post">
@@ -247,8 +244,5 @@ document.addEventListener('DOMContentLoaded', function() {
     modalpost = M.Modal.getInstance(document.getElementById("postmodal"))
     modalcriarpost = M.Modal.getInstance(document.getElementById("addpost"))
 
-    loadComunidade()
 	loadFAQ()
 });
-
-// conteudoComunidadeGeneral()
