@@ -97,6 +97,8 @@ Portanto, o sistema do infoadotar conta com serviços inteligentes de chatbot de
 
 <p align="center"><img src="imagens/Fluxo_de_Diálogo .png" /></p>
 
+<p align="center"><img src="imagens/DiagramaDoFluxo.png" /></p>
+
 ##### Informações sobre o fluxo:
 
 <p align="center"><img src="imagens/FluxoEstruturaSI.png" /></p>
