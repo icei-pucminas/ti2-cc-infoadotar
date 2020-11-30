@@ -168,10 +168,9 @@ O usuário terá a possibilidade de pesquisar por uma dúvida em específico.
 
 **5. Avaliação**
 
-Faça aqui sobre a avaliação do software. Indique se ele atendeu as expectativas e ele é viável. 
-Para não ficar subjetivo, o ideal é fazer um questionário e pedir ao usuário do processo que faça a avaliação.
+Para concluirmos a avaliação do produto desenvolvido, disponibilizamos um questionário para algumas pessoas, a fim de constatar o funcionamento do software e sua utilidade. De acordo com as respostas recebidas no formulário tivemos boas avaliações em relação as funcionalidades não apresentando complexidades para utilizar o sistema, corroborando com o objetivo que é de contribuir com os pretendentes à adoção com informações úteis para o processo e possibilitar a interação dos usuários. Sendo assim, o sistema do InfoAdotar entrega ao usuário aquilo que foi objetivado, e por conseguinte atende às expectativas da equipe de desenvolvimento.
 
-Para concluirmos a avaliação do produto desenvolvido, disponibilizamos um questionário para algumas pessoas, a fim de constatar o funcionamento do software e sua utilidade. De acordo com as respostas recebidas no formulário, pode certificar-se que dentre as pessoas que preencheram o questionário, grande parte afirmou que o sistema é funcional, não apresenta complexidade para utilizá-lo e faz juz ao seu objetivo, que é de contribuir com os pretendentes à adoção com informações úteis para o processo e possibilitar a interação dos usuários. Sendo assim, o sistema do InfoAdotar entrega ao usuário aquilo que foi objetivado, e por conseguinte atende às expectativas da equipe de desenvolvimento.
+<p align="center"><img src="imagens/Avaliacoes.png" /></p>
 
 **6. Conclusão**
 
