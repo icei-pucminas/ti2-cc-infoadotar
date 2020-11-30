@@ -1,3 +1,4 @@
 # Divulgação: Vídeo do Projeto
 
-[Video de apresentação - infoAdotar](InfoAdotar.mp4)
+[https://imgflip.com/gif/4ob21j](InfoAdotar.mp4)
+
