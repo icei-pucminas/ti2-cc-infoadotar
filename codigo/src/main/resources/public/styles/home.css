@@ -1,0 +1,211 @@
+canvas {
+    max-width: 30rem;
+    max-height: 30rem;
+}
+
+#postsmaisavaliados { padding-left: 2em; }
+
+#postsmaisavaliados > li{
+    display: list-item;
+    list-style-type: disc;
+}
+
+#postsmaisavaliados span {
+    color: #f7f7f7;
+    cursor: pointer;
+    font-size: large;
+    font-weight: 500;
+}
+
+.card-faq {
+    padding: 1em;
+}
+.topo-faq {
+    margin-bottom: 3em;
+    text-align: center;
+    height: fit-content;
+    /* margin: auto !important; */
+}
+
+#comunidade, #faqcontent {
+    overflow: auto;
+    max-height: 67vh;
+}
+
+#comunidade::-webkit-scrollbar, #faqcontent::-webkit-scrollbar, #postmodal::-webkit-scrollbar {
+    width: 1px;
+}
+
+textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #E64398 !important;
+    -webkit-box-shadow: 0 1px 0 0 #E64398 !important;
+    box-shadow: 0 1px 0 0 #E64398 !important;
+}
+textarea.materialize-textarea:focus:not([readonly]) + label {
+    color: #E64398 !important;
+}
+.input-field .prefix.active {
+    color: #E64398 !important;
+}
+
+.realizar-post-modal h4 {
+    font-weight: 400 !important;
+    font-size: 2.28rem !important;
+}
+
+#post-form button {
+    background-color: #E64398 !important;
+}
+#post-form button > i {
+    color: white !important;
+}
+
+.card-post {
+    margin-top: 2rem !important;
+    background-color: #707070 !important;
+    cursor: pointer;
+}
+.card-faq-post {
+    margin-top: 2rem !important;
+    background-color: #707070 !important;
+}
+
+.modal-footer { background: none !important; }
+
+.newpost-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 !important;
+}
+
+#togglenewpost {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    float: right;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    margin: auto !important;
+
+    border-radius: 2em;
+	background: none;
+	border-radius: 3rem;
+	outline: none;
+    border: 2px solid #E64398;
+    color: #E64398;
+
+	box-shadow: none;
+	max-width: 14em;
+}
+
+#togglenewpost:hover {
+	background: #E64398;
+	border-radius: 3rem;
+	outline: none;
+    border: 2px solid white;
+    color: white;
+	box-shadow: none;
+	max-width: 14em;
+}
+
+#postmodal > .modal-content > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+#postmodal > .modal-content > div > p {
+    padding: 1em;
+}
+
+#campo-respostas { flex-wrap: wrap; }
+
+.rating-area {
+    padding: 1em;
+    min-width: 15em;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-start;
+    border-left: #d0d0d0 solid 1px;
+}
+
+.avaliacao {
+    display: flex;
+    justify-content: space-evenly;
+    vertical-align: middle;
+    align-items: center;
+}
+.avaliacao > div {
+    border: 2px solid green;
+    padding: 0.2em;
+    border-radius: 30%;
+}
+
+input[type=range] + .thumb .value {
+    color: #E64398 !important;
+}
+input[type=range]::-webkit-slider-thumb {
+    background-color: #E64398 !important;
+}
+
+.type-btn  {
+    border-radius: 2em !important;
+    margin: 15px;
+	background: #E64398 !important;
+}
+.type-btn :hover {
+    border: solid #E64398 2px;
+    background: white !important;
+    color: #707070;
+    font-weight: 400;
+}
+.type-btn :active {
+    border: solid #E64398 1px;
+}
+
+#resposta-form {
+    display: flex;
+    flex-direction: column;
+}
+#resposta-form .type-btn {
+    align-self: center;
+    max-width: 12em;
+}
+
+.hiddendiv {
+    max-width: 100%;
+}
+
+@media (max-width: 800px) {
+    .conteudo-postagem {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center !important;
+    }
+    .rating-area { border-left: none; }
+    canvas {
+        max-width: 25rem;
+        max-height: 25rem;
+    }
+    .row .col.s12 {
+        width: 100% !important;
+        margin-left: auto !important;
+        left: auto !important;
+        right: auto !important;
+    }
+}
+@media (min-width: 801px) {
+    .main-area > .row > div, .main-area > .row > div:first-child {
+        padding: 1.3em;
+    }
+    .row .col.m8 {
+        width: 66.6666666667% !important;
+        margin-left: auto !important;
+        left: auto !important;
+        right: auto !important;
+    }
+    body,html{
+        height: 100%;
+    }
+}

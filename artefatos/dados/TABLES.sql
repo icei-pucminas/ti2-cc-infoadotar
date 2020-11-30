@@ -1,0 +1,57 @@
+CREATE TABLE IF NOT EXISTS public."USUARIO"
+(
+	"email" CHAR(50) UNIQUE NOT NULL,
+	"nome" VARCHAR(100) NOT NULL,
+	"hash" VARCHAR(250) UNIQUE NOT NULL,
+	"token" VARCHAR(250) UNIQUE,
+	"token_validade" TIMESTAMP,
+	 PRIMARY KEY ("email")
+);
+
+
+CREATE TABLE IF NOT EXISTS public."POST" 
+(
+  "id" SERIAL UNIQUE NOT NULL,
+  "usuario_email" CHAR(50) NOT NULL,
+  "answer_to" INT NULL,
+  "texto" VARCHAR(500) NOT NULL,
+  PRIMARY KEY ("id", "usuario_email"),
+  CONSTRAINT "FK_POST_USUARIO"
+    FOREIGN KEY ("usuario_email")
+    REFERENCES public."USUARIO" ("email")
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT "FK_POST_POST"
+    FOREIGN KEY ("answer_to")
+    REFERENCES public."POST" ("id")
+    ON DELETE SET NULL
+    ON UPDATE NO ACTION
+);
+
+
+CREATE TABLE IF NOT EXISTS public."FAQ" 
+(
+  "id" SERIAL UNIQUE NOT NULL,
+  "pergunta" VARCHAR(200) NOT NULL,
+  "resposta" VARCHAR(400) NOT NULL,
+  PRIMARY KEY ("id")
+);
+
+
+CREATE TABLE IF NOT EXISTS public."POST_AVALIACAO" 
+(
+  "usuario_email" CHAR(50) NOT NULL,
+  "post_id" INT NOT NULL,
+  "nota" INT NOT NULL,
+  PRIMARY KEY ("usuario_email", "post_id"),
+  CONSTRAINT "FK_POST_AVALIACAO_USUARIO"
+    FOREIGN KEY ("usuario_email")
+    REFERENCES public."USUARIO" ("email")
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT "FK_POST_AVALIACAO_POST"
+    FOREIGN KEY ("post_id")
+    REFERENCES public."POST" ("id")
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION
+);

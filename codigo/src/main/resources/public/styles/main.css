@@ -1,0 +1,87 @@
+* {
+    font-family: Quicksand;
+}
+
+body {
+    background: url("../assets/img/landing.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+}
+
+main {
+    color: white;
+}
+
+.topo {
+
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.topo > h1 {
+    justify-content: center;
+    align-content: center;
+    font-weight: 800;
+    font-size: 5em;
+}
+
+.inferior {
+    justify-content: center;
+    align-items: center;
+}
+
+.inferior > h3 {
+    font-weight: 800;
+}
+
+a.waves-effect {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+	background: none;
+	border-radius: 3rem;
+	outline: none;
+	border: 4px solid white;
+	box-shadow: none;
+	max-width: 8em;
+    font-weight: 800;
+    font-size: 2em;
+    transition: all 0.7s;
+}
+a.waves-effect:hover {
+    background-color: #FFFFFF;
+    border: #E64398;
+    color: #E64398;
+}
+
+.rosa { color: #E64398; }
+
+
+#start{
+    position: absolute; 
+    bottom: 0px;
+}
+
+#c2{
+    position: relative; 
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 5%;
+}
+
+@media (max-width: 599px) {
+   #c1{
+       text-align: center;
+   }
+   #c2{
+    justify-content: center;
+    padding-right: 0px;
+   }
+   #start{
+       position: relative;
+   }
+}
