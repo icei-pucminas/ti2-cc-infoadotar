@@ -150,19 +150,17 @@ Permite ao usuário criar uma conta no infoAdotar ou entrar com sua conta existe
 ## Tela home
 
 Painel principal do infoAdotar, onde o usuário controla os recursos do sistema. Estes são:
-1. Card que contém um resumo das atividades do usuário no sistema
-2. Card contendo as postagens da comunidade
-3. Card que dá acesso ao FAQ
-4. Botão de acesso ao chatbot
+1. Card que contém a as postagens da comunidade, e permite ao usuário criar um post
+2. Card que contém as perguntas e respostas da FAQ, e permite ao usuário pesquisar uma dúvida específica
+3. Botão de acesso ao chatbot
 
 <p align="center"><img src="imagens/home.png" /></p>
 
-## FAQ
+## Chatbot
 
-Este componente dará acesso a um conjunto de perguntas frequentemente realizadas ao usuário.
-O usuário terá a possibilidade de pesquisar por uma dúvida em específico.
+Ao clicar o botão rosa no canto inferior direito, o chatbot do infoAdotar, intitulado Maria, irá abrir e o usuário pode enviar uma mensagem a ele para iniciar uma conversa.
 
-<p align="center"><img src="imagens/faq.png" /></p>
+<p align="center"><img src="imagens/chatbot.png" /></p>
 
 
 **5. Avaliação**
@@ -188,8 +186,6 @@ Com relação a parte técnica do projeto, atingimos um ótimo resultado no cód
 
 **[1.2]** - _COPPIN, Ben. **Inteligência artificial**. Rio de Janeiro, RJ: LTC, c2010. E-book. ISBN 978-85-216-2936-8._
 
-**[1.3]** - _CORMEN, Thomas H. et al. **Algoritmos: teoria e prática**. Rio de Janeiro, RJ: Elsevier, Campus, c2012. xvi, 926 p. ISBN 9788535236996._
+**[1.3]** - _SUTHERLAND, Jeffrey Victor. **Scrum: a arte de fazer o dobro do trabalho na metade do tempo**. 2. ed. rev. São Paulo, SP: Leya, 2016. 236, [4] p. ISBN 9788544104514._
 
-**[1.4]** - _SUTHERLAND, Jeffrey Victor. **Scrum: a arte de fazer o dobro do trabalho na metade do tempo**. 2. ed. rev. São Paulo, SP: Leya, 2016. 236, [4] p. ISBN 9788544104514._
-
-**[1.5]** - _RUSSELL, Stuart J.; NORVIG, Peter. **Inteligência artificial**. Rio de Janeiro: Elsevier, c2013. xxi, 988 p. ISBN 9788535237016._
+**[1.4]** - _RUSSELL, Stuart J.; NORVIG, Peter. **Inteligência artificial**. Rio de Janeiro: Elsevier, c2013. xxi, 988 p. ISBN 9788535237016._
