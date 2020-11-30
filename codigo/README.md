@@ -2,4 +2,4 @@
 
 [Backend](src/main/java/)
 
-[Fronted](src/main/resources/public/)
+[Frontend](src/main/resources/public/)
