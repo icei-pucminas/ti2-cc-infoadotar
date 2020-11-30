@@ -24,14 +24,6 @@ Com o avançar dos anos, a adoção ganhou destaque no cenário nacional. Em 199
 
 **1. Introdução**
 
-Na **contextualização**, o aluno deve dizer do que se trata o trabalho, em que área ou contexto se insere. 
-A **contextualização** deve ser desenvolvida de algo mais genérico para algo mais específico. 
-A citação de pesquisas quantitativas é bem aceita aqui (corretamente referenciadas).
-
-Em seguida o aluno deve caminhar a contextualização para descrever o **problema** que o artigo trata. 
-O **problema** pode ser algo vivido em uma empresa específica. 
-
-
     1.1 Contextualização
     1.2 Problema
 O processo de regularizar os documentos, entrar no CNA (Cadastro Nacional de Adoção) e formalizar a adoção é árduo e demanda um tempo excessivo. Ou seja, com a burocracia e a ineficácia da implementação do sistema brasileiro de adoção, o processo adotivo faz com que os futuros pais e mães adotivos sejam forçados a esperar mais tempo do que deveria para conseguir adotar uma criança, além de sofrerem com a falta de informação e orientação fornecidas a esses pretendentes.
